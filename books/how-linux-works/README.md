@@ -111,10 +111,153 @@ mode*.
 
 Groups are sets of users.
 
+## Basic Commands and Directory Heirarchy
+
+### The Bourne Shell `/bin/sh`
+
+A shell is a program that runs commands. The Bourne Shell, was
+developed at Bell Labs. Linux uses the *Bourne-Again shell*,
+commonly known as `bash`.
+
+Use `chsh` to change the default shell on a Linux system.
+
+### Using the Shell
+
+`echo` does not need quotes.
+
+`cat` performs concatenations on a list of files or input streams.
+
+#### Standard Input and Standard Output
+
+Unix processes use I/O streams to read and write data. Streams are
+very flexible: their source can be a file, a device, a terminal,
+or even the output stream from another process.
+
+Using `cat` without an argument puts you into `STDIN` mode, where
+`cat` will echo back everything you type into it. When you type,
+you are sending inputs to `STDIN`. `cat` reads this and redirects
+it to `STDOUT`. (Use CTRL-D to exit).
+
+`CTRL-D` stops `STDIN` input on a terminal, and depending on the
+program, terminates it. `CTRL-C` terminates a program, irrespective
+of the input or output.
+
+Each process gets an `STDOUT` stream to write to. `cat` writes to
+`STDOUT`.
+
+`STDERR` is covered later.
+
+Both these can be *redirected*.
+
+### Basic Commands
+
+Covers standard commands you should already know: 
+`ls, cp, mv, touch, rm & echo`.
+
+### Navigating Directories
+
+Unix directory hierarchy begins at `/`, called the root dir.
+`.` refers to the current diredctory. Paths can be *absolute*
+(`/usr/lib`) or *relative* (`code/file1.txt` or `./code/file1.txt`).
+
+Covers `cd, mkdir` and `rmdir`.
+
+The shell natively supports *simple* patterns, or *globs*.
+Globs are *expanded before* running the commands.
+
+`*` (match anything, any length), and `?` (match anything, 1 character)
+  are the most noteworthy in the beginning.
+
+### Intermediate Commands
+
+Use `grep` to find a string within a directory. Note: *ripgrep* (`rg`)
+and *the_silver_searcher* (`ag`) are *much, much faster.*
+
+`grep <find what> <find where>`
+
+Note: If you use shell expansions (globbing) in the `<find what>`
+section, these are *expanded first*, and might not be what you want.
+
+`less` provides a scrolling view on `stdout`. `less` is `more`, enhanced.
+
+`less` supports the `/` search mechanism that `vim` uses.
+
+`pwd` prints the current working directory. Use `pwd -P` to resolve
+symbolic links as well.
+
+`diff` is used to spot the differences between 2 files.
+`diff -u` provides a way for other programs to analyse the output.
+
+`file` can be used to guess the *file type* of a given file.
+
+`find <directory> -name <filename> -print` can be used to find a
+certain file in a directory tree. Remember, if you must use `*`,
+enclose it in `''` quotes. `find <directory> -iname <filename>`
+will turn off case-sensitivity.
+
+`locate` uses a cached file index for a file, and is faster
+for this reason. However, if the file is newer than the index,
+`locate` won't find it.
+
+`head` and `tail` return the top and bottom `n` lines of a stream
+respectively. `head -<n>` will show `<n>` number of lines.
+`tail +<n>` will print everything from line number `<n>`.
+
+### Changing Your Password and Shell
+
+`passwd` can change the password, and `chsh` can change the default
+shell.
+
+### Dot Files
+
+Files beginning with a `.` are *configuration* files.
+Linux programs use text based files for configuration.
+
+### Environment and Shell Variables
+
+`STUFF=blah` is how you assign a value to a variable in the shell.
+*Note the absence of spaces around the `=`*. A shell variable is
+local to the current process. However, an environment variable is
+passed to processes spawned by this process as well.
+
+Note that *all* environment variables are passed to child processes.
+
+
+#### Child Processes and Inherited Environments
+
+This creates interesting problems, such as needing to start a Python2
+process from a Python3 environment. If you activate a virtualenv
+and use `subprocess.check_output` to run `python`, the default Python
+will be the same as the parent process (Python 3 here). If you
+have a weird use case where you would want to do this, ensure you *don't*
+source the *virtualenv*, instead, run the parent python script
+using the *absolute path* to the virtual environment's python
+executable (found in `<envdir>/bin/python`). Again, note that
+this is not the Python executable that was used to make the virtualenv.
+
+
+### The Command Path
+
+`PATH` is a very important Environment variable. It contains a `:`
+separated list of directories where the current shell will search
+for commands.
+
+This is an interesting scenario. Carefully, try `export PATH=`,
+to clear the value of `PATH`. Now try running commands you've learnt
+so far. If they execute, these are native unix commands. If they do not,
+these are binaries that were possibly available in some of the library
+folders such as `/usr/bin`, `/usr/local/bin` or `/bin`.
+
+When appending to the path, use `export PATH=$PATH:<dir>`.
+
 
 ## Later Reading
 1. Operating System Concepts by Abraham Silberschatz et. al.
 2. Modern Operating Systems by Andrew S. Tanenbaum et al.
-
-
+3. The Linux Command Line, No Starch Press
+4. UNIX for the Impatient, Addison-Wesley Professional
+6. Learning the UNIX Operating System, O'Reilly
+7. Mastering Regular Expressions, O'Reilly
+8. Programming Perl, O'Reilly
+9. Introduction to Automata Theory, Languages, and Computation, O'Reilly.
 
