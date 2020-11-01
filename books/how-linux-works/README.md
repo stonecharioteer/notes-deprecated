@@ -250,6 +250,93 @@ folders such as `/usr/bin`, `/usr/local/bin` or `/bin`.
 
 When appending to the path, use `export PATH=$PATH:<dir>`.
 
+### Command-Line Editing
+
+The default is `emacs` mode. Sacrilege. Turn on `vi mode`.
+
+### Text Editors
+
+"[vi] plays a bit like a video game." LOL.
+
+### Getting Online Help
+
+`man -k <keyword>` can be used when you want to search for a manual
+page by a keyword.
+
+`man <section> command` can go to a section of a command.
+
+#### `man` sections
+
+1. User commands
+2. System calls
+3. Higher-level Unix programming library documentation
+4. Device interface and driver information
+5. File descriptions (system configuration files)
+6. Games
+7. File formats, conventions, and encodings (ASCII, suffixes, and so on)
+8. System commands and servers
+
+`info` is a more detailed format for online manuals, adopted by the GNU Project.
+
+Documentation can be sometimes found in `/usr/share/doc`. However, `man`
+and `info` do not read these.
+
+### Shell Input and Output
+
+`command > file` can send the output of a file to a file, *clobbering* (erasing) the
+contents of the original file. `set -C` can prevent clobbering in bash.
+
+`command >> file` can append the output to the file.
+
+`command1 | command2` streams the `stdout` of `command1` to 
+the `stdin` of `command2`.
+
+#### Standard Error
+
+`STDERR` is an error stream. To redirect this, you need to use *stream II*
+by using `command 2> file`. To send `STDERR` to `STDOUT`, send
+it to the address of `stream 1`.
+
+`command 2>&1` merges both streams.
+
+`command > file 2>&1` will send both streams to a file.
+
+#### Standard Input Redirection
+
+`command < input` will send `input` to the `command` through `STDIN`.
+
+### Understanding Error Messages
+
+#### Anatomy of a UNIX Error Message
+
+Protip: Address errors on a first-come, first-serve basis.
+
+Errors will have the following components:
+
+1. The program name
+2. The file name
+3. The error
+
+Example:
+
+```
+$ ls /asdkl
+
+ls: cannot access /asdkl: No such file or directory
+```
+
+#### Common Errors
+
+1. No such file or directory
+2. File exists
+3. Not a directory, Is a directory
+4. No space left on device
+5. Permission denied
+6. Operation not permitted
+7. Segmentation fault
+
+### Listing and Manipulating Proesses
+
 
 ## Later Reading
 1. Operating System Concepts by Abraham Silberschatz et. al.
@@ -260,4 +347,5 @@ When appending to the path, use `export PATH=$PATH:<dir>`.
 7. Mastering Regular Expressions, O'Reilly
 8. Programming Perl, O'Reilly
 9. Introduction to Automata Theory, Languages, and Computation, O'Reilly.
-
+10. Learning the vi and Vim Editors: Unix Text Processing, O'Reilly
+11. GNU Emacs Manual
