@@ -400,7 +400,44 @@ For example:
 The mode, the first string, represents the file's permissions and some
 extra information.
 
-![Fig 2.1](images/fig-2.1.jpg)
+![File mode](images/fig-2.1.jpg)
+
+The file **type** indicates what this is. `-` indicates a *regular* file.
+`d` indicates a directory. There are other types which will come up
+later.
+
+The rest of it can be summed up as groups of 3: `[rwx]`, using `-` where
+inapplicable. The permission bits indicate what rights the user(s)
+in question has. The first set is the owner, the second is the group
+members, the third group is everyone else.
+
+
+#### Modifying Permissions
+
+`chmod a+r <file>` will give everyone *read* permissions on the file.
+
+`chmod o+r <file>` will give other users (not owner and not group members)
+*read* permissions on the file.
+
+`chmod +rwx <file>` will give the user *all* permissions on the file.
+
+`chmod g+rx <file>` will give the group members *read and execute* permissions on the file.
+
+`chmod g-x <file>` will *remove* *execute* access from group members.
+
+`chmod o-r <file>` will *remove* *read* access from other users.
+
+Although you *can* use numbers to set the direct permissions, this is
+much easier to read.
+
+![Table on absolute modes](images/table-2.4.jpg)
+
+#### Symbolic Links
+
+
+
+
+
 
 ## Later Reading
 1. Operating System Concepts by Abraham Silberschatz et. al.
