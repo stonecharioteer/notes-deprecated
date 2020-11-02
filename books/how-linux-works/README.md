@@ -335,8 +335,72 @@ ls: cannot access /asdkl: No such file or directory
 6. Operation not permitted
 7. Segmentation fault
 
-### Listing and Manipulating Proesses
+### Listing and Manipulating Processes
 
+A process is a running program.
+
+#### `ps`
+
+`ps` is used to list processes.
+
+`ps x`: show all of your running processes.
+
+`ps ax`: show all processes on the system.
+
+`ps u`: include more detailed information.
+
+`ps w`: show full command names.
+
+#### Killing Processes
+
+A processes can be *killed* using a *signal* from the Kernel.
+Use the `kill` command to send signals. A signal is a message
+that the kernel sends to a process.
+
+`kill <pid>` send the `TERM` signal to a process. This signal
+tells the process that it needs to quit, and gives it time for
+any cleanup, if needed.
+
+`kill -STOP <pid>` *freezes* a process. This way, the process can be
+resumed.
+
+`kill -CONT <pid>` continues/resumes a frozen process.
+
+`kill -KILL <pid>` is the most brutal way to kill a process. This
+will end the process without waiting for any cleanup.
+
+
+#### Job Control
+
+Shells also support Job Control, a way to send `TSTP` (similar to `STOP`)
+to a running process in the foreground using `^Z`, and `CONT` using
+the `fg` (bring to foreground) or `bg` (continue in background) commands.
+
+`screen` and `tmux` are good choices of programs to send noninteractive
+programs to the background.
+
+#### Background Processes
+
+Send any command directly to the background by suffixing the command
+with `&` before running it.
+
+Note that when sending a process to the background, it is always
+preferred to ensure that the `stdout` and `stdin` are remapped.
+
+
+### File Modes and Permissions
+
+Every Unix file has a set of permissions that determine whether a user
+can read, write, or run that file. Use `ls -l` to view this information.
+
+For example:
+
+`-rw-r--r-- 1 juser somegroup 7041 Mar 26 19:34 endnotes.html`
+
+The mode, the first string, represents the file's permissions and some
+extra information.
+
+![Fig 2.1](images/fig-2.1.jpg)
 
 ## Later Reading
 1. Operating System Concepts by Abraham Silberschatz et. al.
