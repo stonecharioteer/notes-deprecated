@@ -551,6 +551,59 @@ create them.
 
 ### Linux Directory Heirarchy Essentials
 
+![Linux directory heirarcy](images/fig-2.2.png)
+
+1. `/bin` Contains ready-to-run programs (also known as an executables),
+including most of the basic Unix commands such as ls and cp . Most of
+the programs in /bin are in binary format, having been created by a C
+compiler, but some are shell scripts in modern systems.
+2. `/dev` Contains device files. You’ll learn more about these in Chapter 3.
+3. `/etc` This core system configuration directory (pronounced EHT-see)
+contains the user password, boot, device, networking, and other setup
+files. Many items in `/etc` are specific to the machine’s hardware. For
+example, the `/etc/X11` directory contains graphics card and window sys-
+tem configurations.
+4. `/home` is where the heart is.
+5. `/lib` An abbreviation for library, this directory holds library files con-
+taining code that executables can use. There are two types of libraries:
+static and shared. The `/lib` directory should contain only shared librar-
+ies, but other lib directories, such as `/usr/lib`, contain both varieties as
+well as other auxiliary files.
+6. `/proc` Provides system statistics through a browsable directory-and-file
+interface. Much of the `/proc` subdirectory structure on Linux is unique,
+but many other Unix variants have similar features. The `/proc` directory
+contains information about currently running processes as well as some
+kernel parameters.
+7. `/sys` This directory is similar to /proc in that it provides a device and
+system interface.
+8. `/sbin` The place for system executables. Programs in /sbin directories
+relate to system management, so regular users usually do not have /sbin
+components in their command paths. Many of the utilities found here
+will not work if you’re not running them as root.
+9. `/tmp` Temporary storage that is wiped on boot and perhaps periodically.
+10.  `/usr` Although pronounced “user,” this subdirectory has no user files.
+Instead, it contains a large directory hierarchy, including the bulk of
+the Linux system. Many of the directory names in /usr are the same as
+those in the root directory (like /usr/bin and /usr/lib), and they hold the
+same type of files. (The reason that the root directory does not contain
+the complete system is primarily historic—in the past, it was to keep
+space requirements low for the root.)
+11. `/var` The variable subdirectory, where programs record runtime infor-
+mation. System logging, user tracking, caches, and other files that system
+programs create and manage are here. (You’ll notice a /var/tmp directory
+here, but the system doesn’t wipe it on boot.)
+
+#### Other Root Subdirectories
+
+1. `/boot` Contains kernel boot loader files. These files pertain only to
+the very first stage of the Linux startup procedure; you won’t find
+information about how Linux starts up its services in this directory.
+2. `/media` A base attachment point for removable media.
+3. `/opt` This may contain additional third-party software. Many systems
+don’t use `/opt`.
+
+#### `/usr`
+
 
 
 ## Later Reading
