@@ -16,7 +16,7 @@ However, I would like objectifiable goals:
 2. Be able to compile kernels from source and boot them.
 3. Be able to edit the grub bootloader config.
 4. Be able to debug a running process using syslogs.
- 
+
 The fact that I do not yet know what I would like to do is
 proof that I lack definitive knowledge of the system.
 
@@ -151,7 +151,7 @@ Both these can be *redirected*.
 
 ### Basic Commands
 
-Covers standard commands you should already know: 
+Covers standard commands you should already know:
 `ls, cp, mv, touch, rm & echo`.
 
 ### Navigating Directories
@@ -235,7 +235,6 @@ using the *absolute path* to the virtual environment's python
 executable (found in `<envdir>/bin/python`). Again, note that
 this is not the Python executable that was used to make the virtualenv.
 
-
 ### The Command Path
 
 `PATH` is a very important Environment variable. It contains a `:`
@@ -288,7 +287,7 @@ contents of the original file. `set -C` can prevent clobbering in bash.
 
 `command >> file` can append the output to the file.
 
-`command1 | command2` streams the `stdout` of `command1` to 
+`command1 | command2` streams the `stdout` of `command1` to
 the `stdin` of `command2`.
 
 #### Standard Error
@@ -319,7 +318,7 @@ Errors will have the following components:
 
 Example:
 
-```
+```bash
 $ ls /asdkl
 
 ls: cannot access /asdkl: No such file or directory
@@ -369,7 +368,6 @@ resumed.
 `kill -KILL <pid>` is the most brutal way to kill a process. This
 will end the process without waiting for any cleanup.
 
-
 #### Job Control
 
 Shells also support Job Control, a way to send `TSTP` (similar to `STOP`)
@@ -387,6 +385,13 @@ with `&` before running it.
 Note that when sending a process to the background, it is always
 preferred to ensure that the `stdout` and `stdin` are remapped.
 
+If spurious output from backgroun processes gets in your way, learn how to
+redraw the content of your terminal window. The `bash` shell and most
+full-screen interactive programs support `C-l' to redraw the entire
+screen. If the program is reading from `stdin`, `C-r` usually redraws the
+current line, but pressing the wong sequence at the wrong time can leave you in an
+even worse situation than before. For example, pressing `C-r` at the
+`bash` prompt puts you in reverse `isearch` mode
 
 ### File Modes and Permissions
 
@@ -411,6 +416,7 @@ inapplicable. The permission bits indicate what rights the user(s)
 in question has. The first set is the owner, the second is the group
 members, the third group is everyone else.
 
+Protip: Use `groups` to figure out what groups your userid belongs to.
 
 #### Modifying Permissions
 
@@ -432,14 +438,123 @@ much easier to read.
 
 ![Table on absolute modes](images/table-2.4.jpg)
 
+The numbers are *octal* representation of the permission bits.
+
 #### Symbolic Links
 
+A symbolic link is *like* a shortcut to another file, the difference from the Windows
+implementation being that it can be read directly and appears as an entry in the location.
+
+When inspecting the file using `ls -l`,  you might notice that the type of the file is `l`,
+indicating that it is a `link`.
+
+Note that the names and the paths to which Symbolic links point t o do not have to exist.
+
+Use:
+
+`ln -s target linkname`
+
+to create a Symbolic link.
+
+One way to remember this is
+
+`link <this> as <that>`.
+
+If you omit the `-s` flag indicating that it's *symbolic*, you create a *hard link*.
 
 
+### Archiving and Compressing Files
+
+#### `gzip`
+
+GNU Zip is a Unix compression program.
+
+`gzip file` will compress the file *and* deletes the original unless you use the `-k` flag.
+The output file will be `file.gz`.
+
+To extract the file, use `gunzip`.
+
+`gzip` only compresses *individual* files. It will not archive more than one.
+
+#### `tar`
+
+`tar` is used when one wants to compress a set of files instead.
+
+```bash
+tar cvf archive.tar file1 file2 ... filen
+```
+
+will create an `archive.tar` file that contains all the files.
+
+`c` indicates compression, `v` is verbosity for the diagnostic output, and `f` indicates that you'd like to specify the filename.
+
+To unpack, use `tar xvf archive.tar`
+
+`tar` doesn't purge the inputs or the extracted file after it does what it needs to.
+
+To verify the table of contents of a `tar` file, use `tar tvf`, where `t` indicates
+`table-of-contents`-mode.
+
+`p` keeps the permissions. It is included in defaults when operating as a `super` user.
+
+
+#### `.tar.gz`
+
+After a bunch of files is archived, it is common practice to *compress* them using `gzip`.
+
+So you'd probably do this:
+
+```bash
+tar cvf archive.tar file1 file2 file3
+gzip archive.tar
+```
+And this results in an `archive.tar.gz` file.
+
+
+To extract, just do the reverse.
+
+```bash
+gunzip archive.tar.gzz
+tar xvf archive.tar
+```
+
+This is so common that `zcat` exists.
+
+
+```bash
+zcat file.tar.gz | tar xvf -
+```
+
+`zcat` is the same as `gunzip -dc`, which decompresses and sends the output to `stdout`.
+
+However, this is made easier with the `z` flag to the `tar` command.
+
+```bash
+tar xvzf file.tar.gz
+```
+
+will decompress and extract the compressed archive.
+
+To make one, use
+
+#### Other Compression Utilities
+
+`bzip2` deals with `.bz2`, and compacts text files a little better. Use `bunzip2` to decompress. Use `j` to use `bzip2` with `tar`
+
+`xz` is new, and its corollary is `unxz`.
+
+`zip` and `unzip` also exist, for Windows compatibility. They will also extract self-extracting
+`exe` files.
+
+`.Z` is a relic made using `compress`. `gunzip` can extract them, but `gzip` will not
+create them.
+
+### Linux Directory Heirarchy Essentials
 
 
 
 ## Later Reading
+
 1. Operating System Concepts by Abraham Silberschatz et. al.
 2. Modern Operating Systems by Andrew S. Tanenbaum et al.
 3. The Linux Command Line, No Starch Press
@@ -450,3 +565,4 @@ much easier to read.
 9. Introduction to Automata Theory, Languages, and Computation, O'Reilly.
 10. Learning the vi and Vim Editors: Unix Text Processing, O'Reilly
 11. GNU Emacs Manual
+12. [Filesystem Heirarchy Standards or FHS](http://www.pathname.com/fhs/)
