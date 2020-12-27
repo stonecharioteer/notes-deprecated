@@ -604,7 +604,99 @@ don’t use `/opt`.
 
 #### `/usr`
 
+In addition to `/usr/bin`, `/usr/sbin` and `/usr/lib`, `/usr` contains:
 
+1. `/usr/include` holds header files used by the C compiler.
+2. `/usr/info` GNU info manuals
+3. `/usr/local` admins can install their own software here. Keeps a similar structure to `/` or `/usr` itself.
+4. `/usr/man` manual pages
+5. `/usr/share` contains files that should work on other kinds of Unix machines with no loss of functionality. In the past, ohter machines would share this directory, but these days, this is not doable. Other `/man`, `info` etc are often found here.
+
+#### Kernel Location
+
+The Kernel is in `/vimlinuz` or `/boot/vmlinuz`. A boot loader loads this file into memory and sets it in motion when the system boots.
+
+Once loaded into memory, the main kernel file is no longer used by the running system. However,
+the kernel can load and unload many modules on demand. These are *loadable kernel modules* and are stored in `/lib/modules`.
+
+
+### Running Commands as the Superuser
+
+#### `sudo`
+
+Sudo is a *package* distributed by most larger distros to allow admins to run commands as root when they're logged in as themselves.
+
+`vipw` is a command to edit the `/etc/passwd` file.
+
+When `sudo` is called, this action is logged with the syslog service under `local2`.
+
+
+#### `/etc/sudoers`
+
+This file controls who can run `sudo`.
+
+Use `visudo` to edit this file.
+
+
+## Devices
+
+### Device Files
+
+The kernel presents many of the device I/O interfaces as files. These are sometimes called *device nodes*. *Some* of these files are also accessible to standard programs like `cat`.
+
+Linux uses the same design for device files as do other Unix flavors. Devices go into `/dev`.
+
+`ls /dev` lists all the devices in the system.
+
+
+`/dev/null` is a device. The Kernel decides what to do with any inputs to a device.
+
+`echo blah blah > /dev/null` will not print anything because `/dev/null` is a device that the
+Kernel knows to ignore.
+
+To identify a device, use `ls -l` and notice the first character.
+
+```bash
+$ ls -l /dev/
+
+crw-r--r--  10,235 root            27 Dec 22:46 autofs
+drwxr-xr-x       - root            27 Dec 22:46 block
+crw-rw----  10,234 root            27 Dec 22:46 btrfs-control
+drwxr-xr-x       - root            27 Dec 22:46 bus
+drwxr-xr-x       - root            27 Dec 22:46 char
+crw--w----     5,1 root            27 Dec 22:46 console
+lrwxrwxrwx      11 root            27 Dec 22:46 core -> /proc/kcore
+drwxr-xr-x       - root            27 Dec 22:46 cpu
+crw-------   10,59 root            27 Dec 22:46 cpu_dma_latency
+crw-------  10,203 root            27 Dec 22:46 cuse
+...
+```
+
+This first character of the file's mode indicates what the file is. Devices use `b, c, p` or `s`. These stand for block, character, piple and socket.
+
+#### Block Device
+
+Programs access data from a block device in fixed chunks. Your hard drive is a block device. Processes have random access to any block in such devices with the help of the kernel since a block device's total size is fixed and easy to index.
+
+
+#### Character device
+
+These work with datastreams. You can only read characters from or write characters to these.
+`/dev/null` is such a device. These devices usually don't have a size. Printers attached to your computer are represented by character devices. The kernel cannot backup and reexamine the data stream after it has passed data to a device or process during character device interaction.
+
+
+#### Pipe device
+
+Named pipes are like character devices with another process at the end of the I/O stream instead of a kernel driver
+
+#### Socket Device
+
+Sockets are special purpose interfaces that are frequently used for interprocess communication. They are often found outside of `/dev`. They represent Unix domain sockets.
+
+Not all devices have device files because the block and character device I/O interfaces are not appropriate in all cases. Network interfaces, for example, don't have device files.
+
+
+### The `sysfs` device path
 
 ## Later Reading
 
