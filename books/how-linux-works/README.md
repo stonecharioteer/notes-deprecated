@@ -682,7 +682,10 @@ Programs access data from a block device in fixed chunks. Your hard drive is a b
 #### Character device
 
 These work with datastreams. You can only read characters from or write characters to these.
-`/dev/null` is such a device. These devices usually don't have a size. Printers attached to your computer are represented by character devices. The kernel cannot backup and reexamine the data stream after it has passed data to a device or process during character device interaction.
+`/dev/null` is such a device. These devices usually don't have a size.
+Printers are represented by character devices. In character devices,
+the kernel cannot go back up and reexamine the data stream after
+it has passed data to a device or process.
 
 
 #### Pipe device
@@ -695,8 +698,109 @@ Sockets are special purpose interfaces that are frequently used for interprocess
 
 Not all devices have device files because the block and character device I/O interfaces are not appropriate in all cases. Network interfaces, for example, don't have device files.
 
-
 ### The `sysfs` device path
+
+While convenient, the `/dev` directory is unreliable since the name of the device here
+doesn't offer a lot of information, and the name might vary between reboots. For this reason, `/sys/devices` is more reliable since it offers a longer, more consistently unique name between
+reboots.
+
+For example, the SATA hard disk at `/dev/sda` might have the following path in `sysfs`:
+`/sys/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda`
+
+You can list the contents of `sysfs` and understand more about a device than you can from `/dev`. While the contents of these files are meant to be read primarily by programs rather than humans, the files themselves lend themselves well to humans as well.
+
+`/sys/block` should contain all the block devices available on a system, but these are symbolic links. `udevadm` shows the path and other attributes.
+
+`udevadm info --query-all --name=/dev/sda`
+
+### `dd` and Devices
+
+`dd` is used when working with block and character devices. This program's sole function
+is to read from an input file or stream and write to an output file or stream, possibly doing
+some encoding conversion on the way.
+
+`dd` copies data in blocks of a fixed size.
+
+`dd if=/dev/zero of=new_file bs=1024 count=1`
+
+The CLI style here is a remnant from the IBM Job Control Language (JCL) and doesn't use the
+`-` and the `--` style of modern CLIs.
+
+### Device Name Summary
+
+To find the name of a device:
+
+1. Query `udevd` using `udevadm`
+2. Look in `/sys`
+3. Check `dmesg`, which prints the last kernel messages.
+4. For disk devices that are already visible check the output of the `mount` command.
+5. `cat /proc/devices` to see block and character devices for which the system *has* drivers. If you can guess the devices from the name, look in `/dev` for the character or block devices with the corresponding major number (the command outputs the major number and the device name).
+
+#### Hard Disks `/dev/sd*`
+
+`sd` stands for `SCSI Disk`. `SCSI` stands for *Small Computer System Interface*, and this was
+intially developed as a hardware and protocol standard for communication between devices such as disks and other peripherals. While traditional `SCSI` devices are no longer used, the
+protocol is everywhere due to its adaptability. USB Storage devices use it, and although their story is complex, SATA disks also require `SCSI` commands from the Linux Kernel at a certain point when used.
+
+`lsscsi` lists all `SCSI` devices provided by `sysfs`.
+
+```bash
+$ lsscsi
+[N:0:5:1]    disk    PM991 NVMe Samsung 512GB__1                /dev/nvme0n1
+[N:1:1:1]    disk    WDC WDS100T2B0C-00PXH0__1                  /dev/nvme1n1
+```
+
+While this works, it suffers from the same problem all `/dev` listings face, name reservation and recycling. So modern Linux systems now use UUIDs in `fstab` for more consistent mounting rules.
+
+#### CD and DVD Drives
+
+Optical storage drives are SCSI drives, and mapped to `/dev/sr*`. Older drives might use the
+PATA interface. `/dev/sr*` are only *readable* devices though. Those drives which have RW are mapped to `/dev/sg*`.
+
+#### PATA Hard Disks
+
+These are listed as `/dev/hd*. If a SATA drive is mounted here, it is running in compatibility mode.
+
+#### Terminals: `/dev/tty*, /dev/pts/*`, and `/dev/tty`
+
+Terminals are devices for moving characters between a user process and an I/O device. Pseudoterminal devices are emulated terminals, that understand the I/O features of real terminals. `/dev/tty1` is the first virtual console, and `/dev/pts/0` is the first pseudoterminal device. `/dev/pts` directory itself is a dedicated filesystems.
+
+Note that the a process doesn't need to be attached to a terminal.
+
+##### Display Modes and Virtual Consoles
+
+Linux has two display modes: text and an X Window System server. While booting, Linux is in textmode, but modern systems use kernel parameters and interim graphical display mechanisms (bootsplashes such as plymouth) to hide terx mode.
+
+If you want to see your text console after your system boots, press `CTRL-ALT-F1`. To return to the X11 session, press `ALT-F2, ALT-F3` etc until you reach the X-session you left.
+
+`chvt` can be used to force the system to switch between consoles.
+
+`chvt 1` switches you to `/dev/tty1`.
+
+#### Serial Ports `/dev/ttyS*`
+
+This maps RS-232 and other serial ports which identify as terminal devices.
+
+#### Parallel Ports: `/dev/lp0` and `/dev/lp1`
+
+This is a largely deprecated interface that is replaced by USB. You can send files directly
+to a prallel port with the `cat` command. This used to be used to interface with printers. This is now replaced by a print server such as `CUPS`.
+
+#### Audio Devices: `/dev/snd/*, /dev/dsp, /dev/audio`, and more
+
+`ALSA` is Advanced Linux Sound Architecture, and OSS is the Open Sound System. ALSA devices are in `/dev/snd`.
+
+#### Creating Device Files
+
+`devtmpfs` and `udev` are used to make device files, but it is instructive to see how it was once done, and on a rare occasion, you mihgt need to create a named pipe.
+
+`mknod` creats one device. You must know the device name as well as its major and minor numbers. To create `/dev/sda1`:
+
+`mknod /dev/sda1 b 8 2`
+
+`b 8 2` indicates a block device with major number 9 and minor number 2. For character or named pipes use `c` or `p` instead of `b`. Named pipes don't need the numbers.
+
+There used to be a `MAKEDEV` program in `/dev` to create groups of devices since maintaining the `/dev` directory was a challenge. The first attempt to fix it was `devfs`, a kernel-space implementation of `/dev/` that contained all of the devices that the current kernel supported. However, there were a number of limitations, which led to `udev` and `devtmpfs`.
 
 ## Later Reading
 
