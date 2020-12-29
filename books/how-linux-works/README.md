@@ -802,6 +802,48 @@ to a prallel port with the `cat` command. This used to be used to interface with
 
 There used to be a `MAKEDEV` program in `/dev` to create groups of devices since maintaining the `/dev` directory was a challenge. The first attempt to fix it was `devfs`, a kernel-space implementation of `/dev/` that contained all of the devices that the current kernel supported. However, there were a number of limitations, which led to `udev` and `devtmpfs`.
 
+### `udev`
+
+`udevd` is a user-space process upon detecting a new device on the system. The user-space process on the other end examines the new device's characteristics, creates a device file, and then performs any device initialization.
+
+#### `devtmpfs`
+
+`devtmpfs` filesystem was develooped in response to the problem of device availability during boot. The kernel creates the device files as necessary, but it also notifies `udevd` that a new device is available. Upon receiving this signal, `udevd` does not create the device files, but it does perform device initialization and proces notification. It also creates a number of symbolic links in `/dev` to further identify devices. See `/dev/disk/by-id`, where each attached disk has one or more entries:
+
+```bash
+ls /dev/disk/by-id
+
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001 -> ../../nvme0n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part1 -> ../../nvme0n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part2 -> ../../nvme0n1p2
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part3 -> ../../nvme0n1p3
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part4 -> ../../nvme0n1p4
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part5 -> ../../nvme0n1p5
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part6 -> ../../nvme0n1p6
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part7 -> ../../nvme0n1p7
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-eui.e8238fa6bf530001001b444a44304a0b -> ../../nvme1n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.e8238fa6bf530001001b444a44304a0b-part1 -> ../../nvme1n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.e8238fa6bf530001001b444a44304a0b-part2 -> ../../nvme1n1p2
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402 -> ../../nvme0n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part1 -> ../../nvme0n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part2 -> ../../nvme0n1p2
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part3 -> ../../nvme0n1p3
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part4 -> ../../nvme0n1p4
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part5 -> ../../nvme0n1p5
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part6 -> ../../nvme0n1p6
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part7 -> ../../nvme0n1p7
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-WDC_WDS100T2B0C-00PXH0_20233D441401 -> ../../nvme1n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-WDC_WDS100T2B0C-00PXH0_20233D441401-part1 -> ../../nvme1n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-WDC_WDS100T2B0C-00PXH0_20233D441401-part2 -> ../../nvme1n1p2
+```
+
+#### `udevd` Operation and Configuration
+
+<!-- TODO: Read section 3.5.2 later -->
+
+## Disks and Filesystems
+
+
 ## Later Reading
 
 1. Operating System Concepts by Abraham Silberschatz et. al.
