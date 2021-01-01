@@ -383,3 +383,375 @@ fn print_number(n: Number) {
 ```
 
 `match` arms are also patterns, just like `if let`.
+
+```rust
+
+fn print_number(n: Number) {
+
+    match n {
+        Number {odd: true, value} => println!("Odd: {}", value),
+        Number {odd: false, value} => println!("Even: {}", value),
+    }
+}
+
+// this prints the same as before.
+```
+
+A `match` has to be exhaustive: at least one arm needs to match.
+
+```rust
+
+fn print_number(n: Number) {
+    match n {
+        Number(value: 1) => println!("One!"),
+        Number(value: 2) => println!("Two!),
+        Number(value, ..) => println!("{}", value),
+        // if that las tarm didn't exist, we would get a compile-time error
+    }
+}
+
+```
+
+If that's hard, `_` can be used as a "catch-all" pattern:
+
+```rust
+
+fn print_number(n: Number) {
+    match n {
+        Number {value: 1, ..} => println!("One"),
+        Number {value: 2, ..} => println!("Two"),
+        _ => println!("{}", n.value), // can't use `value` directly here.
+
+    }
+}
+```
+
+You can declare methods on your own types:
+
+```rust
+struct Number {
+    odd: bool,
+    value: i32,
+}
+impl Number {
+    fn is_strictly_positive(self) -> bool {
+        self.value > 0
+    }
+}
+```
+
+And use them like usual:
+
+```rust
+
+fn main() {
+    let minus_two = Number {
+        odd: false,
+        value: -2,
+    }
+    println!("Positive? {}", minus_two.is_strictly_positive());
+    // this prints "Positive? false"
+}
+```
+
+Variable bindings are immutable by default, which means their interior can't be mutated:
+
+```rust
+fn main() {
+    let n = Number {
+        odd: true,
+        value: 17,
+    };
+    n.odd = false; // error: cannot assign to `n.odd`
+                   // as `n` is not declared to be mutable
+}
+
+```
+
+And also that they cannot be assigned to:
+
+```rust
+fn main() {
+    let n = Number {
+        odd: true,
+        value: 17,
+    };
+    n = Number {
+        odd: false,
+        value: 2
+    }; // error: cannot assign twice to immutable variable `n`
+}
+
+```
+
+`mut` makes a variable binding mutable:
+
+```rust
+fn main() {
+    let mut n = Number {
+        odd: true,
+        value: 5,
+    }
+    n.value = 19; // all good
+}
+```
+
+Traits are something multiple types can have in common:
+
+```rust
+trait Signed {
+    fn is_strictly_negative(self) -> bool;
+}
+```
+
+You can implement:
+    * one of your traits on anyone's type
+    * anyone's trait on one of your types
+    * but not a foreign trait on a foreign type.
+
+These are called the "orphan rules".
+
+Here's an implementation of our trait on our type:
+
+```rust
+
+impl Signed for Number {
+    fn is_strictly_negative(self) -> bool {
+        self.value < 0
+    }
+}
+
+fn main() {
+    let n = Number {odd: true, value: 3};
+    prinln!("negative? {}", n.is_strictly_negative());
+}
+```
+
+Our traight on a foreign type (a primitive type, even):
+
+```rust
+
+impl Signed for i32 {
+    fn is_strictly_negative(self) -> bool {
+        self < 0
+    }
+}
+
+fn main() {
+    let n: i32 = -44;
+    println!("{}", n.is_strictly_negative());
+}
+```
+
+A foreign trait on our type:
+
+```rust
+
+// the `Neg` trait is used to overload the `-`, the
+// unary minus operator.
+
+impl std::ops::Neg for Number {
+    type Output = Number;
+
+    fn neg(self) -> Number {
+        Number {
+            value: -self.value,
+            ..self, // copy over the value of `self.odd`
+        }
+    }
+}
+
+fn main() {
+    let n = Number {value: 2, odd: false};
+    let m = -n;
+    println!("{}", m.value);
+}
+```
+
+An `impl` block is always for a type, so, inside that block, `Self` means that type.
+
+```rust
+
+impl std::ops::Neg for Number {
+    type Output = Self;
+
+    fn neg(self) -> Self {
+        Self {
+            value: -self.value,
+            ..self
+        }
+    }
+}
+```
+
+Some traits are *markers* - they don't say that a type implements some methods, they say that certain things can be done with a type.
+
+For example, i32 implements trait `Copy` (in short, `i32` *is* `Copy`), so this works:
+
+```rust
+
+fn main() {
+    let a: i32 = 15;
+    let b = a; // `a' is copied
+    let c = a; // `a` is copied again
+}
+```
+
+And this also works:
+
+```rust
+fn print_i32(x: i32) {
+    println!("x = {}", x);
+}
+
+fn main() {
+    let a: i32 = 15;
+    print_i32(a); // `a` is copied
+    print_i32(a); // `a` is copied again
+}
+```
+
+But the `Number` Struct is not `Copy`, so this doesn't work:
+
+```rust
+
+fn main() {
+    let n = Number { value= 3, odd: true };
+    let m = n; // `n` is *moved* to `m`
+    let o = n; // error: use of moved value: `n`
+}
+```
+
+And neither does this:
+
+```rust
+
+fn print_number(n: Number) {
+    println!("{} number {}", if n.odd {"Odd"} else {"Even"}, n.value); // in-line if statement.
+}
+
+fn main() {
+    let n = Number {value: 51, odd: true};
+    print_number(n); // `n` is *moved*
+    print_number(n); // error: use of moved value: `n`
+}
+
+```
+
+But it works if `print_number` takes an *immutable* reference instead:
+
+```rust
+fn print_number(n: &Number) {
+    println!("{} number {}", if n.odd {"Odd"} else {"Even"}, n.value); // in-line if statement.
+}
+
+fn main() {
+    let n = Number {value: 51, odd: true};
+    print_number(&n); // `n` is *borrowed* for the time of the call.
+    print_number(&n); // `n` is borrowed again.
+}
+```
+
+It also works if a function takes a *mutable* reference - but only if our variable binding is also `mut`.
+
+```rust
+
+fn invert(n: &mut Number) {
+    n.value = -n.value;
+}
+
+fn print_number(n: &Number) {
+    println!("{} number {}", if n.odd {"Odd"} else {"Even"}, n.value);
+}
+
+fn main() {
+    // this time, `n` is mutable
+    let mut n = Number {value: 97, odd: true};
+    print_number(&n); // `n` is borrowed.
+    invert(&mut n); // a *mutable* reference to `n` is borrowed. - everything is explicit
+    print_number(&n); // `n` is borrowed again
+}
+```
+
+Trait methods can also take `self` by reference or mutable reference.
+
+```rust
+
+impl std::clone::Clone for Number {
+    fn clone(&self) -> Self {
+        Self { ..*self }
+    }
+}
+```
+
+When invoking trait methods, the receiver is borrowed implicitly:
+
+```rust
+
+fn main() {
+    let n = Number {value: 21, odd: true};
+    let mut m = n.clone();
+    m.value += 100;
+
+    print_number(&n);
+    print_number(&m); // n is not altered.
+}
+```
+
+To highlight this: these are equivalent:
+
+```rust
+
+let m = n.clone();
+
+let m = std::clone::Clone::clone(&n);
+
+```
+
+Marker traits like Copy have no methods:
+
+```rust
+// note: `Copy` requires that `Clone` is implemented too
+
+impl std::clone::Clone for Number {
+    fn clone(&self) -> Self {
+        Self { ..*self }
+    }
+}
+
+impl std::marker:Copy for Number {}
+
+```
+
+Now, `Clone` can still be used:
+
+```rust
+fn main() {
+    let n = Number { value: 23, odd: true};
+    let m = n.clone();
+    let o = n.clone();
+}
+
+```
+
+But `Number` values will no longer be moved:
+
+```rust
+fn main() {
+    let n = Number { value: 32, odd: false};
+    let m = n; // `m` is a copy of `n`
+    let o = n; // `o` is a copy of `n`. `n` is neither moved nor borrowed
+}
+```
+
+Some traits are so common, they can be implemented automativally by using the `derive` attribute:
+
+```rust
+
+#[derive(Clone, Copy)]
+struct Number {
+    odd: bool,
+    value: i32,
+}
+// this expands to `impl Clone for Number` and `impl Copy for Number` blocks.
+```
