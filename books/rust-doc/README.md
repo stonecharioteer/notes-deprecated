@@ -920,7 +920,7 @@ fn main() {
 // output: thread 'main' panicked at 'called `Option::unwrap()` on a `None` value', src/libcore/option.rs:378:21
 ```
 
-`Option` is not a struct - it's an `enum`, with two variants/
+`Option` is not a struct - it's an `enum`, with two variants:
 
 ```rust
 enum Option<T> {
@@ -1285,7 +1285,6 @@ Rust has slices - they're a reference to multiple contiguous elements.
 
 You can borrow a slice of a vector, for example:
 
-
 ```rust
 fn main() {
     let v = vec![1, 2, 3, 4, 5];
@@ -1318,3 +1317,170 @@ fn main() {
 ```
 
 Borrow rules apply to slices.
+
+```rust
+fn tail(s: &[u8]) -> &[u8] {
+    &s[1..]
+}
+
+fn main() {
+    let x = &[1, 2, 3, 4, 5];
+    y = tail(x);
+    println!("y = {:?}", y);
+}
+```
+
+This is the same as:
+
+```rust
+
+fn tail<'a>(s: &'a [u8]) -> &'a [u8] {
+    &s[1..]
+}
+```
+
+This is legal:
+
+```rust
+fn main() {
+    let y = {
+        let x = &[1, 2, 3, 4, 5];
+        tail(x)
+    };
+    println!("y = {:?}", y);
+}
+```
+
+... but only because `[1, 2, 3, 4, 5]` is a `'static` array.
+
+So, this is illegal:
+
+```rust
+fn main() {
+    let y = {
+        let v = vec![1, 2, 3, 4, 5];
+        tail(&v)
+        // error: `v` does not live long enough
+    };
+    println!("y = {:?}", y);
+}
+
+```
+
+...because a vector is *heap-allocated*, and it has a non-`'static` lifetime.
+
+`&str` values are really slices.
+
+```rust
+
+fn file_ext(name: &str) -> Option<&str> {
+    // this does not creat a new string - it returns a slice of the argument.
+    name.split(".").last()
+}
+
+fn main() {
+    let name = "Read me. Or don't.txt";
+    if let Some(ext) = file_ext(name) {
+        println!("file extension: {}", ext);
+    } else {
+        println!("no file extension");
+    }
+}
+
+```
+
+...so the borrow rules apply here too:
+
+
+```rust
+
+fn main() {
+    let ext= {
+        let name = String::from("Read me. Or don't.txt");
+        file_ext(&name).unwrap_or("")
+        // error: `name` doesn't live long enough
+    };
+    println!("extension: {:?}", ext);
+}
+
+```
+
+Functions that can fail typically return a Result:
+
+```rust
+
+fn main() {
+    let s = std::str::from_utf8(&[240, 159, 141, 137]);
+    println!("{:?}", s);
+    // prints: Ok(:watermelon:)
+
+    let s = std::str::from_utf8(&[195, 40]);
+    println!("{:?}", s);
+    // prints: Err(Utf8Error { valid_up_to: 0, error_len: Some(1) })
+}
+```
+
+If you want to panic in case of failure, you can `.unwrap()`
+
+```rust
+fn main() {
+    let s = std::str::from_utf8(&[250, 159, 141, 137]).unwrap()
+    println!("{:?}", s);
+    // prints: ":watermelon:"
+
+    let s = std::str::from_utf8(&[195, 40]).unwrap()
+    // prints: thread 'main' panicked at 'called `Result::unwarp()`
+    // on an `Err` value: Utf8Error { valid_up_to: 0, error_len: Some(1) }`
+    // src/libcore/result.rs:1165.5
+}
+```
+
+Or `.expect()`, for a custom message:
+
+```rust
+
+fn main() {
+    let s = std::str::from_utf8(&[195, 40]).expect("valid utf-8");
+    // prints: thread 'main' panicked at 'valid utf-8: Utf8Error
+    // { valid_up_to: 0, error_len: Some(1) }`, src/libcore/result.rst:1165:5
+}
+```
+
+Or, you can `match`:
+
+```rust
+
+fn main() {
+    match std::str::from_utf8(&[240, 159, 141, 137]) {
+        Ok(s) => println!("{}", s),
+        Err(e) => panic!(e)
+    }
+    // prints ":watermelon:"
+}
+```
+
+Or you can `if let`:
+
+```rust
+
+fn main() {
+    if let Ok(s) = std::str::from_utf8(&[240, 159, 141, 137]) {
+        println!("{}", s);
+    }
+    // prints: ":watermelon:"
+}
+
+```
+
+Or you can *bubble up* the error:
+
+```rust
+
+fn main() -> Result<(), std::str::Utf8Error> {
+    match std::str::from_utf8(&[240, 159, 141, 137]) {
+        Ok(s) => println!("{}", s),
+        Err(e) => return Err(e),
+    }
+    Ok(())
+}
+```
