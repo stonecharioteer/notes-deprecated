@@ -4,7 +4,7 @@ Interview Preparation
 
 
 This section contains my notes that are solely for interview preparation. This
-targets FAANG style leetcode-farming, and my daily progress.
+targets FAANG-style leetcode-farming, and my daily progress.
 
 
 .. toctree::
@@ -12,3 +12,4 @@ targets FAANG style leetcode-farming, and my daily progress.
 
     ds-algo/index
     leetcode/index
+    advent-of-code/index
