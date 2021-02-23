@@ -59,3 +59,6 @@ html_title = "Stonecharioteer's Notes"
 html_theme_options = {
     "navigation_with_keys": True,
 }
+
+html_last_updated_fmt = ""
+html_add_permalinks = True
