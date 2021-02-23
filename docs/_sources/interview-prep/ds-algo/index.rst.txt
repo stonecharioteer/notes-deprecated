@@ -14,5 +14,6 @@ Resources:
 
 
 .. toctree::
+    :maxdepth: 2
 
     algorithms/index
