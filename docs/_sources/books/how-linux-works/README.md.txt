@@ -16,7 +16,7 @@ However, I would like objectifiable goals:
 2. Be able to compile kernels from source and boot them.
 3. Be able to edit the grub bootloader config.
 4. Be able to debug a running process using syslogs.
- 
+
 The fact that I do not yet know what I would like to do is
 proof that I lack definitive knowledge of the system.
 
@@ -151,7 +151,7 @@ Both these can be *redirected*.
 
 ### Basic Commands
 
-Covers standard commands you should already know: 
+Covers standard commands you should already know:
 `ls, cp, mv, touch, rm & echo`.
 
 ### Navigating Directories
@@ -235,7 +235,6 @@ using the *absolute path* to the virtual environment's python
 executable (found in `<envdir>/bin/python`). Again, note that
 this is not the Python executable that was used to make the virtualenv.
 
-
 ### The Command Path
 
 `PATH` is a very important Environment variable. It contains a `:`
@@ -288,7 +287,7 @@ contents of the original file. `set -C` can prevent clobbering in bash.
 
 `command >> file` can append the output to the file.
 
-`command1 | command2` streams the `stdout` of `command1` to 
+`command1 | command2` streams the `stdout` of `command1` to
 the `stdin` of `command2`.
 
 #### Standard Error
@@ -319,7 +318,7 @@ Errors will have the following components:
 
 Example:
 
-```
+```bash
 $ ls /asdkl
 
 ls: cannot access /asdkl: No such file or directory
@@ -369,7 +368,6 @@ resumed.
 `kill -KILL <pid>` is the most brutal way to kill a process. This
 will end the process without waiting for any cleanup.
 
-
 #### Job Control
 
 Shells also support Job Control, a way to send `TSTP` (similar to `STOP`)
@@ -387,6 +385,13 @@ with `&` before running it.
 Note that when sending a process to the background, it is always
 preferred to ensure that the `stdout` and `stdin` are remapped.
 
+If spurious output from backgroun processes gets in your way, learn how to
+redraw the content of your terminal window. The `bash` shell and most
+full-screen interactive programs support `C-l' to redraw the entire
+screen. If the program is reading from `stdin`, `C-r` usually redraws the
+current line, but pressing the wong sequence at the wrong time can leave you in an
+even worse situation than before. For example, pressing `C-r` at the
+`bash` prompt puts you in reverse `isearch` mode
 
 ### File Modes and Permissions
 
@@ -411,6 +416,7 @@ inapplicable. The permission bits indicate what rights the user(s)
 in question has. The first set is the owner, the second is the group
 members, the third group is everyone else.
 
+Protip: Use `groups` to figure out what groups your userid belongs to.
 
 #### Modifying Permissions
 
@@ -432,14 +438,414 @@ much easier to read.
 
 ![Table on absolute modes](images/table-2.4.jpg)
 
+The numbers are *octal* representation of the permission bits.
+
 #### Symbolic Links
 
+A symbolic link is *like* a shortcut to another file, the difference from the Windows
+implementation being that it can be read directly and appears as an entry in the location.
+
+When inspecting the file using `ls -l`,  you might notice that the type of the file is `l`,
+indicating that it is a `link`.
+
+Note that the names and the paths to which Symbolic links point t o do not have to exist.
+
+Use:
+
+`ln -s target linkname`
+
+to create a Symbolic link.
+
+One way to remember this is
+
+`link <this> as <that>`.
+
+If you omit the `-s` flag indicating that it's *symbolic*, you create a *hard link*.
 
 
+### Archiving and Compressing Files
 
+#### `gzip`
+
+GNU Zip is a Unix compression program.
+
+`gzip file` will compress the file *and* deletes the original unless you use the `-k` flag.
+The output file will be `file.gz`.
+
+To extract the file, use `gunzip`.
+
+`gzip` only compresses *individual* files. It will not archive more than one.
+
+#### `tar`
+
+`tar` is used when one wants to compress a set of files instead.
+
+```bash
+tar cvf archive.tar file1 file2 ... filen
+```
+
+will create an `archive.tar` file that contains all the files.
+
+`c` indicates compression, `v` is verbosity for the diagnostic output, and `f` indicates that you'd like to specify the filename.
+
+To unpack, use `tar xvf archive.tar`
+
+`tar` doesn't purge the inputs or the extracted file after it does what it needs to.
+
+To verify the table of contents of a `tar` file, use `tar tvf`, where `t` indicates
+`table-of-contents`-mode.
+
+`p` keeps the permissions. It is included in defaults when operating as a `super` user.
+
+
+#### `.tar.gz`
+
+After a bunch of files is archived, it is common practice to *compress* them using `gzip`.
+
+So you'd probably do this:
+
+```bash
+tar cvf archive.tar file1 file2 file3
+gzip archive.tar
+```
+And this results in an `archive.tar.gz` file.
+
+
+To extract, just do the reverse.
+
+```bash
+gunzip archive.tar.gzz
+tar xvf archive.tar
+```
+
+This is so common that `zcat` exists.
+
+
+```bash
+zcat file.tar.gz | tar xvf -
+```
+
+`zcat` is the same as `gunzip -dc`, which decompresses and sends the output to `stdout`.
+
+However, this is made easier with the `z` flag to the `tar` command.
+
+```bash
+tar xvzf file.tar.gz
+```
+
+will decompress and extract the compressed archive.
+
+To make one, use
+
+#### Other Compression Utilities
+
+`bzip2` deals with `.bz2`, and compacts text files a little better. Use `bunzip2` to decompress. Use `j` to use `bzip2` with `tar`
+
+`xz` is new, and its corollary is `unxz`.
+
+`zip` and `unzip` also exist, for Windows compatibility. They will also extract self-extracting
+`exe` files.
+
+`.Z` is a relic made using `compress`. `gunzip` can extract them, but `gzip` will not
+create them.
+
+### Linux Directory Heirarchy Essentials
+
+![Linux directory heirarcy](images/fig-2.2.png)
+
+1. `/bin` Contains ready-to-run programs (also known as an executables),
+including most of the basic Unix commands such as ls and cp . Most of
+the programs in /bin are in binary format, having been created by a C
+compiler, but some are shell scripts in modern systems.
+2. `/dev` Contains device files. You’ll learn more about these in Chapter 3.
+3. `/etc` This core system configuration directory (pronounced EHT-see)
+contains the user password, boot, device, networking, and other setup
+files. Many items in `/etc` are specific to the machine’s hardware. For
+example, the `/etc/X11` directory contains graphics card and window sys-
+tem configurations.
+4. `/home` is where the heart is.
+5. `/lib` An abbreviation for library, this directory holds library files con-
+taining code that executables can use. There are two types of libraries:
+static and shared. The `/lib` directory should contain only shared librar-
+ies, but other lib directories, such as `/usr/lib`, contain both varieties as
+well as other auxiliary files.
+6. `/proc` Provides system statistics through a browsable directory-and-file
+interface. Much of the `/proc` subdirectory structure on Linux is unique,
+but many other Unix variants have similar features. The `/proc` directory
+contains information about currently running processes as well as some
+kernel parameters.
+7. `/sys` This directory is similar to /proc in that it provides a device and
+system interface.
+8. `/sbin` The place for system executables. Programs in /sbin directories
+relate to system management, so regular users usually do not have /sbin
+components in their command paths. Many of the utilities found here
+will not work if you’re not running them as root.
+9. `/tmp` Temporary storage that is wiped on boot and perhaps periodically.
+10.  `/usr` Although pronounced “user,” this subdirectory has no user files.
+Instead, it contains a large directory hierarchy, including the bulk of
+the Linux system. Many of the directory names in /usr are the same as
+those in the root directory (like /usr/bin and /usr/lib), and they hold the
+same type of files. (The reason that the root directory does not contain
+the complete system is primarily historic—in the past, it was to keep
+space requirements low for the root.)
+11. `/var` The variable subdirectory, where programs record runtime infor-
+mation. System logging, user tracking, caches, and other files that system
+programs create and manage are here. (You’ll notice a /var/tmp directory
+here, but the system doesn’t wipe it on boot.)
+
+#### Other Root Subdirectories
+
+1. `/boot` Contains kernel boot loader files. These files pertain only to
+the very first stage of the Linux startup procedure; you won’t find
+information about how Linux starts up its services in this directory.
+2. `/media` A base attachment point for removable media.
+3. `/opt` This may contain additional third-party software. Many systems
+don’t use `/opt`.
+
+#### `/usr`
+
+In addition to `/usr/bin`, `/usr/sbin` and `/usr/lib`, `/usr` contains:
+
+1. `/usr/include` holds header files used by the C compiler.
+2. `/usr/info` GNU info manuals
+3. `/usr/local` admins can install their own software here. Keeps a similar structure to `/` or `/usr` itself.
+4. `/usr/man` manual pages
+5. `/usr/share` contains files that should work on other kinds of Unix machines with no loss of functionality. In the past, ohter machines would share this directory, but these days, this is not doable. Other `/man`, `info` etc are often found here.
+
+#### Kernel Location
+
+The Kernel is in `/vimlinuz` or `/boot/vmlinuz`. A boot loader loads this file into memory and sets it in motion when the system boots.
+
+Once loaded into memory, the main kernel file is no longer used by the running system. However,
+the kernel can load and unload many modules on demand. These are *loadable kernel modules* and are stored in `/lib/modules`.
+
+
+### Running Commands as the Superuser
+
+#### `sudo`
+
+Sudo is a *package* distributed by most larger distros to allow admins to run commands as root when they're logged in as themselves.
+
+`vipw` is a command to edit the `/etc/passwd` file.
+
+When `sudo` is called, this action is logged with the syslog service under `local2`.
+
+
+#### `/etc/sudoers`
+
+This file controls who can run `sudo`.
+
+Use `visudo` to edit this file.
+
+
+## Devices
+
+### Device Files
+
+The kernel presents many of the device I/O interfaces as files. These are sometimes called *device nodes*. *Some* of these files are also accessible to standard programs like `cat`.
+
+Linux uses the same design for device files as do other Unix flavors. Devices go into `/dev`.
+
+`ls /dev` lists all the devices in the system.
+
+
+`/dev/null` is a device. The Kernel decides what to do with any inputs to a device.
+
+`echo blah blah > /dev/null` will not print anything because `/dev/null` is a device that the
+Kernel knows to ignore.
+
+To identify a device, use `ls -l` and notice the first character.
+
+```bash
+$ ls -l /dev/
+
+crw-r--r--  10,235 root            27 Dec 22:46 autofs
+drwxr-xr-x       - root            27 Dec 22:46 block
+crw-rw----  10,234 root            27 Dec 22:46 btrfs-control
+drwxr-xr-x       - root            27 Dec 22:46 bus
+drwxr-xr-x       - root            27 Dec 22:46 char
+crw--w----     5,1 root            27 Dec 22:46 console
+lrwxrwxrwx      11 root            27 Dec 22:46 core -> /proc/kcore
+drwxr-xr-x       - root            27 Dec 22:46 cpu
+crw-------   10,59 root            27 Dec 22:46 cpu_dma_latency
+crw-------  10,203 root            27 Dec 22:46 cuse
+...
+```
+
+This first character of the file's mode indicates what the file is. Devices use `b, c, p` or `s`. These stand for block, character, piple and socket.
+
+#### Block Device
+
+Programs access data from a block device in fixed chunks. Your hard drive is a block device. Processes have random access to any block in such devices with the help of the kernel since a block device's total size is fixed and easy to index.
+
+
+#### Character device
+
+These work with datastreams. You can only read characters from or write characters to these.
+`/dev/null` is such a device. These devices usually don't have a size.
+Printers are represented by character devices. In character devices,
+the kernel cannot go back up and reexamine the data stream after
+it has passed data to a device or process.
+
+
+#### Pipe device
+
+Named pipes are like character devices with another process at the end of the I/O stream instead of a kernel driver
+
+#### Socket Device
+
+Sockets are special purpose interfaces that are frequently used for interprocess communication. They are often found outside of `/dev`. They represent Unix domain sockets.
+
+Not all devices have device files because the block and character device I/O interfaces are not appropriate in all cases. Network interfaces, for example, don't have device files.
+
+### The `sysfs` device path
+
+While convenient, the `/dev` directory is unreliable since the name of the device here
+doesn't offer a lot of information, and the name might vary between reboots. For this reason, `/sys/devices` is more reliable since it offers a longer, more consistently unique name between
+reboots.
+
+For example, the SATA hard disk at `/dev/sda` might have the following path in `sysfs`:
+`/sys/devices/pci0000:00/0000:00:1f.2/host0/target0:0:0/0:0:0:0/block/sda`
+
+You can list the contents of `sysfs` and understand more about a device than you can from `/dev`. While the contents of these files are meant to be read primarily by programs rather than humans, the files themselves lend themselves well to humans as well.
+
+`/sys/block` should contain all the block devices available on a system, but these are symbolic links. `udevadm` shows the path and other attributes.
+
+`udevadm info --query-all --name=/dev/sda`
+
+### `dd` and Devices
+
+`dd` is used when working with block and character devices. This program's sole function
+is to read from an input file or stream and write to an output file or stream, possibly doing
+some encoding conversion on the way.
+
+`dd` copies data in blocks of a fixed size.
+
+`dd if=/dev/zero of=new_file bs=1024 count=1`
+
+The CLI style here is a remnant from the IBM Job Control Language (JCL) and doesn't use the
+`-` and the `--` style of modern CLIs.
+
+### Device Name Summary
+
+To find the name of a device:
+
+1. Query `udevd` using `udevadm`
+2. Look in `/sys`
+3. Check `dmesg`, which prints the last kernel messages.
+4. For disk devices that are already visible check the output of the `mount` command.
+5. `cat /proc/devices` to see block and character devices for which the system *has* drivers. If you can guess the devices from the name, look in `/dev` for the character or block devices with the corresponding major number (the command outputs the major number and the device name).
+
+#### Hard Disks `/dev/sd*`
+
+`sd` stands for `SCSI Disk`. `SCSI` stands for *Small Computer System Interface*, and this was
+intially developed as a hardware and protocol standard for communication between devices such as disks and other peripherals. While traditional `SCSI` devices are no longer used, the
+protocol is everywhere due to its adaptability. USB Storage devices use it, and although their story is complex, SATA disks also require `SCSI` commands from the Linux Kernel at a certain point when used.
+
+`lsscsi` lists all `SCSI` devices provided by `sysfs`.
+
+```bash
+$ lsscsi
+[N:0:5:1]    disk    PM991 NVMe Samsung 512GB__1                /dev/nvme0n1
+[N:1:1:1]    disk    WDC WDS100T2B0C-00PXH0__1                  /dev/nvme1n1
+```
+
+While this works, it suffers from the same problem all `/dev` listings face, name reservation and recycling. So modern Linux systems now use UUIDs in `fstab` for more consistent mounting rules.
+
+#### CD and DVD Drives
+
+Optical storage drives are SCSI drives, and mapped to `/dev/sr*`. Older drives might use the
+PATA interface. `/dev/sr*` are only *readable* devices though. Those drives which have RW are mapped to `/dev/sg*`.
+
+#### PATA Hard Disks
+
+These are listed as `/dev/hd*. If a SATA drive is mounted here, it is running in compatibility mode.
+
+#### Terminals: `/dev/tty*, /dev/pts/*`, and `/dev/tty`
+
+Terminals are devices for moving characters between a user process and an I/O device. Pseudoterminal devices are emulated terminals, that understand the I/O features of real terminals. `/dev/tty1` is the first virtual console, and `/dev/pts/0` is the first pseudoterminal device. `/dev/pts` directory itself is a dedicated filesystems.
+
+Note that the a process doesn't need to be attached to a terminal.
+
+##### Display Modes and Virtual Consoles
+
+Linux has two display modes: text and an X Window System server. While booting, Linux is in textmode, but modern systems use kernel parameters and interim graphical display mechanisms (bootsplashes such as plymouth) to hide terx mode.
+
+If you want to see your text console after your system boots, press `CTRL-ALT-F1`. To return to the X11 session, press `ALT-F2, ALT-F3` etc until you reach the X-session you left.
+
+`chvt` can be used to force the system to switch between consoles.
+
+`chvt 1` switches you to `/dev/tty1`.
+
+#### Serial Ports `/dev/ttyS*`
+
+This maps RS-232 and other serial ports which identify as terminal devices.
+
+#### Parallel Ports: `/dev/lp0` and `/dev/lp1`
+
+This is a largely deprecated interface that is replaced by USB. You can send files directly
+to a prallel port with the `cat` command. This used to be used to interface with printers. This is now replaced by a print server such as `CUPS`.
+
+#### Audio Devices: `/dev/snd/*, /dev/dsp, /dev/audio`, and more
+
+`ALSA` is Advanced Linux Sound Architecture, and OSS is the Open Sound System. ALSA devices are in `/dev/snd`.
+
+#### Creating Device Files
+
+`devtmpfs` and `udev` are used to make device files, but it is instructive to see how it was once done, and on a rare occasion, you mihgt need to create a named pipe.
+
+`mknod` creats one device. You must know the device name as well as its major and minor numbers. To create `/dev/sda1`:
+
+`mknod /dev/sda1 b 8 2`
+
+`b 8 2` indicates a block device with major number 9 and minor number 2. For character or named pipes use `c` or `p` instead of `b`. Named pipes don't need the numbers.
+
+There used to be a `MAKEDEV` program in `/dev` to create groups of devices since maintaining the `/dev` directory was a challenge. The first attempt to fix it was `devfs`, a kernel-space implementation of `/dev/` that contained all of the devices that the current kernel supported. However, there were a number of limitations, which led to `udev` and `devtmpfs`.
+
+### `udev`
+
+`udevd` is a user-space process upon detecting a new device on the system. The user-space process on the other end examines the new device's characteristics, creates a device file, and then performs any device initialization.
+
+#### `devtmpfs`
+
+`devtmpfs` filesystem was develooped in response to the problem of device availability during boot. The kernel creates the device files as necessary, but it also notifies `udevd` that a new device is available. Upon receiving this signal, `udevd` does not create the device files, but it does perform device initialization and proces notification. It also creates a number of symbolic links in `/dev` to further identify devices. See `/dev/disk/by-id`, where each attached disk has one or more entries:
+
+```bash
+ls /dev/disk/by-id
+
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001 -> ../../nvme0n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part1 -> ../../nvme0n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part2 -> ../../nvme0n1p2
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part3 -> ../../nvme0n1p3
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part4 -> ../../nvme0n1p4
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part5 -> ../../nvme0n1p5
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part6 -> ../../nvme0n1p6
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.353039304e5124020025384600000001-part7 -> ../../nvme0n1p7
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-eui.e8238fa6bf530001001b444a44304a0b -> ../../nvme1n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.e8238fa6bf530001001b444a44304a0b-part1 -> ../../nvme1n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-eui.e8238fa6bf530001001b444a44304a0b-part2 -> ../../nvme1n1p2
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402 -> ../../nvme0n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part1 -> ../../nvme0n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part2 -> ../../nvme0n1p2
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part3 -> ../../nvme0n1p3
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part4 -> ../../nvme0n1p4
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part5 -> ../../nvme0n1p5
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part6 -> ../../nvme0n1p6
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-PM991_NVMe_Samsung_512GB__S509NF0N512402-part7 -> ../../nvme0n1p7
+lrwxrwxrwx 13 root 29 Dec 19:28 nvme-WDC_WDS100T2B0C-00PXH0_20233D441401 -> ../../nvme1n1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-WDC_WDS100T2B0C-00PXH0_20233D441401-part1 -> ../../nvme1n1p1
+lrwxrwxrwx 15 root 29 Dec 19:28 nvme-WDC_WDS100T2B0C-00PXH0_20233D441401-part2 -> ../../nvme1n1p2
+```
+
+#### `udevd` Operation and Configuration
+
+<!-- TODO: Read section 3.5.2 later -->
+
+## Disks and Filesystems
 
 
 ## Later Reading
+
 1. Operating System Concepts by Abraham Silberschatz et. al.
 2. Modern Operating Systems by Andrew S. Tanenbaum et al.
 3. The Linux Command Line, No Starch Press
@@ -450,3 +856,4 @@ much easier to read.
 9. Introduction to Automata Theory, Languages, and Computation, O'Reilly.
 10. Learning the vi and Vim Editors: Unix Text Processing, O'Reilly
 11. GNU Emacs Manual
+12. [Filesystem Heirarchy Standards or FHS](http://www.pathname.com/fhs/)
