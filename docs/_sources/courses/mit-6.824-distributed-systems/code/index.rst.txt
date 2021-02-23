@@ -1,0 +1,10 @@
+====================================
+Code Examples
+====================================
+
+
+.. toctree::
+    :caption: Labs
+    :maxdepth: 1
+
+    golang/index.rst
