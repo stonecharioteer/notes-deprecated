@@ -24,4 +24,5 @@ livehtml:
 
 github:
 	@make html
+	@rm -rf docs/*
 	@cp -a build/html/. docs
