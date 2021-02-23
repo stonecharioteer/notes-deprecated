@@ -9,7 +9,8 @@ Stonecharioteer's Notes
 .. note::
 
    This site contains my personal notes on different topics.
-   If you'd like to read more organized posts, I'd recommend `visiting my blog. <https://stonecharioteer.com/>`_
+   If you'd like to read more organized posts, I'd recommend
+   `visiting my blog. <https://stonecharioteer.com/>`_
 
 Topics
 ---------
