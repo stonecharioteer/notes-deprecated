@@ -1,5 +1,5 @@
 =======================================
-Data Structures and Algorithms Notes
+Data Structures and Algorithms
 =======================================
 
 This repository will hold my Python implementations of various data structures
