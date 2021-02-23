@@ -8,6 +8,7 @@ mostly technical or non-fiction reads.
 
 .. toctree::
     :caption: Books
+    :maxdepth: 2
 
     common-sense-guide-to-ds-algo/index
     database-internals/index

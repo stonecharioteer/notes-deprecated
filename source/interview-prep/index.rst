@@ -9,6 +9,7 @@ targets FAANG-style leetcode-farming, and my daily progress.
 
 .. toctree::
     :caption: Topics
+    :maxdepth: 2
 
     ds-algo/index
     leetcode/index
