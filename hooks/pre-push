@@ -2,4 +2,5 @@
 
 echo `pwd`
 make github
+git add docs
 git commit docs -m "add build"
