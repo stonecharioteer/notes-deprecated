@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo `pwd`
+make github
+git commit docs -m "add build"
