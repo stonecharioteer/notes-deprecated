@@ -30,5 +30,3 @@ def binary_insertion_sort(inp_list):
     However, since the insertion will mandate the shifting of the numbers anyway,
     this will still take O(n**2).
     """
-
-
