@@ -22,5 +22,6 @@ topics:
    :maxdepth: 2
 
    books/index
+   languages/index
    courses/index
    interview-prep/index
