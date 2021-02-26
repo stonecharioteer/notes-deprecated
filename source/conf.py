@@ -29,6 +29,7 @@ author = 'Vinay Keerthi'
 # ones.
 extensions = [
     "myst_parser",
+    "sphinx.ext.todo",
     "sphinx_inline_tabs",
     "sphinx_copybutton",
     "sphinx.ext.githubpages"
@@ -61,4 +62,5 @@ html_theme_options = {
 }
 
 html_last_updated_fmt = ""
-html_add_permalinks = True
+
+todo_include_todos = True

@@ -1,0 +1,5 @@
+.. _languages-rust:
+
+======
+Rust
+======

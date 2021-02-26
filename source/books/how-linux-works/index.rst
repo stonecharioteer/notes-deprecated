@@ -297,7 +297,7 @@ page by a keyword.
 :code:`man <section> command` can go to a section of a command.
 
 :code:`man` sections
-===================
+=======================
 
 1. User commands
 2. System calls
