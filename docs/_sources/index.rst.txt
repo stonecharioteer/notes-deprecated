@@ -24,4 +24,5 @@ topics:
    books/index
    languages/index
    courses/index
+   papers/index
    interview-prep/index
