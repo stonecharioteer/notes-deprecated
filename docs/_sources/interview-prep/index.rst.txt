@@ -71,7 +71,7 @@ here. This should take 2 days. Do all the exercises in the book.
     Day 1: Read :ref:`common-sense-guide-big-o`
     Day 2: Read :ref:`ctci-big-o`
 
-    Do all the exercises in both books. :ref:`common-sense`'s exercises will
+    Do all the exercises in both books. :ref:`common-sense-guide`'s exercises will
     not take more than 20 minutes.  I need to check how long :ref:`ctci` will
     take.
 
