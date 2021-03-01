@@ -262,7 +262,7 @@ Welcome to :math:`O(N^2)`. You do not want to be here.
 Any polynomial with a power of 2 is a *quadratic* polynomial. On a graph, it would look like
 a *parabola*, but not one that ever touches the ground like someone throwing a ball.
 No, this is an upwards-facing parabola. That means if you have 1 million data points, your algorithm
-will need to process :math:`1000000^{1000000}` items. A million raised to a million.
+will need to process :math:`1000000^2` items. A million *squared.*
 
 Any algorithm wherein you loop through the entire list, or even portions of the
 list but perhaps have a worst-case scenario where you loop through the entire
