@@ -29,7 +29,7 @@ I use this site to maintain a list of notes on the following
 topics:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    books/index
    languages/index
