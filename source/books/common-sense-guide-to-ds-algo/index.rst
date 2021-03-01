@@ -148,3 +148,124 @@ answer, hence the name.
     :math:`log_2N` shows how many times N can be *halved*.
 
     :math:`log_{10}N` shows how many times N can be divided into tenths.
+
+
+-----------------------------------
+Chapter 3 - O Yes! Big O Notation
+-----------------------------------
+
+.. note::
+
+    This book ignores most of the mathematical basis for Big O, and explains stuff
+    rather simply. I recommend this section a lot. However, for a mathematical
+    explanation, read :ref:`The Algorithm Design Manual's sections on Big O <algorithm-design-manual-big-o>`.
+
+
+Big O measures how many steps an algorithm will take in relation to its input size.
+
+    | If there are N data elements, how many steps will the algorithm take?
+
+:math:`O(N)` says that the answer to the key question is that the algorithm will take N steps.
+
+.. warning::
+
+    If you have preconceived notions about Big O, please leave them at the door, *for now.*
+
+
+Consider the following:
+
+.. code-block:: python
+    :linenos:
+
+    def do_something(arr):
+        length = len(arr)
+        mid = arr[length // 2]
+        print(f"{length=}, {mid=}")
+
+
+How many steps is does this code example take?
+
+The answer is 3.
+
+What is the Big O notation?
+
+:math:`O(1)`.
+
+    | The soul of Big O is what Big O is truly concerned about: how will an
+    | algorithm's **performance** change as the data increases?
+
+Big O doesn't care how many steps the algorithm *actually takes*. It instead cares about the
+rate of change of an algorithm given change in the input data.
+
+:math:`O(1)` and :math:`O(3)` mean the same to Big O. This algorithm has *no* relationship with
+the input data. **It will not get slower or faster given more or less data**.
+
+:math:`O(N)` is a different matter, however. It means that the algorithm has a *linear* relationship
+with the data.
+
+
+.. code-block:: python
+    :linenos:
+
+    def do_something(arr):
+        length = len(arr)
+        mid = arr[length // 2]
+        print(f"{length=}, {mid=}")
+        for element in arr:
+            print(f"{element=}")
+            print(f"{2*element=}")
+
+
+Here, the algorithm seems to take :math:`O(2N+3)` steps.
+:math:`2N+3` is a linear polynomial. Wait, I promised no mathematics. It means that it
+is a statement that can be *conceived* as a straight line on a graph.
+
+To Big O, the number next to :math:`N` *does not matter*. Neither does the value 3 that is at the end.
+
+In Big O terms, the above program has a runtime of :math:`O(N)`.
+
+Big O is also a *worst-case-scenario* measure. For an algorithm, always consider the **worst case scenario**
+when denoting it in Big O terms. Linear search *might* take 1 step if your first item is the item you were looking for,
+but in an array of size N, if it's the last item you're looking for, you need N steps. Big O in this scenario
+is :math:`O(N)`, **not** :math:`O(1)`.
+
+Big O concerns itself with Logarithms quite a lot. Logarithms are the opposite of exponents.
+
+:math:`2^3` is 8. Then, :math:`log_28` is 3.
+
+:math:`10*2` is 100. Then, :math:`log_{10}100` is 2.
+
+An alternative way of thinking about logarithms is: *how many times do we need
+to halve (or thirds, or tenths, depending on the :math:`log_NM` base N)
+a number to get 1?
+
+:math:`O(log_2N)`, for brevity: :math:`O(logN)`, measures how many times we need to divide a dataset
+into halves to arrive at our result in the *worst case scenario*.
+
+
+------------------------------------------------
+Chapter 4 - Speeding Up Your Code with Big O
+------------------------------------------------
+
+.. note::
+
+    Read up on the implementation of :ref:`bubble-sort`.
+
+
+Bubble Sort has the following steps: cpmparisons, and swaps. Note how many times it loops through
+an array.
+
+No, not twice. For each element, it loops through the entire array.
+
+Welcome to :math:`O(N^2)`. You do not want to be here.
+
+Any polynomial with a power of 2 is a *quadratic* polynomial. On a graph, it would look like
+a *parabola*, but not one that ever touches the ground like someone throwing a ball.
+No, this is an upwards-facing parabola. That means if you have 1 million data points, your algorithm
+will need to process :math:`1000000^{1000000}` items. A million raised to a million.
+
+Any algorithm wherein you loop through the entire list, or even portions of the
+list but perhaps have a worst-case scenario where you loop through the entire
+list is of this order. If you can avoid it, do not implement one of these.
+
+:math:`O(N^3)` exists. Hope that you do not meet him.
