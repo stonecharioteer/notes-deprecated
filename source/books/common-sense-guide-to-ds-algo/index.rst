@@ -237,7 +237,7 @@ Big O concerns itself with Logarithms quite a lot. Logarithms are the opposite o
 
 An alternative way of thinking about logarithms is: *how many times do we need
 to halve (or thirds, or tenths, depending on the :math:`log_NM` base N)
-a number to get 1?
+a number to get 1?*
 
 :math:`O(log_2N)`, for brevity: :math:`O(logN)`, measures how many times we need to divide a dataset
 into halves to arrive at our result in the *worst case scenario*.
