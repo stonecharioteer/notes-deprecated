@@ -14,3 +14,16 @@ targets FAANG-style leetcode-farming, and my daily progress.
     ds-algo/index
     leetcode/index
     advent-of-code/index
+
+-------------
+Resources
+-------------
+
+#. :ref:`common-sense-guide`
+#. :ref:`ctci`
+#. :ref:`algorithm-design-manual`
+#. :ref:`elements-of-programming-interviews`
+
+---------------------
+Preparation Timeline
+---------------------

@@ -1,5 +1,10 @@
-====================
-Rust Documentation
-====================
+.. _rust-book:
 
-This folder contains my notes on the Rust Documentation as I work through them.
+=====================================================================
+The Rust Programming Language - Steve Klabnik and Carol Nichols
+=====================================================================
+
+.. note::
+
+    This folder contains my notes on the Rust Documentation (the Rust book)
+    as I work through them.
