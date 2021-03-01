@@ -116,6 +116,10 @@ Searching Ordered Arrays
 While searching normal arrays is a matter of looking at *each and every* item, this is not necessarily
 so with an ordered array. Instead, we can use :ref:`binary-search`.
 
+.. note::
+
+    All source is going to be placed in their respective topic folder.
+
 Binary Search will *halve* its steps each time it compares values to the search value.
 So there will be :math:`log_2N` steps involved. It *narrows* its results down into a *binary*
 answer, hence the name.
