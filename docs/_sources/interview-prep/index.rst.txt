@@ -14,6 +14,7 @@ be able to ace any interview I go to.
     :maxdepth: 1
 
     ds-algo/index
+    design-patterns/index
     leetcode/index
     advent-of-code/index
 
