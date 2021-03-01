@@ -297,6 +297,103 @@ answer, hence the name.</p>
 </div>
 </div>
 </div>
+<div class="section" id="chapter-3-o-yes-big-o-notation">
+<h2>Chapter 3 - O Yes! Big O Notation<a class="headerlink" href="#chapter-3-o-yes-big-o-notation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This book ignores most of the mathematical basis for Big O, and explains stuff
+rather simply. I recommend this section a lot. However, for a mathematical
+explanation, read <span class="xref std std-ref">The Algorithm Design Manual’s sections on Big O</span>.</p>
+</div>
+<p>Big O measures how many steps an algorithm will take in relation to its input size.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">If there are N data elements, how many steps will the algorithm take?</div>
+</div>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(O(N)\)</span> says that the answer to the key question is that the algorithm will take N steps.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have preconceived notions about Big O, please leave them at the door, <em>for now.</em></p>
+</div>
+<p>Consider the following:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">mid</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>How many steps is does this code example take?</p>
+<p>The answer is 3.</p>
+<p>What is the Big O notation?</p>
+<p><span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The soul of Big O is what Big O is truly concerned about: how will an</div>
+<div class="line">algorithm’s <strong>performance</strong> change as the data increases?</div>
+</div>
+</div></blockquote>
+<p>Big O doesn’t care how many steps the algorithm <em>actually takes</em>. It instead cares about the
+rate of change of an algorithm given change in the input data.</p>
+<p><span class="math notranslate nohighlight">\(O(1)\)</span> and <span class="math notranslate nohighlight">\(O(3)\)</span> mean the same to Big O. This algorithm has <em>no</em> relationship with
+the input data. <strong>It will not get slower or faster given more or less data</strong>.</p>
+<p><span class="math notranslate nohighlight">\(O(N)\)</span> is a different matter, however. It means that the algorithm has a <em>linear</em> relationship
+with the data.</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">mid</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">element</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">element</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here, the algorithm seems to take <span class="math notranslate nohighlight">\(O(2N+3)\)</span> steps.
+<span class="math notranslate nohighlight">\(2N+3\)</span> is a linear polynomial. Wait, I promised no mathematics. It means that it
+is a statement that can be <em>conceived</em> as a straight line on a graph.</p>
+<p>To Big O, the number next to <span class="math notranslate nohighlight">\(N\)</span> <em>does not matter</em>. Neither does the value 3 that is at the end.</p>
+<p>In Big O terms, the above program has a runtime of <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p>Big O is also a <em>worst-case-scenario</em> measure. For an algorithm, always consider the <strong>worst case scenario</strong>
+when denoting it in Big O terms. Linear search <em>might</em> take 1 step if your first item is the item you were looking for,
+but in an array of size N, if it’s the last item you’re looking for, you need N steps. Big O in this scenario
+is <span class="math notranslate nohighlight">\(O(N)\)</span>, <strong>not</strong> <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<p>Big O concerns itself with Logarithms quite a lot. Logarithms are the opposite of exponents.</p>
+<p><span class="math notranslate nohighlight">\(2^3\)</span> is 8. Then, <span class="math notranslate nohighlight">\(log_28\)</span> is 3.</p>
+<p><span class="math notranslate nohighlight">\(10*2\)</span> is 100. Then, <span class="math notranslate nohighlight">\(log_{10}100\)</span> is 2.</p>
+<p>An alternative way of thinking about logarithms is: <a href="#id1"><span class="problematic" id="id2">*</span></a>how many times do we need
+to halve (or thirds, or tenths, depending on the <span class="math notranslate nohighlight">\(log_NM\)</span> base N)
+a number to get 1?</p>
+<p><span class="math notranslate nohighlight">\(O(log_2N)\)</span>, for brevity: <span class="math notranslate nohighlight">\(O(logN)\)</span>, measures how many times we need to divide a dataset
+into halves to arrive at our result in the <em>worst case scenario</em>.</p>
+</div>
+<div class="section" id="chapter-4-speeding-up-your-code-with-big-o">
+<h2>Chapter 4 - Speeding Up Your Code with Big O<a class="headerlink" href="#chapter-4-speeding-up-your-code-with-big-o" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read up on the implementation of <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#bubble-sort"><span class="std std-ref">Bubble Sort</span></a>.</p>
+</div>
+<p>Bubble Sort has the following steps: cpmparisons, and swaps. Note how many times it loops through
+an array.</p>
+<p>No, not twice. For each element, it loops through the entire array.</p>
+<p>Welcome to <span class="math notranslate nohighlight">\(O(N^2)\)</span>. You do not want to be here.</p>
+<p>Any polynomial with a power of 2 is a <em>quadratic</em> polynomial. On a graph, it would look like
+a <em>parabola</em>, but not one that ever touches the ground like someone throwing a ball.
+No, this is an upwards-facing parabola. That means if you have 1 million data points, your algorithm
+will need to process <span class="math notranslate nohighlight">\(1000000^{1000000}\)</span> items. A million raised to a million.</p>
+<p>Any algorithm wherein you loop through the entire list, or even portions of the
+list but perhaps have a worst-case scenario where you loop through the entire
+list is of this order. If you can avoid it, do not implement one of these.</p>
+<p><span class="math notranslate nohighlight">\(O(N^3)\)</span> exists. Hope that you do not meet him.</p>
+</div>
 </div>
 
       </article>
@@ -368,6 +465,8 @@ answer, hence the name.</p>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#chapter-3-o-yes-big-o-notation">Chapter 3 - O Yes! Big O Notation</a></li>
+<li><a class="reference internal" href="#chapter-4-speeding-up-your-code-with-big-o">Chapter 4 - Speeding Up Your Code with Big O</a></li>
 </ul>
 </li>
 </ul>
