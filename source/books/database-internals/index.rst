@@ -1,5 +1,7 @@
+.. _database-internals:
+
 ==================================
-Database Internals by Alex Petrov
+Database Internals - Alex Petrov
 ==================================
 
 .. note::
