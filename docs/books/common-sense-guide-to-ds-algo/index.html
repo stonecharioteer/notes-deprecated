@@ -90,7 +90,7 @@
       <a href="../../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -181,11 +181,118 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="a-common-sense-guide-to-data-structures-and-algorithms-jay-wengrow">
 <span id="common-sense-guide"></span><h1>A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow<a class="headerlink" href="#a-common-sense-guide-to-data-structures-and-algorithms-jay-wengrow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="chapter-1-why-data-structures-matter">
+<span id="common-sense-guide-why-data-structures-matter"></span><h2>Chapter 1 - Why Data Structures Matter<a class="headerlink" href="#chapter-1-why-data-structures-matter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-array">
+<h3>The Array<a class="headerlink" href="#the-array" title="Permalink to this headline">¶</a></h3>
+<p>An array is a contiguous dataset. While we might say, in Python:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">some_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_array</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Internally, the <em>machine</em> stores the length of the array, and the position of the first item.</p>
+<p>Then, the computer can access the nth item by offsetting from the first. So to get the first item,
+you offset 0, to get the second, you offset 1.</p>
+<p>This is why you get the 0-based indexing everywhere. Makes a lot of sense now that I think about it.
+I wonder how Visual Basic manages the 1-based index.</p>
+<p>So for the computer, to access an item in a list, it is a single step. If you ask for the nth item,
+all the program needs to do is offet the memory position by n and return the value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the array’s length &lt; n, then you have a stack overflow. The program is trying to access memory that is
+not its own. It’s like trying to overdraw from your bank vault and reaching into the vault next to yours.</p>
+</div>
+<p>In a data structure, you perform the following operations:</p>
+<ol class="arabic simple">
+<li><p>Read</p></li>
+<li><p>Search</p></li>
+<li><p>Insert</p></li>
+<li><p>Delete</p></li>
+</ol>
+<p>When we want to measure the speed of these operations, this is where the entire idea of how a data structure
+is organized comes in. This is why some data structures are suitable for some usages, while some are not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This book’s section on data structures and why Array indexing is O(1) is quite good. Do give it a reread
+again.</p>
+</div>
+<p>For an array of size N:</p>
+<ol class="arabic simple">
+<li><p>Getting item at index n: 1 step</p></li>
+<li><p>Setting item at index n: 1 step</p></li>
+<li><p>Appending 1 item to the end: 1 step</p></li>
+<li><p>Prepending 1 item to the beginning: N+1 steps</p></li>
+<li><p>Deleting an item in the list: N steps (1 step is the best case scenario, when you delete the last item)</p></li>
+</ol>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>For algorithmic speed measurement, always be a pessimist.
+Consider only the worst case scenario.</p>
+</div>
+</div>
+<div class="section" id="the-set">
+<h3>The Set<a class="headerlink" href="#the-set" title="Permalink to this headline">¶</a></h3>
+<p>A set is an array of unique values. There are no duplicates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a generalization, but we’ll get to that in time.</p>
+</div>
+<p>Most set operations are <em>identical</em> to arrays. However, <strong>insertion</strong> is where sets and arrays
+differ.</p>
+<p>Appending or prepending and item into a set of N items will take N steps. That’s because a set
+needs to fulfil its prime objective: no duplicates. To insert an item <code class="docutils literal notranslate"><span class="pre">i</span></code> into a set N,
+you will first need to search the <em>entire</em> set for the occurrence of <code class="docutils literal notranslate"><span class="pre">i</span></code>, and only when it
+doesn’t exist, do you insert it into the set.</p>
+</div>
+</div>
+<div class="section" id="chapter-2-why-algorithms-matter">
+<h2>Chapter 2 - Why Algorithms Matter<a class="headerlink" href="#chapter-2-why-algorithms-matter" title="Permalink to this headline">¶</a></h2>
+<p>While data-structures have their own performance attributes, so do algorithms in general.</p>
+<div class="section" id="ordered-arrays">
+<h3>Ordered Arrays<a class="headerlink" href="#ordered-arrays" title="Permalink to this headline">¶</a></h3>
+<p>An ordered array is almost identical to the <em>classic</em> array*, but the one caveat is that in an
+ordered array, the items are <em>in order</em>.</p>
+<p>This has its benefits, but let’s look at its performance.</p>
+<ol class="arabic simple">
+<li><p>Read - 1 step</p></li>
+<li><p><strong>Insertion - N + 2 steps</strong></p></li>
+<li><p>Deletion - N steps</p></li>
+</ol>
+<p>Insertion again takes N + 2 steps because <em>the item needs to be inserted into the right location.</em>
+You cannot just insert an item at the very end.</p>
+<div class="section" id="searching-ordered-arrays">
+<h4>Searching Ordered Arrays<a class="headerlink" href="#searching-ordered-arrays" title="Permalink to this headline">¶</a></h4>
+<p>While searching normal arrays is a matter of looking at <em>each and every</em> item, this is not necessarily
+so with an ordered array. Instead, we can use <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/searching/index.html#binary-search"><span class="std std-ref">Binary Search</span></a>.</p>
+<p>Binary Search will <em>halve</em> its steps each time it compares values to the search value.
+So there will be <span class="math notranslate nohighlight">\(log_2N\)</span> steps involved. It <em>narrows</em> its results down into a <em>binary</em>
+answer, hence the name.</p>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>To understand what <span class="math notranslate nohighlight">\(log_2N\)</span> means, or what <span class="math notranslate nohighlight">\(log_MN\)</span> means, read
+<a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-logarithms"><span class="std std-ref">The Algorithm Design Manual’s chapter on Logarithms</span></a>.</p>
+</div>
+<p><strong>Q</strong>: For an ordered array with 100 elements, binary search takes 7 steps. How many steps does it take for 200 elements?</p>
+<p><strong>A</strong>: 8 steps</p>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p><em>Every time</em> the number of elements doubles, the steps involved in Binary Search increases by 1.</p>
+</div>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>The Logarithm of N to the base M shows how many times N can be divided by M.</p>
+<p><span class="math notranslate nohighlight">\(log_2N\)</span> shows how many times N can be <em>halved</em>.</p>
+<p><span class="math notranslate nohighlight">\(log_{10}N\)</span> shows how many times N can be divided into tenths.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 
       </article>
@@ -232,8 +339,38 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a><ul>
+<li><a class="reference internal" href="#chapter-1-why-data-structures-matter">Chapter 1 - Why Data Structures Matter</a><ul>
+<li><a class="reference internal" href="#the-array">The Array</a></li>
+<li><a class="reference internal" href="#the-set">The Set</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-2-why-algorithms-matter">Chapter 2 - Why Algorithms Matter</a><ul>
+<li><a class="reference internal" href="#ordered-arrays">Ordered Arrays</a><ul>
+<li><a class="reference internal" href="#searching-ordered-arrays">Searching Ordered Arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -246,5 +383,7 @@
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
 </html>
