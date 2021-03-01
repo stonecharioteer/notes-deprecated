@@ -269,3 +269,7 @@ list but perhaps have a worst-case scenario where you loop through the entire
 list is of this order. If you can avoid it, do not implement one of these.
 
 :math:`O(N^3)` exists. Hope that you do not meet him.
+
+-------------------------------------------------------
+Chapter 5 - Optimizing Code With and Without Big O
+-------------------------------------------------------
