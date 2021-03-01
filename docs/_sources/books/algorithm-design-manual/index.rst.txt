@@ -14,6 +14,7 @@ Chapter 1 - Introduction to Algorithm Design
 Logarithms
 ---------------
 
+.. _algorithm-design-manual-big-o:
 
 ---------------------------------------------------------------------------------------
 Chapter 2 - Algorithm Analysis
