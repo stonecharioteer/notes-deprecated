@@ -67,6 +67,7 @@ My :ref:`notes on Big-O from it <common-sense-guide-big-o>` will be the section 
 here. This should take 2 days. Do all the exercises in the book.
 
 .. tab:: Three Months
+
     2 Days
 
     Day 1: Read :ref:`common-sense-guide-big-o`
