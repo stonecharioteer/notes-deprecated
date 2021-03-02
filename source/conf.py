@@ -59,8 +59,14 @@ html_logo = "_static/images/stonecharioteer-banner.png"
 html_title = "Stonecharioteer's Notes"
 html_theme_options = {
     "navigation_with_keys": True,
+    "light_css_variables": {
+        "font-stack": "Newsreader, Garamond, Helvetica, Times New Roman, Serif",
+    },
+    "dark_css_variables": {
+        "font-stack": "Newsreader, Garamond, Helvetica, Times New Roman, Serif",
+    }
 }
-
+html_css_files = ["css/custom.css"]
 html_last_updated_fmt = ""
 
 todo_include_todos = True
