@@ -31,7 +31,7 @@ This is why you get the 0-based indexing everywhere. Makes a lot of sense now th
 I wonder how Visual Basic manages the 1-based index.
 
 So for the computer, to access an item in a list, it is a single step. If you ask for the nth item,
-all the program needs to do is offet the memory position by n and return the value.
+all the program needs to do is offset the memory position by n and return the value.
 
 .. note::
 
