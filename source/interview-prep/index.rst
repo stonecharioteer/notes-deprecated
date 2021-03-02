@@ -71,6 +71,7 @@ here. This should take 2 days. Do all the exercises in the book.
     2 Days
 
     Day 1: Read :ref:`common-sense-guide-big-o`
+
     Day 2: Read :ref:`ctci-big-o`
 
     Do all the exercises in both books. :ref:`common-sense-guide`'s exercises will
@@ -96,14 +97,23 @@ Data Structures
 .. tab:: Three Months
 
     Day 3: Arrays and Strings
+
     Day 4: Linked Lists
+
     Day 5: Stacks
+
     Day 6: Queues
+
     Day 7: Trees
+
     Day 8: Graphs
+
     Day 9: Heaps
+
     Day 10: Hash Tables
+
     Day 11: Review
+
     Day 12: Review
 
     .. note::
@@ -127,16 +137,25 @@ Algorithms
 .. tab:: Three Months
 
     Day 13: Bit Manipulation
+
     Day 14: Mathematical Gotchas
+
     Day 15: Sorting Algorithms
+
     Day 15: Sorting Algorithms Continued
+
     Day 16: Searching Algorithms
+
     Day 17: Searching Algorithms Continued
+
     Day 18: Binary Search Trees
+
     Day 18: Recursion
+
     Day 19: Dynamic Programming
+
     Day 20: Dynamic Programming Continued
-    Day 21:
+
 
 .. tab:: Six Months
 
