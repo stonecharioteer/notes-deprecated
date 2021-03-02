@@ -252,10 +252,11 @@ Chapter 4 - Speeding Up Your Code with Big O
     Read up on the implementation of :ref:`bubble-sort`.
 
 
-Bubble Sort has the following steps: cpmparisons, and swaps. Note how many times it loops through
+Bubble Sort has the following steps: comparisons, and swaps. Note how many times it loops through
 an array.
 
-No, not twice. For each element, it loops through the entire array.
+No, not twice. For each element, it loops through the entire array. In fact, it *doesn't*
+know if an array is sorted until it loops through the array at least once.
 
 Welcome to :math:`O(N^2)`. You do not want to be here.
 
@@ -268,11 +269,19 @@ Any algorithm wherein you loop through the entire list, or even portions of the
 list but perhaps have a worst-case scenario where you loop through the entire
 list is of this order. If you can avoid it, do not implement one of these.
 
-:math:`O(N^3)` exists. Hope that you do not meet him.
+:math:`O(N^3)` exists. Just pray that you do not meet him or his cousins.
 
 -------------------------------------------------------
 Chapter 5 - Optimizing Code With and Without Big O
 -------------------------------------------------------
+
+.. note::
+
+    Read up on the implementation of :ref:`selection-sort`.
+
+In :ref:`selection-sort`, you loop through the array to find the smallest item and *swap*
+it with the first item. This *first* item is, in fact, a cursor which moves ahead and marks
+the *sorted* part of the array.
 
 
 ---------------------------------------------------------------
