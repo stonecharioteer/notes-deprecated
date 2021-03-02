@@ -187,7 +187,7 @@ How many steps is does this code example take?
 
 The answer is 3.
 
-What is the Big O notation?
+What is Big O notation?
 
 :math:`O(1)`.
 
