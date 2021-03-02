@@ -425,6 +425,10 @@ best case, an **outlier**.
 Chapter 7 - Big O in Everyday Code
 ---------------------------------------------------------------
 
+.. todo::
+
+    This is a work in progress.
+
 ---------------------------------------------------------------
 Chapter 8 - Blazing Fast Lookup with Hash Tables
 ---------------------------------------------------------------
