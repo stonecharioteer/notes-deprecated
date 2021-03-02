@@ -433,12 +433,141 @@ list is of this order. If you can avoid it, do not implement one of these.</p>
 <p class="admonition-title">Note</p>
 <p>Read up on the implementation of <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>.</p>
 </div>
-<p>In <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>, you loop through the array to find the smallest item and <em>swap</em>
-it with the first item. This <em>first</em> item is, in fact, a cursor which moves ahead and marks
-the <em>sorted</em> part of the array.</p>
+<p>In <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>, you loop through the array to find the smallest item
+and <em>swap</em> it with the first item. This <em>first</em> item is, in fact, a cursor
+which moves ahead and marks the <em>sorted</em> part of the array.</p>
+<p>For each item in the array, Selection Sort looks <em>ahead</em> at the rest of the
+items in the array, comparing them and seeing if there’s something <em>smaller</em>
+than this item. It then <em>selects</em> the smallest item, if it is not the current
+item, and swaps it with the current item.</p>
+<p>This way, after the first passthrough, the smallest item is right at the front.
+The algorithm ensures that at the Nth passthrough, the first N items are <em>in
+order</em> at the front of the array.</p>
+<p>So let’s look at Selection Sort and Bubble Sort together.</p>
+<p>Selection Sort has to look at the rest of the items for each item in the list.</p>
+<p>Bubble Sort has to look at the entire list for each item in the list.</p>
+<p>While this seems straight forward, and no one will fault you for saying
+Selection Sort is <em>faster</em> (exactly <em>half</em> the runtime) than Bubble Sort,
+however, <strong>this does not matter to Big O</strong>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">But here’s the funny thing in the world of Big O Notation: Selection Sort</div>
+<div class="line">and Bubble Sort are described in <strong>exactly the same way</strong>.</div>
+</div>
+</div></blockquote>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>Remember to leave your knowledge or preconceived notions of Big O at the
+door.  <em>All</em> you need to do is check this:</p>
+<p>Does the algorithm have nested loops?</p>
+<p>The exact time <strong>does not matter</strong>.</p>
+</div>
+<p>Why?</p>
+<p><strong>Big O Notation ignores constants.</strong></p>
+<p>It is easy to say Selection Sort is a <span class="math notranslate nohighlight">\(O(N^2/2)\)</span> algorithm. It would seem
+<em>common</em> sense.</p>
+<p>However, consider the fact that the length of the array could grow <em>astronomically</em>.
+If you have an infinitely large array, then it does not matter.</p>
+<p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span> is just <span class="math notranslate nohighlight">\(O(N^2)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(O(N/2+50000)\)</span> is just <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(O(100000)\)</span> is just <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<div class="section" id="big-o-categories">
+<h3>Big O Categories<a class="headerlink" href="#big-o-categories" title="Permalink to this headline">¶</a></h3>
+<p>Big O ignores the constants because it uses categories.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Big O Notation only concerns itself with <em>general categories</em> of algorithm speeds.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line">If we were to compare two buildings, one of which is a single-family home and</div>
+<div class="line">one of which is a skyscraper, it becomes almost moot to mention how many floors each one has.</div>
+<div class="line">Because the two buildings are so incredibly different in their sizes and functions.</div>
+</div>
+</div></blockquote>
+<p>This is the idea behind Big O. It categorizes algorithms into buckets wherein the bucket itself
+is a <em>definitive</em> measure of how quickly the algorithm grows with input data.</p>
+<p>It won’t matter if your <span class="math notranslate nohighlight">\(O(1)\)</span> algorithm takes 10 minutes to run or if
+your <span class="math notranslate nohighlight">\(O(N^2)\)</span> takes 1 <span class="math notranslate nohighlight">\({\mu}s\)</span>, <em>at least not to Big O</em>, because it
+<strong>doesn’t care how long each step takes</strong>, only how many steps there will be in
+relation to larger data set sizes.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Talking about <span class="math notranslate nohighlight">\(O(2N)\)</span> when compared to <span class="math notranslate nohighlight">\(O(N^2)\)</span> is like talking</div>
+<div class="line">about a two-story house compared to a skyscraper.</div>
+</div>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="chapter-6-optimizing-for-optimistic-scenarios">
 <h2>Chapter 6 - Optimizing for Optimistic Scenarios<a class="headerlink" href="#chapter-6-optimizing-for-optimistic-scenarios" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">[T]he worst-case scenario isn’t the <em>only</em> scenario worth considering.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#insertion-sort"><span class="std std-ref">Insertion Sort</span></a> is a sorting algorithm that reveals the power of analysing</div>
+<div class="line">scenarios beyond the worst-case.</div>
+</div>
+</div></blockquote>
+<p>Insertion Sort involves: <em>removals</em>, <em>comparisons</em>, <em>shifts</em>, and <em>insertions</em>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Big O Notation only takes into account the highest order of N when we have multiple</div>
+<div class="line">orders added together.</div>
+</div>
+</div></blockquote>
+<p>This means that:</p>
+<p><span class="math notranslate nohighlight">\(O(N^2 + 2N)\)</span> = <span class="math notranslate nohighlight">\(O(N^2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(O(N^4 + N^3 + N^2)\)</span> = <span class="math notranslate nohighlight">\(O(N^4)\)</span></p>
+<p>This is because as <span class="math notranslate nohighlight">\(N\)</span> increases, the higher order values become <em>so much larger</em>
+than the lower-order ones that it becomes trivial to account for them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Take a look at <a class="reference internal" href="../../interview-prep/ds-algo/index.html#big-o-chart"><span class="std std-ref">this chart</span></a> to understand the severity with which
+these categories vary.</p>
+</div>
+<p>In the worst-case scenario, Selection Sort is <em>faster</em> than Insertion Sort. However, it is
+not the case when we look at the average case.</p>
+<p>Best, Average and Worst cases follow a Bell Curve, showing that the worst case is, just like the
+best case, an <strong>outlier</strong>.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Best Case</p></td>
+<td><p>Average Case</p></td>
+<td><p>Worst Case</p></td>
+</tr>
+<tr class="row-even"><td><p>Selection Sort</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Insertion Sort</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2)\)</span></p></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Being able to discern between best-, average- and worst-case scenarios is a</div>
+<div class="line">key skill in choosing the best algorithm for your needs, as well as taking</div>
+<div class="line">existing algorithms and optimizing them further to make them significantly</div>
+<div class="line">faster. [W]hile it’s good to be prepared for the worst case, average cases</div>
+<div class="line">are what happen most of the time.</div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="chapter-7-big-o-in-everyday-code">
 <h2>Chapter 7 - Big O in Everyday Code<a class="headerlink" href="#chapter-7-big-o-in-everyday-code" title="Permalink to this headline">¶</a></h2>
@@ -555,7 +684,10 @@ the <em>sorted</em> part of the array.</p>
 </li>
 <li><a class="reference internal" href="#chapter-3-o-yes-big-o-notation">Chapter 3 - O Yes! Big O Notation</a></li>
 <li><a class="reference internal" href="#chapter-4-speeding-up-your-code-with-big-o">Chapter 4 - Speeding Up Your Code with Big O</a></li>
-<li><a class="reference internal" href="#chapter-5-optimizing-code-with-and-without-big-o">Chapter 5 - Optimizing Code With and Without Big O</a></li>
+<li><a class="reference internal" href="#chapter-5-optimizing-code-with-and-without-big-o">Chapter 5 - Optimizing Code With and Without Big O</a><ul>
+<li><a class="reference internal" href="#big-o-categories">Big O Categories</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#chapter-6-optimizing-for-optimistic-scenarios">Chapter 6 - Optimizing for Optimistic Scenarios</a></li>
 <li><a class="reference internal" href="#chapter-7-big-o-in-everyday-code">Chapter 7 - Big O in Everyday Code</a></li>
 <li><a class="reference internal" href="#chapter-8-blazing-fast-lookup-with-hash-tables">Chapter 8 - Blazing Fast Lookup with Hash Tables</a></li>

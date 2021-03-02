@@ -95,7 +95,7 @@
       <a href="../../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -213,20 +213,13 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="data-structures-and-algorithms">
 <h1>Data Structures and Algorithms<a class="headerlink" href="#data-structures-and-algorithms" title="Permalink to this headline">¶</a></h1>
 <p>This repository will hold my Python implementations of various data structures
 and algorithms.</p>
-<p>Resources:</p>
-<ol class="arabic simple">
-<li><p>MIT 6.006 Introduction to Algorithms</p></li>
-<li><p>Problem Solving with Algorithms and Data Structures using Python</p></li>
-<li><p>Grokking Algorithms</p></li>
-<li><p>MIT 6.046 Design and Analysis of Algorithms</p></li>
-</ol>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="algorithms/index.html">Algorithms</a><ul>
@@ -235,6 +228,38 @@ and algorithms.</p>
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>MIT 6.006 Introduction to Algorithms</p></li>
+<li><p>Problem Solving with Algorithms and Data Structures using Python</p></li>
+<li><p>Grokking Algorithms</p></li>
+<li><p>MIT 6.046 Design and Analysis of Algorithms</p></li>
+</ol>
+</div>
+<div class="section" id="big-o-performance-charts">
+<span id="big-o-chart"></span><h2>Big O Performance Charts<a class="headerlink" href="#big-o-performance-charts" title="Permalink to this headline">¶</a></h2>
+<p>These charts hope to show <em>just how much</em> each of the Big O categories vary with
+respect to each other.</p>
+<p>The first chart shows the performance of <span class="math notranslate nohighlight">\(O(1)\)</span> and <span class="math notranslate nohighlight">\(O(N)\)</span> with respect to
+<span class="math notranslate nohighlight">\(O(N^2)\)</span>.</p>
+<p>(<a class="reference external" href="../../interview-prep/ds-algo/index-1.py">Source code</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-1.png">png</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-1.hires.png">hires.png</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-1.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/index-1.png" src="../../_images/index-1.png"/>
+</div>
+<p>This next chart shows the performance of <span class="math notranslate nohighlight">\(O(N^2)\)</span> and <span class="math notranslate nohighlight">\(O(N^3)\)</span> with respect to
+<span class="math notranslate nohighlight">\(O(N^4)\)</span>.</p>
+<p>(<a class="reference external" href="../../interview-prep/ds-algo/index-2.py">Source code</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-2.png">png</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-2.hires.png">hires.png</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-2.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/index-2.png" src="../../_images/index-2.png"/>
+</div>
+<p>Let’s look at these with a logarithmic Y-axis.</p>
+<p>(<a class="reference external" href="../../interview-prep/ds-algo/index-3.py">Source code</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-3.png">png</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-3.hires.png">hires.png</a>, <a class="reference external" href="../../interview-prep/ds-algo/index-3.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../../_images/index-3.png" src="../../_images/index-3.png"/>
+</div>
+<p>These graphs go on to show just how large the difference is between each of the categories.</p>
 </div>
 </div>
 
@@ -282,8 +307,28 @@ and algorithms.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Data Structures and Algorithms</a><ul>
+<li><a class="reference internal" href="#resources">Resources</a></li>
+<li><a class="reference internal" href="#big-o-performance-charts">Big O Performance Charts</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -296,5 +341,7 @@ and algorithms.</p>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
 </html>

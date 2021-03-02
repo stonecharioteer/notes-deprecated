@@ -279,14 +279,147 @@ Chapter 5 - Optimizing Code With and Without Big O
 
     Read up on the implementation of :ref:`selection-sort`.
 
-In :ref:`selection-sort`, you loop through the array to find the smallest item and *swap*
-it with the first item. This *first* item is, in fact, a cursor which moves ahead and marks
-the *sorted* part of the array.
+In :ref:`selection-sort`, you loop through the array to find the smallest item
+and *swap* it with the first item. This *first* item is, in fact, a cursor
+which moves ahead and marks the *sorted* part of the array.
+
+For each item in the array, Selection Sort looks *ahead* at the rest of the
+items in the array, comparing them and seeing if there's something *smaller*
+than this item. It then *selects* the smallest item, if it is not the current
+item, and swaps it with the current item.
+
+This way, after the first passthrough, the smallest item is right at the front.
+The algorithm ensures that at the Nth passthrough, the first N items are *in
+order* at the front of the array.
+
+So let's look at Selection Sort and Bubble Sort together.
+
+Selection Sort has to look at the rest of the items for each item in the list.
+
+Bubble Sort has to look at the entire list for each item in the list.
+
+While this seems straight forward, and no one will fault you for saying
+Selection Sort is *faster* (exactly *half* the runtime) than Bubble Sort,
+however, **this does not matter to Big O**.
+
+    | But here's the funny thing in the world of Big O Notation: Selection Sort
+    | and Bubble Sort are described in **exactly the same way**.
+
+.. admonition:: Protip
+    :class: info
+
+    Remember to leave your knowledge or preconceived notions of Big O at the
+    door.  *All* you need to do is check this:
+
+    Does the algorithm have nested loops?
+
+    The exact time **does not matter**.
+
+
+Why?
+
+**Big O Notation ignores constants.**
+
+It is easy to say Selection Sort is a :math:`O(N^2/2)` algorithm. It would seem
+*common* sense.
+
+However, consider the fact that the length of the array could grow *astronomically*.
+If you have an infinitely large array, then it does not matter.
+
+:math:`O(N^2/2)` is just :math:`O(N^2)`.
+
+:math:`O(N/2+50000)` is just :math:`O(N)`.
+
+:math:`O(100000)` is just :math:`O(1)`.
+
+Big O Categories
+------------------
+
+Big O ignores the constants because it uses categories.
+
+  | Big O Notation only concerns itself with *general categories* of algorithm speeds.
+
+..
+
+
+  | If we were to compare two buildings, one of which is a single-family home and
+  | one of which is a skyscraper, it becomes almost moot to mention how many floors each one has.
+  | Because the two buildings are so incredibly different in their sizes and functions.
+
+This is the idea behind Big O. It categorizes algorithms into buckets wherein the bucket itself
+is a *definitive* measure of how quickly the algorithm grows with input data.
+
+It won't matter if your :math:`O(1)` algorithm takes 10 minutes to run or if
+your :math:`O(N^2)` takes 1 :math:`{\mu}s`, *at least not to Big O*, because it
+**doesn't care how long each step takes**, only how many steps there will be in
+relation to larger data set sizes.
+
+  | Talking about :math:`O(2N)` when compared to :math:`O(N^2)` is like talking
+  | about a two-story house compared to a skyscraper.
+
+..
 
 
 ---------------------------------------------------------------
 Chapter 6 - Optimizing for Optimistic Scenarios
 ---------------------------------------------------------------
+
+
+  | [T]he worst-case scenario isn't the *only* scenario worth considering.
+
+..
+
+  | :ref:`insertion-sort` is a sorting algorithm that reveals the power of analysing
+  | scenarios beyond the worst-case.
+
+
+Insertion Sort involves: *removals*, *comparisons*, *shifts*, and *insertions*.
+
+  | Big O Notation only takes into account the highest order of N when we have multiple
+  | orders added together.
+
+This means that:
+
+:math:`O(N^2 + 2N)` = :math:`O(N^2)`
+
+:math:`O(N^4 + N^3 + N^2)` = :math:`O(N^4)`
+
+This is because as :math:`N` increases, the higher order values become *so much larger*
+than the lower-order ones that it becomes trivial to account for them.
+
+.. note::
+
+    Take a look at :ref:`this chart <big-o-chart>` to understand the severity with which
+    these categories vary.
+
+In the worst-case scenario, Selection Sort is *faster* than Insertion Sort. However, it is
+not the case when we look at the average case.
+
+Best, Average and Worst cases follow a Bell Curve, showing that the worst case is, just like the
+best case, an **outlier**.
+
+.. list-table::
+
+   * -
+     - Best Case
+     - Average Case
+     - Worst Case
+   * - Selection Sort
+     - :math:`O(N^2/2)`
+     - :math:`O(N^2/2)`
+     - :math:`O(N^2/2)`
+   * - Insertion Sort
+     - :math:`O(N)`
+     - :math:`O(N^2/2)`
+     - :math:`O(N^2)`
+
+..
+
+  | Being able to discern between best-, average- and worst-case scenarios is a
+  | key skill in choosing the best algorithm for your needs, as well as taking
+  | existing algorithms and optimizing them further to make them significantly
+  | faster. [W]hile it's good to be prepared for the worst case, average cases
+  | are what happen most of the time.
 
 ---------------------------------------------------------------
 Chapter 7 - Big O in Everyday Code
