@@ -220,7 +220,97 @@
 <h1>Sorting Algorithms<a class="headerlink" href="#sorting-algorithms" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="bubble-sort">
 <span id="id1"></span><h2>Bubble Sort<a class="headerlink" href="#bubble-sort" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Bubble sort implementation"""</span>
+
+
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">"""Uses bubble sort to sort a list"""</span>
+    <span class="c1"># Bubble sort is a O(N**2) algorithm</span>
+    <span class="c1"># First, assume the array is not sorted</span>
+    <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># Now, fix the range until the end of the array</span>
+    <span class="n">unsorted_until</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># repeat until it is sorted</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">is_sorted</span><span class="p">:</span>
+        <span class="c1"># assume it is sorted</span>
+        <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># loop through the range from 0 till the last sorted index.</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">unsorted_until</span><span class="p">):</span>
+            <span class="c1"># Check current item with the next item.</span>
+            <span class="c1"># This is safe to do because there's always one item ahead of this</span>
+            <span class="c1"># this is because we use unsorted_until = len(array) -1, which</span>
+            <span class="c1"># yields the index of the last item, but we also use</span>
+            <span class="c1"># range(unsorted_until), which gives us an iterable from 0 *till*</span>
+            <span class="c1"># that number, but not including it.  So even in the first trial,</span>
+            <span class="c1"># we do not reach the end of the list.</span>
+            <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># If the item is larger than the next item, *bubble* the</span>
+                <span class="c1"># smaller one upwards.  Another way to think of bubble sort is</span>
+                <span class="c1"># to think of it as *sinking* the largest item to the bottom of</span>
+                <span class="c1"># the row at each trial.</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+                <span class="c1"># Now that a change has been made, you know that the list was</span>
+                <span class="c1"># unsorted</span>
+                <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># Reduce the sorting view to exclude the item.</span>
+        <span class="n">unsorted_until</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="c1"># return the item, note that this is not really necessary since we are</span>
+    <span class="c1"># *modifying* the original item.</span>
+    <span class="k">return</span> <span class="n">array</span>
+
+
+<span class="k">def</span> <span class="nf">test_bubble_sort</span><span class="p">():</span>
+    <span class="sd">"""Tests bubble sort"""</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="n">sorted_array</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">bubble_sorted_array</span> <span class="o">=</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">bubble_sorted_array</span> <span class="o">==</span> <span class="n">sorted_array</span><span class="p">,</span> <span class="s2">"Bubble sorting failed"</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
