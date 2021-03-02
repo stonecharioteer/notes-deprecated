@@ -15,12 +15,14 @@
   :root {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
     }
   }
@@ -29,15 +31,18 @@
   .override-light {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   .override-dark {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
 </style><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
   <body dir="">
     
@@ -330,7 +335,7 @@ answer, hence the name.</p>
 <p class="admonition-title">Note</p>
 <p>This book ignores most of the mathematical basis for Big O, and explains stuff
 rather simply. I recommend this section a lot. However, for a mathematical
-explanation, read <span class="xref std std-ref">The Algorithm Design Manual’s sections on Big O</span>.</p>
+explanation, read <a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-big-o"><span class="std std-ref">The Algorithm Design Manual’s sections on Big O</span></a>.</p>
 </div>
 <p>Big O measures how many steps an algorithm will take in relation to its input size.</p>
 <blockquote>
@@ -500,7 +505,7 @@ list is of this order. If you can avoid it, do not implement one of these.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 01, 2021.
+            Last updated on Mar 02, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
