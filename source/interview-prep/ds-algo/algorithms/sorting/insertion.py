@@ -1,3 +1,5 @@
+"""Insertion Sort"""
+
 
 def insertion_sort(inp_list):
     """Insertion Sort
@@ -30,3 +32,11 @@ def binary_insertion_sort(inp_list):
     However, since the insertion will mandate the shifting of the numbers anyway,
     this will still take O(n**2).
     """
+
+
+def test_insertion_sort():
+    import random
+    array = [random.randint(0, 1000) for _ in range(10)]
+    sorted_array = sorted(array)
+    insertion_sorted_array = insertion_sort(array)
+    assert insertion_sorted_array == sorted_array, "Insertion sort failed"
