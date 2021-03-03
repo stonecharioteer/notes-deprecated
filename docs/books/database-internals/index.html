@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="How Linux Works by Brian Ward" href="../how-linux-works/index.html" /><link rel="prev" title="A Common Sense Guide to Data-Structures and Algorithms" href="../common-sense-guide-to-ds-algo/index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee" href="../elements-of-programming-interviews/index.html" /><link rel="prev" title="Cracking the Coding Interview - Gayle Laakmann McDowell" href="../cracking-the-coding-interview/index.html" />
 
     <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
-        <title>Database Internals by Alex Petrov - Stonecharioteer&#39;s Notes</title>
+        <title>Database Internals - Alex Petrov - Stonecharioteer&#39;s Notes</title>
       <link rel="stylesheet" href="../../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
@@ -15,12 +15,14 @@
   :root {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
     }
   }
@@ -29,15 +31,18 @@
   .override-light {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   .override-dark {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
 </style><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
   <body dir="">
     
@@ -112,13 +117,18 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Reading Notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Database Internals by Alex Petrov</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Books</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rust-doc/index.html">Rust Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -141,7 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/index.html">MIT 6.824 - Distributed Systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/lecture-01-introduction.html">MIT 6.824 - Distributed Systems</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -162,6 +172,32 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/visitor.html">The Visitor Pattern</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/index.html">Leetcode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../interview-prep/advent-of-code/index.html">Advent of Code</a></li>
 </ul>
@@ -180,14 +216,59 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="database-internals-by-alex-petrov">
-<h1>Database Internals by Alex Petrov<a class="headerlink" href="#database-internals-by-alex-petrov" title="Permalink to this headline">¶</a></h1>
+        <div class="section" id="database-internals-alex-petrov">
+<span id="database-internals"></span><h1>Database Internals - Alex Petrov<a class="headerlink" href="#database-internals-alex-petrov" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a chapter-by-chapter analysis of this book.</p>
 </div>
-<div class="section" id="database-storage-engines">
-<h2>Database Storage Engines<a class="headerlink" href="#database-storage-engines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="part-i-storage-engines">
+<h2>Part I. Storage Engines<a class="headerlink" href="#part-i-storage-engines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-1-introduction-and-overview">
+<h3>Chapter 1 - Introduction and Overview<a class="headerlink" href="#chapter-1-introduction-and-overview" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-2-b-tree-basics">
+<h3>Chapter 2 - B-Tree Basics<a class="headerlink" href="#chapter-2-b-tree-basics" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-3-file-formats">
+<h3>Chapter 3 - File Formats<a class="headerlink" href="#chapter-3-file-formats" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-4-implementing-b-trees">
+<h3>Chapter 4 - Implementing B-Trees<a class="headerlink" href="#chapter-4-implementing-b-trees" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-5-transaction-processing-and-recovery">
+<h3>Chapter 5 - Transaction Processing and Recovery<a class="headerlink" href="#chapter-5-transaction-processing-and-recovery" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-6-b-tree-variants">
+<h3>Chapter 6 - B-Tree Variants<a class="headerlink" href="#chapter-6-b-tree-variants" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-7-log-structured-storage">
+<h3>Chapter 7 - Log-Structured Storage<a class="headerlink" href="#chapter-7-log-structured-storage" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="part-ii-distributed-systems">
+<h2>Part II. Distributed Systems<a class="headerlink" href="#part-ii-distributed-systems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-8-introduction-and-overview">
+<h3>Chapter 8 - Introduction and Overview<a class="headerlink" href="#chapter-8-introduction-and-overview" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-9-failure-detection">
+<h3>Chapter 9 - Failure Detection<a class="headerlink" href="#chapter-9-failure-detection" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-10-leader-election">
+<h3>Chapter 10 - Leader Election<a class="headerlink" href="#chapter-10-leader-election" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-11-replication-and-consistency">
+<h3>Chapter 11 - Replication and Consistency<a class="headerlink" href="#chapter-11-replication-and-consistency" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-12-anti-entropy-and-dissemination">
+<h3>Chapter 12 - Anti-Entropy and Dissemination<a class="headerlink" href="#chapter-12-anti-entropy-and-dissemination" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-13-distributed-transactions">
+<h3>Chapter 13 - Distributed Transactions<a class="headerlink" href="#chapter-13-distributed-transactions" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="chapter-14-consensus">
+<h3>Chapter 14 - Consensus<a class="headerlink" href="#chapter-14-consensus" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -195,23 +276,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../how-linux-works/index.html">
+          <a class="next-page" href="../elements-of-programming-interviews/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">How Linux Works by Brian Ward</div>
+                <div class="title">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../common-sense-guide-to-ds-algo/index.html">
+          <a class="prev-page" href="../cracking-the-coding-interview/index.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">A Common Sense Guide to Data-Structures and Algorithms</div>
+                <div class="title">Cracking the Coding Interview - Gayle Laakmann McDowell</div>
                 
               </div>
             </a>
@@ -220,7 +301,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Feb 26, 2021.
+            Last updated on Mar 02, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -247,8 +328,27 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Database Internals by Alex Petrov</a><ul>
-<li><a class="reference internal" href="#database-storage-engines">Database Storage Engines</a></li>
+<li><a class="reference internal" href="#">Database Internals - Alex Petrov</a><ul>
+<li><a class="reference internal" href="#part-i-storage-engines">Part I. Storage Engines</a><ul>
+<li><a class="reference internal" href="#chapter-1-introduction-and-overview">Chapter 1 - Introduction and Overview</a></li>
+<li><a class="reference internal" href="#chapter-2-b-tree-basics">Chapter 2 - B-Tree Basics</a></li>
+<li><a class="reference internal" href="#chapter-3-file-formats">Chapter 3 - File Formats</a></li>
+<li><a class="reference internal" href="#chapter-4-implementing-b-trees">Chapter 4 - Implementing B-Trees</a></li>
+<li><a class="reference internal" href="#chapter-5-transaction-processing-and-recovery">Chapter 5 - Transaction Processing and Recovery</a></li>
+<li><a class="reference internal" href="#chapter-6-b-tree-variants">Chapter 6 - B-Tree Variants</a></li>
+<li><a class="reference internal" href="#chapter-7-log-structured-storage">Chapter 7 - Log-Structured Storage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-ii-distributed-systems">Part II. Distributed Systems</a><ul>
+<li><a class="reference internal" href="#chapter-8-introduction-and-overview">Chapter 8 - Introduction and Overview</a></li>
+<li><a class="reference internal" href="#chapter-9-failure-detection">Chapter 9 - Failure Detection</a></li>
+<li><a class="reference internal" href="#chapter-10-leader-election">Chapter 10 - Leader Election</a></li>
+<li><a class="reference internal" href="#chapter-11-replication-and-consistency">Chapter 11 - Replication and Consistency</a></li>
+<li><a class="reference internal" href="#chapter-12-anti-entropy-and-dissemination">Chapter 12 - Anti-Entropy and Dissemination</a></li>
+<li><a class="reference internal" href="#chapter-13-distributed-transactions">Chapter 13 - Distributed Transactions</a></li>
+<li><a class="reference internal" href="#chapter-14-consensus">Chapter 14 - Consensus</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

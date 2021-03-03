@@ -15,12 +15,14 @@
   :root {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
     }
   }
@@ -29,15 +31,18 @@
   .override-light {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   .override-dark {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
 </style><link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
     <link rel="stylesheet" href="../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
   <body dir="">
     
@@ -90,7 +95,7 @@
       <a href="../../../../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -112,13 +117,18 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../books/index.html">Reading Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../books/database-internals/index.html">Database Internals by Alex Petrov</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../books/index.html">Books</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/database-internals/index.html">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../books/how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../books/how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../books/problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../books/rust-doc/index.html">Rust Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -141,7 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/index.html">MIT 6.824 - Distributed Systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/lecture-01-introduction.html">MIT 6.824 - Distributed Systems</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -162,6 +172,32 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/visitor.html">The Visitor Pattern</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../leetcode/index.html">Leetcode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../advent-of-code/index.html">Advent of Code</a></li>
 </ul>
@@ -177,11 +213,99 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="search-algorithms">
 <h1>Search Algorithms<a class="headerlink" href="#search-algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="binary-search">
+<span id="id1"></span><h2>Binary Search<a class="headerlink" href="#binary-search" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Binary Search Algorithm"""</span>
+
+
+<span class="k">def</span> <span class="nf">search_in_ordered_array</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""Finds item in an ordered array"""</span>
+    <span class="c1"># loop through array, if `item` is lesser than the mid,</span>
+    <span class="c1"># look left, else look right.</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+        <span class="n">mid_point</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid_point</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">mid</span> <span class="o">&lt;</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">mid_point</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">mid</span> <span class="o">&gt;</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">mid_point</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mid_point</span>
+
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">test_binary_search_even_inputs</span><span class="p">():</span>
+    <span class="sd">"""check that this works for even number of inputs"""</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">search_in_ordered_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">test_binary_search_odd_inputs</span><span class="p">():</span>
+    <span class="sd">"""Tests that this works for odd number of inputs"""</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">search_in_ordered_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">pos</span> <span class="o">==</span> <span class="mi">3</span>
+
+
+<span class="k">def</span> <span class="nf">test_binary_search_not_found</span><span class="p">():</span>
+    <span class="sd">"""Tests that this returns -1 when the element is not found"""</span>
+
+    <span class="n">array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">search_in_ordered_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">pos</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
 </div>
 
       </article>
@@ -213,7 +337,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Feb 26, 2021.
+            Last updated on Mar 02, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -228,8 +352,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Search Algorithms</a><ul>
+<li><a class="reference internal" href="#binary-search">Binary Search</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

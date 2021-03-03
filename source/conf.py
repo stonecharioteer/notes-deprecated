@@ -32,7 +32,8 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_inline_tabs",
     "sphinx_copybutton",
-    "sphinx.ext.githubpages"
+    "sphinx.ext.githubpages",
+    "matplotlib.sphinxext.plot_directive",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -57,10 +58,17 @@ html_theme = 'furo'
 html_static_path = ['_static']
 html_logo = "_static/images/stonecharioteer-banner.png"
 html_title = "Stonecharioteer's Notes"
+serif_fonts = "Newsreader, Garamond, Helvetica, Times New Roman, Serif"
 html_theme_options = {
     "navigation_with_keys": True,
+    "light_css_variables": {
+        "font-stack": serif_fonts
+    },
+    "dark_css_variables": {
+        "font-stack": serif_fonts,
+    }
 }
-
+html_css_files = ["css/custom.css"]
 html_last_updated_fmt = ""
 
 todo_include_todos = True

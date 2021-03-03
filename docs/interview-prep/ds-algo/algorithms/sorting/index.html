@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Leetcode" href="../../../leetcode/index.html" /><link rel="prev" title="Search Algorithms" href="../searching/index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Design Patterns" href="../../../design-patterns/index.html" /><link rel="prev" title="Search Algorithms" href="../searching/index.html" />
 
     <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
         <title>Sorting Algorithms - Stonecharioteer&#39;s Notes</title>
@@ -15,12 +15,14 @@
   :root {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
     }
   }
@@ -29,15 +31,18 @@
   .override-light {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   .override-dark {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
 </style><link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
     <link rel="stylesheet" href="../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
   <body dir="">
     
@@ -112,13 +117,18 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../books/index.html">Reading Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../books/database-internals/index.html">Database Internals by Alex Petrov</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../books/index.html">Books</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/database-internals/index.html">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../books/how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../books/how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../books/problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../books/rust-doc/index.html">Rust Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -141,7 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/index.html">MIT 6.824 - Distributed Systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/lecture-01-introduction.html">MIT 6.824 - Distributed Systems</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -160,6 +170,32 @@
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Sorting Algorithms</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/visitor.html">The Visitor Pattern</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../leetcode/index.html">Leetcode</a></li>
@@ -182,8 +218,8 @@
         </label>
         <div class="section" id="sorting-algorithms">
 <h1>Sorting Algorithms<a class="headerlink" href="#sorting-algorithms" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="insertion-sort">
-<h2>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bubble-sort">
+<span id="id1"></span><h2>Bubble Sort<a class="headerlink" href="#bubble-sort" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -215,7 +251,115 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Bubble sort implementation"""</span>
+
+
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">"""Uses bubble sort to sort a list"""</span>
+    <span class="c1"># Bubble sort is a O(N**2) algorithm</span>
+    <span class="c1"># First, assume the array is not sorted</span>
+    <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># Now, fix the range until the end of the array</span>
+    <span class="n">unsorted_until</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># repeat until it is sorted</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">is_sorted</span><span class="p">:</span>
+        <span class="c1"># assume it is sorted</span>
+        <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># loop through the range from 0 till the last sorted index.</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">unsorted_until</span><span class="p">):</span>
+            <span class="c1"># Check current item with the next item.</span>
+            <span class="c1"># This is safe to do because there's always one item ahead of this</span>
+            <span class="c1"># this is because we use unsorted_until = len(array) -1, which</span>
+            <span class="c1"># yields the index of the last item, but we also use</span>
+            <span class="c1"># range(unsorted_until), which gives us an iterable from 0 *till*</span>
+            <span class="c1"># that number, but not including it.  So even in the first trial,</span>
+            <span class="c1"># we do not reach the end of the list.</span>
+            <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># If the item is larger than the next item, *bubble* the</span>
+                <span class="c1"># smaller one upwards.  Another way to think of bubble sort is</span>
+                <span class="c1"># to think of it as *sinking* the largest item to the bottom of</span>
+                <span class="c1"># the row at each trial.</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+                <span class="c1"># Now that a change has been made, you know that the list was</span>
+                <span class="c1"># unsorted</span>
+                <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># Reduce the sorting view to exclude the item.</span>
+        <span class="n">unsorted_until</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="c1"># return the item, note that this is not really necessary since we are</span>
+    <span class="c1"># *modifying* the original item.</span>
+    <span class="k">return</span> <span class="n">array</span>
+
+
+<span class="k">def</span> <span class="nf">test_bubble_sort</span><span class="p">():</span>
+    <span class="sd">"""Tests bubble sort"""</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="n">sorted_array</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">bubble_sorted_array</span> <span class="o">=</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">bubble_sorted_array</span> <span class="o">==</span> <span class="n">sorted_array</span><span class="p">,</span> <span class="s2">"Bubble sorting failed"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="insertion-sort">
+<span id="id2"></span><h2>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Insertion Sort"""</span>
+
+
 <span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="n">inp_list</span><span class="p">):</span>
     <span class="sd">"""Insertion Sort</span>
 <span class="sd">    O(n**2) sorting algorithm.</span>
@@ -247,24 +391,68 @@
 <span class="sd">    However, since the insertion will mandate the shifting of the numbers anyway,</span>
 <span class="sd">    this will still take O(n**2).</span>
 <span class="sd">    """</span>
+
+
+<span class="k">def</span> <span class="nf">test_insertion_sort</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+    <span class="n">sorted_array</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">insertion_sorted_array</span> <span class="o">=</span> <span class="n">insertion_sort</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">insertion_sorted_array</span> <span class="o">==</span> <span class="n">sorted_array</span><span class="p">,</span> <span class="s2">"Insertion sort failed"</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
 <div class="section" id="merge-sort">
-<h2>Merge Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Merge Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
 <div class="section" id="selection-sort">
-<h2>Selection Sort<a class="headerlink" href="#selection-sort" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
-</pre></div>
-</td></tr></table></div></div>
-</div>
-<div class="section" id="bubble-sort">
-<h2>Bubble Sort<a class="headerlink" href="#bubble-sort" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<span id="id4"></span><h2>Selection Sort<a class="headerlink" href="#selection-sort" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Selection Sort"""</span>
+
+
+<span class="k">def</span> <span class="nf">selection_sort</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">"""Selection Sort"""</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+        <span class="n">minimum_number_index</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">for</span> <span class="n">index_2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">index_2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">array</span><span class="p">[</span><span class="n">minimum_number_index</span><span class="p">]:</span>
+                <span class="n">minimum_number_index</span> <span class="o">=</span> <span class="n">index_2</span>
+        <span class="k">if</span> <span class="n">minimum_number_index</span> <span class="o">!=</span> <span class="n">index</span><span class="p">:</span>
+            <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">minimum_number_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">minimum_number_index</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">array</span>
+
+
+<span class="k">def</span> <span class="nf">test_selection_sort</span><span class="p">():</span>
+    <span class="sd">"""Tests selection sort"""</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="n">sorted_array</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">bubble_sorted_array</span> <span class="o">=</span> <span class="n">selection_sort</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">bubble_sorted_array</span> <span class="o">==</span> <span class="n">sorted_array</span><span class="p">,</span> <span class="s2">"Selection sorting failed"</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
@@ -274,12 +462,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../../leetcode/index.html">
+          <a class="next-page" href="../../../design-patterns/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Leetcode</div>
+                <div class="title">Design Patterns</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -299,7 +487,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Feb 26, 2021.
+            Last updated on Mar 02, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -327,10 +515,10 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Sorting Algorithms</a><ul>
+<li><a class="reference internal" href="#bubble-sort">Bubble Sort</a></li>
 <li><a class="reference internal" href="#insertion-sort">Insertion Sort</a></li>
 <li><a class="reference internal" href="#merge-sort">Merge Sort</a></li>
 <li><a class="reference internal" href="#selection-sort">Selection Sort</a></li>
-<li><a class="reference internal" href="#bubble-sort">Bubble Sort</a></li>
 </ul>
 </li>
 </ul>

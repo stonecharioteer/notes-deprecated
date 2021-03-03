@@ -1,3 +1,5 @@
+.. _how-linux-works:
+
 ==============================
 How Linux Works by Brian Ward
 ==============================

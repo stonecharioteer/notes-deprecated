@@ -15,12 +15,14 @@
   :root {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
     }
   }
@@ -29,15 +31,18 @@
   .override-light {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   .override-dark {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
 </style><link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
   <body dir="">
     
@@ -90,7 +95,7 @@
       <a href="../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -112,13 +117,18 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../books/index.html">Reading Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../books/database-internals/index.html">Database Internals by Alex Petrov</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../books/index.html">Books</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../books/algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/database-internals/index.html">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../books/how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../books/how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../books/problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../books/rust-doc/index.html">Rust Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../books/designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -141,7 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../courses/mit-6.824-distributed-systems/index.html">MIT 6.824 - Distributed Systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../courses/mit-6.824-distributed-systems/lecture-01-introduction.html">MIT 6.824 - Distributed Systems</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -162,6 +172,32 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-patterns/visitor.html">The Visitor Pattern</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="leetcode/index.html">Leetcode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advent-of-code/index.html">Advent of Code</a></li>
 </ul>
@@ -177,23 +213,151 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="interview-preparation">
 <h1>Interview Preparation<a class="headerlink" href="#interview-preparation" title="Permalink to this headline">¶</a></h1>
 <p>This section contains my notes that are solely for interview preparation. This
 targets FAANG-style leetcode-farming, and my daily progress.</p>
+<p>I am not going to talk about whether or not this interview process works. I just want to
+be able to ace any interview I go to.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Topics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ds-algo/index.html">Data Structures and Algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds-algo/algorithms/index.html">Algorithms</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ds-algo/index.html">Data Structures and Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design-patterns/index.html">Design Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leetcode/index.html">Leetcode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advent-of-code/index.html">Advent of Code</a></li>
 </ul>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../books/common-sense-guide-to-ds-algo/index.html#common-sense-guide"><span class="std std-ref">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</span></a></p></li>
+<li><p><a class="reference internal" href="../books/cracking-the-coding-interview/index.html#ctci"><span class="std std-ref">Cracking the Coding Interview - Gayle Laakmann McDowell</span></a></p></li>
+<li><p><a class="reference internal" href="../books/algorithm-design-manual/index.html#algorithm-design-manual"><span class="std std-ref">The Algorithm Design Manual - Steven S. Skiena</span></a></p></li>
+<li><p><a class="reference internal" href="../books/elements-of-programming-interviews/index.html#elements-of-programming-interviews"><span class="std std-ref">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</span></a></p></li>
+</ol>
+</div>
+<div class="section" id="preparation-roadmap">
+<h2>Preparation Roadmap<a class="headerlink" href="#preparation-roadmap" title="Permalink to this headline">¶</a></h2>
+<p>I am taking this interview preparation timeline from the first chapter of <a class="reference internal" href="../books/elements-of-programming-interviews/index.html#elements-of-programming-interviews"><span class="std std-ref">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</span></a>,
+and I’m tuning it with things I’ve found in <a class="reference internal" href="../books/cracking-the-coding-interview/index.html#ctci"><span class="std std-ref">Cracking the Coding Interview - Gayle Laakmann McDowell</span></a>.</p>
+<p>Your mileage may vary.</p>
+<p>Each of these sections has a <em>pre-read</em>, a <em>daily-activity</em>, and
+a <em>review</em>, which usually involves <em>Leetcode</em> problems.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This document is still a WIP, so I will be editing this as I go along.</p>
+</div>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">Three Months</label><div class="tab-content docutils container">
+<p>This is the plan I use, and I will be focussing on this the most.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">Six Months</label><div class="tab-content docutils container">
+<p>This is the plan I recommend following, if you haven’t interviewed in over a year.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--3">One Year</label><div class="tab-content docutils container">
+<p>This is the “I don’t hate my job but would like a backup” plan. I don’t recommend this
+unless you have nothing better to do.</p>
+</div>
+</div>
+<div class="section" id="big-o">
+<h3>Big-O<a class="headerlink" href="#big-o" title="Permalink to this headline">¶</a></h3>
+<p>The best introduction to Big-O I have found so far is in <a class="reference internal" href="../books/common-sense-guide-to-ds-algo/index.html#common-sense-guide"><span class="std std-ref">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</span></a>.
+My <span class="xref std std-ref">notes on Big-O from it</span> will be the section to refresh
+here. This should take 2 days. Do all the exercises in the book.</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">Three Months</label><div class="tab-content docutils container">
+<p>2 Days</p>
+<p>Day 1: Read <span class="xref std std-ref">common-sense-guide-big-o</span></p>
+<p>Day 2: Read <span class="xref std std-ref">ctci-big-o</span></p>
+<p>Do all the exercises in both books. <a class="reference internal" href="../books/common-sense-guide-to-ds-algo/index.html#common-sense-guide"><span class="std std-ref">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</span></a>’s exercises will
+not take more than 20 minutes.  I need to check how long <a class="reference internal" href="../books/cracking-the-coding-interview/index.html#ctci"><span class="std std-ref">Cracking the Coding Interview - Gayle Laakmann McDowell</span></a> will
+take.</p>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">Six Months</label><div class="tab-content docutils container">
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Fill this in.</p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--3">One Year</label><div class="tab-content docutils container">
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Fill this in.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-structures">
+<h3>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h3>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--1">Three Months</label><div class="tab-content docutils container">
+<p>Day 3: Arrays and Strings</p>
+<p>Day 4: Linked Lists</p>
+<p>Day 5: Stacks</p>
+<p>Day 6: Queues</p>
+<p>Day 7: Trees</p>
+<p>Day 8: Graphs</p>
+<p>Day 9: Heaps</p>
+<p>Day 10: Hash Tables</p>
+<p>Day 11: Review</p>
+<p>Day 12: Review</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the end of this, you’d be at day 12, so you should have started
+Leetcode by now. Focus on topics.  As you go through the above topics,
+churn out solutions to leetcode problems in those topics. Just read the
+questions and try to write answers. You’ll get back to this later.</p>
+</div>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--2">Six Months</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+<input class="tab-input" id="tab-set--2-input--3" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--3">One Year</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+</div>
+</div>
+<div class="section" id="algorithms">
+<h3>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h3>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--1">Three Months</label><div class="tab-content docutils container">
+<p>Day 13: Bit Manipulation</p>
+<p>Day 14: Mathematical Gotchas</p>
+<p>Day 15: Sorting Algorithms</p>
+<p>Day 15: Sorting Algorithms Continued</p>
+<p>Day 16: Searching Algorithms</p>
+<p>Day 17: Searching Algorithms Continued</p>
+<p>Day 18: Binary Search Trees</p>
+<p>Day 18: Recursion</p>
+<p>Day 19: Dynamic Programming</p>
+<p>Day 20: Dynamic Programming Continued</p>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--2">Six Months</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+<input class="tab-input" id="tab-set--3-input--3" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--3">One Year</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+</div>
+</div>
+<div class="section" id="system-design">
+<h3>System Design<a class="headerlink" href="#system-design" title="Permalink to this headline">¶</a></h3>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--1">Three Months</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--2">Six Months</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+<input class="tab-input" id="tab-set--4-input--3" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--3">One Year</label><div class="tab-content docutils container">
+<p>Content goes here.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -226,7 +390,7 @@ targets FAANG-style leetcode-farming, and my daily progress.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Feb 26, 2021.
+            Last updated on Mar 02, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -241,8 +405,34 @@ targets FAANG-style leetcode-farming, and my daily progress.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Interview Preparation</a><ul>
+<li><a class="reference internal" href="#resources">Resources</a></li>
+<li><a class="reference internal" href="#preparation-roadmap">Preparation Roadmap</a><ul>
+<li><a class="reference internal" href="#big-o">Big-O</a></li>
+<li><a class="reference internal" href="#data-structures">Data Structures</a></li>
+<li><a class="reference internal" href="#algorithms">Algorithms</a></li>
+<li><a class="reference internal" href="#system-design">System Design</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

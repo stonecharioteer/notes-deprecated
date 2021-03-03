@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Database Internals by Alex Petrov" href="../database-internals/index.html" /><link rel="prev" title="Reading Notes" href="../index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Cracking the Coding Interview - Gayle Laakmann McDowell" href="../cracking-the-coding-interview/index.html" /><link rel="prev" title="The Algorithm Design Manual - Steven S. Skiena" href="../algorithm-design-manual/index.html" />
 
     <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
-        <title>A Common Sense Guide to Data-Structures and Algorithms - Stonecharioteer&#39;s Notes</title>
+        <title>A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow - Stonecharioteer&#39;s Notes</title>
       <link rel="stylesheet" href="../../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
@@ -15,12 +15,14 @@
   :root {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
     }
   }
@@ -29,15 +31,18 @@
   .override-light {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
   .override-dark {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
   
   }
 </style><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
   <body dir="">
     
@@ -90,7 +95,7 @@
       <a href="../../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
     </div>
     <div class="header-right">
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
@@ -112,13 +117,18 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Reading Notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database-internals/index.html">Database Internals by Alex Petrov</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Books</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database-internals/index.html">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rust-doc/index.html">Rust Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -141,7 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/index.html">MIT 6.824 - Distributed Systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/lecture-01-introduction.html">MIT 6.824 - Distributed Systems</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -162,6 +172,32 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/visitor.html">The Visitor Pattern</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/index.html">Leetcode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../interview-prep/advent-of-code/index.html">Advent of Code</a></li>
 </ul>
@@ -177,34 +213,431 @@
   <main class="main">
     <div class="content">
       <article role="main">
-        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="a-common-sense-guide-to-data-structures-and-algorithms">
-<h1>A Common Sense Guide to Data-Structures and Algorithms<a class="headerlink" href="#a-common-sense-guide-to-data-structures-and-algorithms" title="Permalink to this headline">¶</a></h1>
+        <div class="section" id="a-common-sense-guide-to-data-structures-and-algorithms-jay-wengrow">
+<span id="common-sense-guide"></span><h1>A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow<a class="headerlink" href="#a-common-sense-guide-to-data-structures-and-algorithms-jay-wengrow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="chapter-1-why-data-structures-matter">
+<span id="common-sense-guide-why-data-structures-matter"></span><h2>Chapter 1 - Why Data Structures Matter<a class="headerlink" href="#chapter-1-why-data-structures-matter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-array">
+<h3>The Array<a class="headerlink" href="#the-array" title="Permalink to this headline">¶</a></h3>
+<p>An array is a contiguous dataset. While we might say, in Python:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">some_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_array</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Internally, the <em>machine</em> stores the length of the array, and the position of the first item.</p>
+<p>Then, the computer can access the nth item by offsetting from the first. So to get the first item,
+you offset 0, to get the second, you offset 1.</p>
+<p>This is why you get the 0-based indexing everywhere. Makes a lot of sense now that I think about it.
+I wonder how Visual Basic manages the 1-based index.</p>
+<p>So for the computer, to access an item in a list, it is a single step. If you ask for the nth item,
+all the program needs to do is offset the memory position by n and return the value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the array’s length &lt; n, then you have a stack overflow. The program is trying to access memory that is
+not its own. It’s like trying to overdraw from your bank vault and reaching into the vault next to yours.</p>
+</div>
+<p>In a data structure, you perform the following operations:</p>
+<ol class="arabic simple">
+<li><p>Read</p></li>
+<li><p>Search</p></li>
+<li><p>Insert</p></li>
+<li><p>Delete</p></li>
+</ol>
+<p>When we want to measure the speed of these operations, this is where the entire idea of how a data structure
+is organized comes in. This is why some data structures are suitable for some usages, while some are not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This book’s section on data structures and why Array indexing is O(1) is quite good. Do give it a reread
+again.</p>
+</div>
+<p>For an array of size N:</p>
+<ol class="arabic simple">
+<li><p>Getting item at index n: 1 step</p></li>
+<li><p>Setting item at index n: 1 step</p></li>
+<li><p>Appending 1 item to the end: 1 step</p></li>
+<li><p>Prepending 1 item to the beginning: N+1 steps</p></li>
+<li><p>Deleting an item in the list: N steps (1 step is the best case scenario, when you delete the last item)</p></li>
+</ol>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>For algorithmic speed measurement, always be a pessimist.
+Consider only the worst case scenario.</p>
+</div>
+</div>
+<div class="section" id="the-set">
+<h3>The Set<a class="headerlink" href="#the-set" title="Permalink to this headline">¶</a></h3>
+<p>A set is an array of unique values. There are no duplicates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a generalization, but we’ll get to that in time.</p>
+</div>
+<p>Most set operations are <em>identical</em> to arrays. However, <strong>insertion</strong> is where sets and arrays
+differ.</p>
+<p>Appending or prepending and item into a set of N items will take N steps. That’s because a set
+needs to fulfil its prime objective: no duplicates. To insert an item <code class="docutils literal notranslate"><span class="pre">i</span></code> into a set N,
+you will first need to search the <em>entire</em> set for the occurrence of <code class="docutils literal notranslate"><span class="pre">i</span></code>, and only when it
+doesn’t exist, do you insert it into the set.</p>
+</div>
+</div>
+<div class="section" id="chapter-2-why-algorithms-matter">
+<h2>Chapter 2 - Why Algorithms Matter<a class="headerlink" href="#chapter-2-why-algorithms-matter" title="Permalink to this headline">¶</a></h2>
+<p>While data-structures have their own performance attributes, so do algorithms in general.</p>
+<div class="section" id="ordered-arrays">
+<h3>Ordered Arrays<a class="headerlink" href="#ordered-arrays" title="Permalink to this headline">¶</a></h3>
+<p>An ordered array is almost identical to the <em>classic</em> array*, but the one caveat is that in an
+ordered array, the items are <em>in order</em>.</p>
+<p>This has its benefits, but let’s look at its performance.</p>
+<ol class="arabic simple">
+<li><p>Read - 1 step</p></li>
+<li><p><strong>Insertion - N + 2 steps</strong></p></li>
+<li><p>Deletion - N steps</p></li>
+</ol>
+<p>Insertion again takes N + 2 steps because <em>the item needs to be inserted into the right location.</em>
+You cannot just insert an item at the very end.</p>
+<div class="section" id="searching-ordered-arrays">
+<h4>Searching Ordered Arrays<a class="headerlink" href="#searching-ordered-arrays" title="Permalink to this headline">¶</a></h4>
+<p>While searching normal arrays is a matter of looking at <em>each and every</em> item, this is not necessarily
+so with an ordered array. Instead, we can use <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/searching/index.html#binary-search"><span class="std std-ref">Binary Search</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All source is going to be placed in their respective topic folder.</p>
+</div>
+<p>Binary Search will <em>halve</em> its steps each time it compares values to the search value.
+So there will be <span class="math notranslate nohighlight">\(log_2N\)</span> steps involved. It <em>narrows</em> its results down into a <em>binary</em>
+answer, hence the name.</p>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>To understand what <span class="math notranslate nohighlight">\(log_2N\)</span> means, or what <span class="math notranslate nohighlight">\(log_MN\)</span> means, read
+<a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-logarithms"><span class="std std-ref">The Algorithm Design Manual’s chapter on Logarithms</span></a>.</p>
+</div>
+<p><strong>Q</strong>: For an ordered array with 100 elements, binary search takes 7 steps. How many steps does it take for 200 elements?</p>
+<p><strong>A</strong>: 8 steps</p>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p><em>Every time</em> the number of elements doubles, the steps involved in Binary Search increases by 1.</p>
+</div>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>The Logarithm of N to the base M shows how many times N can be divided by M.</p>
+<p><span class="math notranslate nohighlight">\(log_2N\)</span> shows how many times N can be <em>halved</em>.</p>
+<p><span class="math notranslate nohighlight">\(log_{10}N\)</span> shows how many times N can be divided into tenths.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-3-o-yes-big-o-notation">
+<h2>Chapter 3 - O Yes! Big O Notation<a class="headerlink" href="#chapter-3-o-yes-big-o-notation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This book ignores most of the mathematical basis for Big O, and explains stuff
+rather simply. I recommend this section a lot. However, for a mathematical
+explanation, read <a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-big-o"><span class="std std-ref">The Algorithm Design Manual’s sections on Big O</span></a>.</p>
+</div>
+<p>Big O measures how many steps an algorithm will take in relation to its input size.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">If there are N data elements, how many steps will the algorithm take?</div>
+</div>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(O(N)\)</span> says that the answer to the key question is that the algorithm will take N steps.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have preconceived notions about Big O, please leave them at the door, <em>for now.</em></p>
+</div>
+<p>Consider the following:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">mid</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>How many steps is does this code example take?</p>
+<p>The answer is 3.</p>
+<p>What is Big O notation?</p>
+<p><span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The soul of Big O is what Big O is truly concerned about: how will an</div>
+<div class="line">algorithm’s <strong>performance</strong> change as the data increases?</div>
+</div>
+</div></blockquote>
+<p>Big O doesn’t care how many steps the algorithm <em>actually takes</em>. It instead cares about the
+rate of change of an algorithm given change in the input data.</p>
+<p><span class="math notranslate nohighlight">\(O(1)\)</span> and <span class="math notranslate nohighlight">\(O(3)\)</span> mean the same to Big O. This algorithm has <em>no</em> relationship with
+the input data. <strong>It will not get slower or faster given more or less data</strong>.</p>
+<p><span class="math notranslate nohighlight">\(O(N)\)</span> is a different matter, however. It means that the algorithm has a <em>linear</em> relationship
+with the data.</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">mid</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">element</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">element</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here, the algorithm seems to take <span class="math notranslate nohighlight">\(O(2N+3)\)</span> steps.
+<span class="math notranslate nohighlight">\(2N+3\)</span> is a linear polynomial. Wait, I promised no mathematics. It means that it
+is a statement that can be <em>conceived</em> as a straight line on a graph.</p>
+<p>To Big O, the number next to <span class="math notranslate nohighlight">\(N\)</span> <em>does not matter</em>. Neither does the value 3 that is at the end.</p>
+<p>In Big O terms, the above program has a runtime of <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p>Big O is also a <em>worst-case-scenario</em> measure. For an algorithm, always consider the <strong>worst case scenario</strong>
+when denoting it in Big O terms. Linear search <em>might</em> take 1 step if your first item is the item you were looking for,
+but in an array of size N, if it’s the last item you’re looking for, you need N steps. Big O in this scenario
+is <span class="math notranslate nohighlight">\(O(N)\)</span>, <strong>not</strong> <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<p>Big O concerns itself with Logarithms quite a lot. Logarithms are the opposite of exponents.</p>
+<p><span class="math notranslate nohighlight">\(2^3\)</span> is 8. Then, <span class="math notranslate nohighlight">\(log_28\)</span> is 3.</p>
+<p><span class="math notranslate nohighlight">\(10*2\)</span> is 100. Then, <span class="math notranslate nohighlight">\(log_{10}100\)</span> is 2.</p>
+<p>An alternative way of thinking about logarithms is: <em>how many times do we need
+to halve (or thirds, or tenths, depending on the :math:`log_NM` base N)
+a number to get 1?</em></p>
+<p><span class="math notranslate nohighlight">\(O(log_2N)\)</span>, for brevity: <span class="math notranslate nohighlight">\(O(logN)\)</span>, measures how many times we need to divide a dataset
+into halves to arrive at our result in the <em>worst case scenario</em>.</p>
+</div>
+<div class="section" id="chapter-4-speeding-up-your-code-with-big-o">
+<h2>Chapter 4 - Speeding Up Your Code with Big O<a class="headerlink" href="#chapter-4-speeding-up-your-code-with-big-o" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read up on the implementation of <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#bubble-sort"><span class="std std-ref">Bubble Sort</span></a>.</p>
+</div>
+<p>Bubble Sort has the following steps: comparisons, and swaps. Note how many times it loops through
+an array.</p>
+<p>No, not twice. For each element, it loops through the entire array. In fact, it <em>doesn’t</em>
+know if an array is sorted until it loops through the array at least once.</p>
+<p>Welcome to <span class="math notranslate nohighlight">\(O(N^2)\)</span>. You do not want to be here.</p>
+<p>Any polynomial with a power of 2 is a <em>quadratic</em> polynomial. On a graph, it would look like
+a <em>parabola</em>, but not one that ever touches the ground like someone throwing a ball.
+No, this is an upwards-facing parabola. That means if you have 1 million data points, your algorithm
+will need to process <span class="math notranslate nohighlight">\(1000000^2\)</span> items. A million <em>squared.</em></p>
+<p>Any algorithm wherein you loop through the entire list, or even portions of the
+list but perhaps have a worst-case scenario where you loop through the entire
+list is of this order. If you can avoid it, do not implement one of these.</p>
+<p><span class="math notranslate nohighlight">\(O(N^3)\)</span> exists. Just pray that you do not meet him or his cousins.</p>
+</div>
+<div class="section" id="chapter-5-optimizing-code-with-and-without-big-o">
+<h2>Chapter 5 - Optimizing Code With and Without Big O<a class="headerlink" href="#chapter-5-optimizing-code-with-and-without-big-o" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read up on the implementation of <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>.</p>
+</div>
+<p>In <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>, you loop through the array to find the smallest item
+and <em>swap</em> it with the first item. This <em>first</em> item is, in fact, a cursor
+which moves ahead and marks the <em>sorted</em> part of the array.</p>
+<p>For each item in the array, Selection Sort looks <em>ahead</em> at the rest of the
+items in the array, comparing them and seeing if there’s something <em>smaller</em>
+than this item. It then <em>selects</em> the smallest item, if it is not the current
+item, and swaps it with the current item.</p>
+<p>This way, after the first passthrough, the smallest item is right at the front.
+The algorithm ensures that at the Nth passthrough, the first N items are <em>in
+order</em> at the front of the array.</p>
+<p>So let’s look at Selection Sort and Bubble Sort together.</p>
+<p>Selection Sort has to look at the rest of the items for each item in the list.</p>
+<p>Bubble Sort has to look at the entire list for each item in the list.</p>
+<p>While this seems straight forward, and no one will fault you for saying
+Selection Sort is <em>faster</em> (exactly <em>half</em> the runtime) than Bubble Sort,
+however, <strong>this does not matter to Big O</strong>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">But here’s the funny thing in the world of Big O Notation: Selection Sort</div>
+<div class="line">and Bubble Sort are described in <strong>exactly the same way</strong>.</div>
+</div>
+</div></blockquote>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>Remember to leave your knowledge or preconceived notions of Big O at the
+door.  <em>All</em> you need to do is check this:</p>
+<p>Does the algorithm have nested loops?</p>
+<p>The exact time <strong>does not matter</strong>.</p>
+</div>
+<p>Why?</p>
+<p><strong>Big O Notation ignores constants.</strong></p>
+<p>It is easy to say Selection Sort is a <span class="math notranslate nohighlight">\(O(N^2/2)\)</span> algorithm. It would seem
+<em>common</em> sense.</p>
+<p>However, consider the fact that the length of the array could grow <em>astronomically</em>.
+If you have an infinitely large array, then it does not matter.</p>
+<p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span> is just <span class="math notranslate nohighlight">\(O(N^2)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(O(N/2+50000)\)</span> is just <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(O(100000)\)</span> is just <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<div class="section" id="big-o-categories">
+<h3>Big O Categories<a class="headerlink" href="#big-o-categories" title="Permalink to this headline">¶</a></h3>
+<p>Big O ignores the constants because it uses categories.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Big O Notation only concerns itself with <em>general categories</em> of algorithm speeds.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line">If we were to compare two buildings, one of which is a single-family home and</div>
+<div class="line">one of which is a skyscraper, it becomes almost moot to mention how many floors each one has.</div>
+<div class="line">Because the two buildings are so incredibly different in their sizes and functions.</div>
+</div>
+</div></blockquote>
+<p>This is the idea behind Big O. It categorizes algorithms into buckets wherein the bucket itself
+is a <em>definitive</em> measure of how quickly the algorithm grows with input data.</p>
+<p>It won’t matter if your <span class="math notranslate nohighlight">\(O(1)\)</span> algorithm takes 10 minutes to run or if
+your <span class="math notranslate nohighlight">\(O(N^2)\)</span> takes 1 <span class="math notranslate nohighlight">\({\mu}s\)</span>, <em>at least not to Big O</em>, because it
+<strong>doesn’t care how long each step takes</strong>, only how many steps there will be in
+relation to larger data set sizes.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Talking about <span class="math notranslate nohighlight">\(O(2N)\)</span> when compared to <span class="math notranslate nohighlight">\(O(N^2)\)</span> is like talking</div>
+<div class="line">about a two-story house compared to a skyscraper.</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="chapter-6-optimizing-for-optimistic-scenarios">
+<h2>Chapter 6 - Optimizing for Optimistic Scenarios<a class="headerlink" href="#chapter-6-optimizing-for-optimistic-scenarios" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">[T]he worst-case scenario isn’t the <em>only</em> scenario worth considering.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#insertion-sort"><span class="std std-ref">Insertion Sort</span></a> is a sorting algorithm that reveals the power of analysing</div>
+<div class="line">scenarios beyond the worst-case.</div>
+</div>
+</div></blockquote>
+<p>Insertion Sort involves: <em>removals</em>, <em>comparisons</em>, <em>shifts</em>, and <em>insertions</em>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Big O Notation only takes into account the highest order of N when we have multiple</div>
+<div class="line">orders added together.</div>
+</div>
+</div></blockquote>
+<p>This means that:</p>
+<p><span class="math notranslate nohighlight">\(O(N^2 + 2N)\)</span> = <span class="math notranslate nohighlight">\(O(N^2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(O(N^4 + N^3 + N^2)\)</span> = <span class="math notranslate nohighlight">\(O(N^4)\)</span></p>
+<p>This is because as <span class="math notranslate nohighlight">\(N\)</span> increases, the higher order values become <em>so much larger</em>
+than the lower-order ones that it becomes trivial to account for them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Take a look at <a class="reference internal" href="../../interview-prep/ds-algo/index.html#big-o-chart"><span class="std std-ref">this chart</span></a> to understand the severity with which
+these categories vary.</p>
+</div>
+<p>In the worst-case scenario, Selection Sort is <em>faster</em> than Insertion Sort. However, it is
+not the case when we look at the average case.</p>
+<p>Best, Average and Worst cases follow a Bell Curve, showing that the worst case is, just like the
+best case, an <strong>outlier</strong>.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Best Case</p></td>
+<td><p>Average Case</p></td>
+<td><p>Worst Case</p></td>
+</tr>
+<tr class="row-even"><td><p>Selection Sort</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Insertion Sort</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2)\)</span></p></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Being able to discern between best-, average- and worst-case scenarios is a</div>
+<div class="line">key skill in choosing the best algorithm for your needs, as well as taking</div>
+<div class="line">existing algorithms and optimizing them further to make them significantly</div>
+<div class="line">faster. [W]hile it’s good to be prepared for the worst case, average cases</div>
+<div class="line">are what happen most of the time.</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="chapter-7-big-o-in-everyday-code">
+<h2>Chapter 7 - Big O in Everyday Code<a class="headerlink" href="#chapter-7-big-o-in-everyday-code" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>This is a work in progress.</p>
+</div>
+</div>
+<div class="section" id="chapter-8-blazing-fast-lookup-with-hash-tables">
+<h2>Chapter 8 - Blazing Fast Lookup with Hash Tables<a class="headerlink" href="#chapter-8-blazing-fast-lookup-with-hash-tables" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-9-crafting-elegant-code-with-stacks-and-queues">
+<h2>Chapter 9 - Crafting Elegant Code with Stacks and Queues<a class="headerlink" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-10-recursively-recurse-with-recursion">
+<h2>Chapter 10 - Recursively Recurse with Recursion<a class="headerlink" href="#chapter-10-recursively-recurse-with-recursion" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-11-learning-to-write-in-recursive">
+<h2>Chapter 11 - Learning to Write in Recursive<a class="headerlink" href="#chapter-11-learning-to-write-in-recursive" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-12-dynamic-programming">
+<h2>Chapter 12 - Dynamic Programming<a class="headerlink" href="#chapter-12-dynamic-programming" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-13-recursive-algorithms-for-speed">
+<h2>Chapter 13 - Recursive Algorithms for Speed<a class="headerlink" href="#chapter-13-recursive-algorithms-for-speed" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-14-node-based-data-structures">
+<h2>Chapter 14 - Node-Based Data Structures<a class="headerlink" href="#chapter-14-node-based-data-structures" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-15-speeding-up-all-the-things-with-binary-search-trees">
+<h2>Chapter 15 - Speeding Up All the Things with Binary Search Trees<a class="headerlink" href="#chapter-15-speeding-up-all-the-things-with-binary-search-trees" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-16-keeping-your-priorities-straight-with-heaps">
+<h2>Chapter 16 - Keeping Your Priorities Straight with Heaps<a class="headerlink" href="#chapter-16-keeping-your-priorities-straight-with-heaps" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-17-it-doesn-t-hurt-to-trie">
+<h2>Chapter 17 - It Doesn’t Hurt to Trie<a class="headerlink" href="#chapter-17-it-doesn-t-hurt-to-trie" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-18-connecting-everything-with-graphs">
+<h2>Chapter 18 - Connecting Everything with Graphs<a class="headerlink" href="#chapter-18-connecting-everything-with-graphs" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-19-dealing-with-space-constraints">
+<h2>Chapter 19 - Dealing with Space Constraints<a class="headerlink" href="#chapter-19-dealing-with-space-constraints" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-20-techniques-for-code-optimization">
+<h2>Chapter 20 - Techniques for Code Optimization<a class="headerlink" href="#chapter-20-techniques-for-code-optimization" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
       </article>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../database-internals/index.html">
+          <a class="next-page" href="../cracking-the-coding-interview/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Database Internals by Alex Petrov</div>
+                <div class="title">Cracking the Coding Interview - Gayle Laakmann McDowell</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="../algorithm-design-manual/index.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Reading Notes</div>
+                <div class="title">The Algorithm Design Manual - Steven S. Skiena</div>
                 
               </div>
             </a>
@@ -213,7 +646,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Feb 26, 2021.
+            Last updated on Mar 02, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -228,8 +661,59 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a><ul>
+<li><a class="reference internal" href="#chapter-1-why-data-structures-matter">Chapter 1 - Why Data Structures Matter</a><ul>
+<li><a class="reference internal" href="#the-array">The Array</a></li>
+<li><a class="reference internal" href="#the-set">The Set</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-2-why-algorithms-matter">Chapter 2 - Why Algorithms Matter</a><ul>
+<li><a class="reference internal" href="#ordered-arrays">Ordered Arrays</a><ul>
+<li><a class="reference internal" href="#searching-ordered-arrays">Searching Ordered Arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-3-o-yes-big-o-notation">Chapter 3 - O Yes! Big O Notation</a></li>
+<li><a class="reference internal" href="#chapter-4-speeding-up-your-code-with-big-o">Chapter 4 - Speeding Up Your Code with Big O</a></li>
+<li><a class="reference internal" href="#chapter-5-optimizing-code-with-and-without-big-o">Chapter 5 - Optimizing Code With and Without Big O</a><ul>
+<li><a class="reference internal" href="#big-o-categories">Big O Categories</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-6-optimizing-for-optimistic-scenarios">Chapter 6 - Optimizing for Optimistic Scenarios</a></li>
+<li><a class="reference internal" href="#chapter-7-big-o-in-everyday-code">Chapter 7 - Big O in Everyday Code</a></li>
+<li><a class="reference internal" href="#chapter-8-blazing-fast-lookup-with-hash-tables">Chapter 8 - Blazing Fast Lookup with Hash Tables</a></li>
+<li><a class="reference internal" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues">Chapter 9 - Crafting Elegant Code with Stacks and Queues</a></li>
+<li><a class="reference internal" href="#chapter-10-recursively-recurse-with-recursion">Chapter 10 - Recursively Recurse with Recursion</a></li>
+<li><a class="reference internal" href="#chapter-11-learning-to-write-in-recursive">Chapter 11 - Learning to Write in Recursive</a></li>
+<li><a class="reference internal" href="#chapter-12-dynamic-programming">Chapter 12 - Dynamic Programming</a></li>
+<li><a class="reference internal" href="#chapter-13-recursive-algorithms-for-speed">Chapter 13 - Recursive Algorithms for Speed</a></li>
+<li><a class="reference internal" href="#chapter-14-node-based-data-structures">Chapter 14 - Node-Based Data Structures</a></li>
+<li><a class="reference internal" href="#chapter-15-speeding-up-all-the-things-with-binary-search-trees">Chapter 15 - Speeding Up All the Things with Binary Search Trees</a></li>
+<li><a class="reference internal" href="#chapter-16-keeping-your-priorities-straight-with-heaps">Chapter 16 - Keeping Your Priorities Straight with Heaps</a></li>
+<li><a class="reference internal" href="#chapter-17-it-doesn-t-hurt-to-trie">Chapter 17 - It Doesn’t Hurt to Trie</a></li>
+<li><a class="reference internal" href="#chapter-18-connecting-everything-with-graphs">Chapter 18 - Connecting Everything with Graphs</a></li>
+<li><a class="reference internal" href="#chapter-19-dealing-with-space-constraints">Chapter 19 - Dealing with Space Constraints</a></li>
+<li><a class="reference internal" href="#chapter-20-techniques-for-code-optimization">Chapter 20 - Techniques for Code Optimization</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -242,5 +726,7 @@
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
 </html>

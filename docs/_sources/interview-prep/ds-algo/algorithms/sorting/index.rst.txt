@@ -2,6 +2,17 @@
 Sorting Algorithms
 ==============================
 
+.. _bubble-sort:
+
+------------------------
+Bubble Sort
+------------------------
+
+.. literalinclude:: bubble.py
+    :language: python
+    :linenos:
+
+.. _insertion-sort:
 
 ------------------------
 Insertion Sort
@@ -11,6 +22,8 @@ Insertion Sort
     :language: python
     :linenos:
 
+.. _merge-sort:
+
 -------------------------
 Merge Sort
 -------------------------
@@ -19,20 +32,12 @@ Merge Sort
     :language: python
     :linenos:
 
+.. _selection-sort:
 
 -------------------------
 Selection Sort
 -------------------------
 
 .. literalinclude:: selection.py
-    :language: python
-    :linenos:
-
-
-------------------------
-Bubble Sort
-------------------------
-
-.. literalinclude:: bubble.py
     :language: python
     :linenos:
