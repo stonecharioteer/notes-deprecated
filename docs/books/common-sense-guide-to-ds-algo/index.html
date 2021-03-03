@@ -133,8 +133,8 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../languages/bash/index.html">Bash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../languages/clang/index.html">The C Language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../languages/cpp/index.html">The C++ Programming Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/clang/index.html">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/cpp/index.html">C++</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../languages/golang/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../languages/golang/godocs.html">Golang Documentation</a></li>
 </ul>
@@ -153,7 +153,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/index.html">MIT 6.824 - Distributed Systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/lecture-01-introduction.html">MIT 6.824 - Distributed Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/lectures.html">Lectures</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/code/golang/index.html">Learning Go</a></li>
 </ul>
@@ -571,16 +571,208 @@ best case, an <strong>outlier</strong>.</p>
 </div>
 <div class="section" id="chapter-7-big-o-in-everyday-code">
 <h2>Chapter 7 - Big O in Everyday Code<a class="headerlink" href="#chapter-7-big-o-in-everyday-code" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>This is a work in progress.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I don’t have much to say about this chapter beyond that I really appreciate it being there.
+It <strong>nails</strong> the Big O Notation mindset into you, and so far, I’ve enjoyed it.</p>
+<p>The problems solutions are fairly easy, and it’s a chapter you <em>should</em> read if you
+haven’t grokked Big O yet.</p>
+</div>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>If an algorithm has 2 inputs of length <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(M\)</span>
+and it has a nested for loop that loops through them, then what
+would have been <span class="math notranslate nohighlight">\(O(NxM)\)</span> is reduced to <span class="math notranslate nohighlight">\(O(N^2)\)</span>
+because in the worst-case scenario, both these arrays would
+be the same size.</p>
 </div>
 </div>
 <div class="section" id="chapter-8-blazing-fast-lookup-with-hash-tables">
 <h2>Chapter 8 - Blazing Fast Lookup with Hash Tables<a class="headerlink" href="#chapter-8-blazing-fast-lookup-with-hash-tables" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>Hash Table</strong> is a data structure in which the indices
+are <em>hashed</em> and correlated with values in an array-like structure.</p>
+<p>The example this book uses is alphabet-based hashing, using the
+product of the numberic value of each alphabet.</p>
+<p>“dog” becomes <span class="math notranslate nohighlight">\(4*15*7 = 420\)</span>, and the <em>corresponding</em> value
+associated with “dog” is stored in the 420 <sup>th</sup> location of
+an array that holds the <em>values</em> of the Hash Table.</p>
+<p>This lookup mechanism is usually designed with the following
+assumptions</p>
+<ol class="arabic simple">
+<li><p>The <em>hashing</em> of a <em>key</em> <strong>always</strong> yields the same value. This way, there can be a 1:1
+relationship between <em>keys</em> and their <em>values</em>.</p></li>
+<li><p>The hashing is non-random, and doesn’t depend on execution time or machine. This enables
+the datastructure to be written to disk, if need be.</p></li>
+</ol>
+<p>The efficiency of a hash table depends on three factors:</p>
+<ol class="arabic simple">
+<li><p>How much data we’re storing in the hash table.</p></li>
+<li><p>How many cells are available in the hash table.</p></li>
+<li><p>Which hash function we’re using.</p></li>
+</ol>
+<blockquote>
+<div><div class="line-block">
+<div class="line">A good hash function is one that distributes its data across <strong>all</strong></div>
+<div class="line">available cells. The more we can spread our data, the fewer collisions</div>
+<div class="line">we will have.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line">A good hash table <a href="#id1"><span class="problematic" id="id2">**</span></a>strikes a balance of avoiding collisions while not</div>
+<div class="line">consuming lots of memory.**</div>
+<div class="line"><br/></div>
+<div class="line">To accomplish this, computer scientists have developed the following rule of thumb:</div>
+<div class="line">for every 7 data elements stored in the hash table, it should have 10 cells.</div>
+</div>
+</div></blockquote>
+<p>Hash tables have a lookup efficiency of <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p>Hash tables are used in places where you’d usually use plenty of <code class="docutils literal notranslate"><span class="pre">if-else-if-else</span></code>
+statements. Or, you’d use them when you want to store information about a single
+entity together. This is most-visible in the <code class="docutils literal notranslate"><span class="pre">JSON</span></code> data format.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Algorithm to determine whether two words are anagrams.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Algorithm to detect whether 2 words are an Anagram or not"""</span>
+
+
+<span class="k">def</span> <span class="nf">is_anagram</span><span class="p">(</span><span class="n">word_1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word_2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">"""Checks whether 2 words is an anagram or not"""</span>
+    <span class="n">word_1_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word_1</span><span class="p">:</span>
+        <span class="n">word_1_dict</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_1_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">word_2_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word_2</span><span class="p">:</span>
+        <span class="n">word_2_dict</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_2_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">word_1_dict</span> <span class="o">==</span> <span class="n">word_2_dict</span>
+
+
+<span class="k">def</span> <span class="nf">test_anagram</span><span class="p">():</span>
+    <span class="sd">"""Checks the anagram function"""</span>
+    <span class="k">assert</span> <span class="n">is_anagram</span><span class="p">(</span><span class="s2">"mood"</span><span class="p">,</span> <span class="s2">"doom"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_anagram</span><span class="p">(</span><span class="s2">"rot"</span><span class="p">,</span> <span class="s2">"tor"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_anagram</span><span class="p">(</span><span class="s2">"something"</span><span class="p">,</span> <span class="s2">"nothing"</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>Using a <strong>dictionary</strong>, Python’s implementation of a Hash Table, here,
+gives us an algorithm of <span class="math notranslate nohighlight">\(O(N)\)</span> order.</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Algorithm to yield the intersection of two arrays.</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Algorithm to determine the intersection of two arrays"""</span>
+
+
+<span class="k">def</span> <span class="nf">intersect_arrays</span><span class="p">(</span><span class="n">arr_1</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">arr_2</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">"""Returns the intersection of two arrays"""</span>
+    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+    <span class="n">arr_1_hash</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr_1</span><span class="p">:</span>
+        <span class="n">arr_1_hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_1_hash</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">arr_2_hash</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr_2</span><span class="p">:</span>
+        <span class="n">arr_2_hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_2_hash</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">intersection</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">arr_1_hash</span><span class="p">:</span>
+        <span class="n">count_1</span> <span class="o">=</span> <span class="n">arr_1_hash</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">count_2</span> <span class="o">=</span> <span class="n">arr_2_hash</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># include items that are in arr_1, and arr_2</span>
+        <span class="n">occurs_in_both</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">count_1</span><span class="p">,</span> <span class="n">count_2</span><span class="p">)</span>
+        <span class="n">intersection</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">key</span><span class="p">]</span><span class="o">*</span><span class="n">occurs_in_both</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">intersection</span>
+
+
+<span class="k">def</span> <span class="nf">test_intersect_arrays</span><span class="p">():</span>
+    <span class="sd">"""Tests that the above algorithm works"""</span>
+    <span class="k">assert</span> <span class="n">intersect_arrays</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">intersect_arrays</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">intersect_arrays</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>Do the other exercises.</p>
+</div>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>Write an implementation of Hash Tables in Rust and Python.</p>
+</div>
+</div>
 </div>
 <div class="section" id="chapter-9-crafting-elegant-code-with-stacks-and-queues">
 <h2>Chapter 9 - Crafting Elegant Code with Stacks and Queues<a class="headerlink" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stacks">
+<h3>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">¶</a></h3>
+<p>A stack is <em>almost</em> an array, except:</p>
+<ol class="arabic simple">
+<li><p>Data can be inserted only at the end of a stack.</p></li>
+<li><p>Data can be deleted only from the end of a stack.</p></li>
+<li><p>Only the last element of a stack can be read.</p></li>
+</ol>
+<p>The <em>end</em> of a stack is referred to as its <em>top</em>, and the <em>beginning</em> of
+the stack is referred to as its <strong>bottom</strong>.</p>
+<div class="info admonition">
+<p class="admonition-title">Protip</p>
+<p>In Python, a simple list <em>can</em> be used as a Stack, since lists
+support <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code> methods. However, it is better to
+write a wrapper around a regular list since this way you can
+code checks in place so that users cannot insert an item wherever
+they want.</p>
+</div>
+</div>
 </div>
 <div class="section" id="chapter-10-recursively-recurse-with-recursion">
 <h2>Chapter 10 - Recursively Recurse with Recursion<a class="headerlink" href="#chapter-10-recursively-recurse-with-recursion" title="Permalink to this headline">¶</a></h2>
@@ -646,7 +838,7 @@ best case, an <strong>outlier</strong>.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 02, 2021.
+            Last updated on Mar 03, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -694,8 +886,14 @@ best case, an <strong>outlier</strong>.</p>
 </li>
 <li><a class="reference internal" href="#chapter-6-optimizing-for-optimistic-scenarios">Chapter 6 - Optimizing for Optimistic Scenarios</a></li>
 <li><a class="reference internal" href="#chapter-7-big-o-in-everyday-code">Chapter 7 - Big O in Everyday Code</a></li>
-<li><a class="reference internal" href="#chapter-8-blazing-fast-lookup-with-hash-tables">Chapter 8 - Blazing Fast Lookup with Hash Tables</a></li>
-<li><a class="reference internal" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues">Chapter 9 - Crafting Elegant Code with Stacks and Queues</a></li>
+<li><a class="reference internal" href="#chapter-8-blazing-fast-lookup-with-hash-tables">Chapter 8 - Blazing Fast Lookup with Hash Tables</a><ul>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues">Chapter 9 - Crafting Elegant Code with Stacks and Queues</a><ul>
+<li><a class="reference internal" href="#stacks">Stacks</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#chapter-10-recursively-recurse-with-recursion">Chapter 10 - Recursively Recurse with Recursion</a></li>
 <li><a class="reference internal" href="#chapter-11-learning-to-write-in-recursive">Chapter 11 - Learning to Write in Recursive</a></li>
 <li><a class="reference internal" href="#chapter-12-dynamic-programming">Chapter 12 - Dynamic Programming</a></li>

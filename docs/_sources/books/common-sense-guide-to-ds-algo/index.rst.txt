@@ -425,17 +425,120 @@ best case, an **outlier**.
 Chapter 7 - Big O in Everyday Code
 ---------------------------------------------------------------
 
-.. todo::
+.. note::
 
-    This is a work in progress.
+    I don't have much to say about this chapter beyond that I really appreciate it being there.
+    It **nails** the Big O Notation mindset into you, and so far, I've enjoyed it.
+
+    The problems solutions are fairly easy, and it's a chapter you *should* read if you
+    haven't grokked Big O yet.
+
+
+.. admonition:: Protip
+    :class: info
+
+    If an algorithm has 2 inputs of length :math:`N` and :math:`M`
+    and it has a nested for loop that loops through them, then what
+    would have been :math:`O(NxM)` is reduced to :math:`O(N^2)`
+    because in the worst-case scenario, both these arrays would
+    be the same size.
 
 ---------------------------------------------------------------
 Chapter 8 - Blazing Fast Lookup with Hash Tables
 ---------------------------------------------------------------
 
+A **Hash Table** is a data structure in which the indices
+are *hashed* and correlated with values in an array-like structure.
+
+The example this book uses is alphabet-based hashing, using the
+product of the numberic value of each alphabet.
+
+"dog" becomes :math:`4*15*7 = 420`, and the *corresponding* value
+associated with "dog" is stored in the 420 :sup:`th` location of
+an array that holds the *values* of the Hash Table.
+
+This lookup mechanism is usually designed with the following
+assumptions
+
+1. The *hashing* of a *key* **always** yields the same value. This way, there can be a 1:1
+   relationship between *keys* and their *values*.
+2. The hashing is non-random, and doesn't depend on execution time or machine. This enables
+   the datastructure to be written to disk, if need be.
+
+The efficiency of a hash table depends on three factors:
+
+#. How much data we're storing in the hash table.
+#. How many cells are available in the hash table.
+#. Which hash function we're using.
+
+  | A good hash function is one that distributes its data across **all**
+  | available cells. The more we can spread our data, the fewer collisions
+  | we will have.
+
+..
+
+  | A good hash table **strikes a balance of avoiding collisions while not
+  | consuming lots of memory.**
+  |
+  | To accomplish this, computer scientists have developed the following rule of thumb:
+  | for every 7 data elements stored in the hash table, it should have 10 cells.
+
+
+Hash tables have a lookup efficiency of :math:`O(N)`.
+
+Hash tables are used in places where you'd usually use plenty of ``if-else-if-else``
+statements. Or, you'd use them when you want to store information about a single
+entity together. This is most-visible in the ``JSON`` data format.
+
+.. literalinclude:: anagram.py
+    :language: python
+    :linenos:
+    :caption: Algorithm to determine whether two words are anagrams.
+
+Using a **dictionary**, Python's implementation of a Hash Table, here,
+gives us an algorithm of :math:`O(N)` order.
+
+Exercises
+------------
+
+.. literalinclude:: intersect.py
+    :language: python
+    :linenos:
+    :caption: Algorithm to yield the intersection of two arrays.
+
+
+.. todo::
+
+    Do the other exercises.
+
+.. todo::
+
+    Write an implementation of Hash Tables in Rust and Python.
+
 ---------------------------------------------------------------
 Chapter 9 - Crafting Elegant Code with Stacks and Queues
 ---------------------------------------------------------------
+
+Stacks
+--------
+
+A stack is *almost* an array, except:
+
+#. Data can be inserted only at the end of a stack.
+#. Data can be deleted only from the end of a stack.
+#. Only the last element of a stack can be read.
+
+The *end* of a stack is referred to as its *top*, and the *beginning* of
+the stack is referred to as its **bottom**.
+
+.. admonition:: Protip
+    :class: info
+
+    In Python, a simple list *can* be used as a Stack, since lists
+    support ``pop`` and ``push`` methods. However, it is better to
+    write a wrapper around a regular list since this way you can
+    code checks in place so that users cannot insert an item wherever
+    they want.
 
 ---------------------------------------------------------------
 Chapter 10 - Recursively Recurse with Recursion
