@@ -7,5 +7,5 @@ MIT 6.824 - Distributed Systems
     :caption: Lectures & Labs
     :maxdepth: 1
 
-    lecture-01-introduction
+    lectures
     code/index
