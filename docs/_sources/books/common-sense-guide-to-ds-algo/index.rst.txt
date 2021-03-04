@@ -369,7 +369,7 @@ Chapter 6 - Optimizing for Optimistic Scenarios
 
 ..
 
-  | :ref:`insertion-sort` is a sorting algorithm that reveals the power of analysing
+  | :ref:`insertion-sort` is a sorting algorithm that reveals the power of analyzing
   | scenarios beyond the worst-case.
 
 
