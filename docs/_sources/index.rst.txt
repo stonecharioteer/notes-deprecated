@@ -2,9 +2,9 @@
    sphinx-quickstart on Tue Feb 23 18:45:59 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
+=========================
 Stonecharioteer's Notes
-========================
+=========================
 
 Hi there! This site contains my personal notes on different topics.
 If you'd like to read more organized posts, I'd recommend
@@ -21,7 +21,22 @@ If you'd like to read more organized posts, I'd recommend
    that works for me (at least I'd like to assume so, but I'll update this if I get the job
    I'm looking for), and might not work for you.
 
+-----------------------
+Currently Working On
+-----------------------
 
+While I cover notes on several topics, you'll be more interested in what I'm currently
+working on.
+
+.. toctree::
+   :caption: Currently Working On
+   :maxdepth: 1
+
+   books/common-sense-guide-to-ds-algo/index
+   interview-prep/leetcode/index
+   courses/mit-6.006-index
+
+---------
 Topics
 ---------
 
@@ -30,6 +45,7 @@ topics:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Topics
 
    books/index
    languages/index
