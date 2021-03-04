@@ -1,0 +1,1 @@
+"""Subrectangle queries"""

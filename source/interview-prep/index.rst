@@ -1,3 +1,5 @@
+.. _interview-prep:
+
 =======================
 Interview Preparation
 =======================
@@ -15,6 +17,7 @@ be able to ace any interview I go to.
 
     ds-algo/index
     design-patterns/index
+    system-design/index
     leetcode/index
     advent-of-code/index
 
