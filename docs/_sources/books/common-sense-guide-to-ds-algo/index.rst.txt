@@ -4,6 +4,16 @@
 A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow
 ====================================================================================
 
+.. note::
+
+    This is one of the best *beginner* level books on the topic that I've encountered.
+    In particular, the sections on Big O and Algorithmic performance come to mind,
+    I don't know that I'd recommend rereads of the book, but I would most certainly
+    recommend anyone who is new to the topic to read this book end to end, with a pen in
+    tow to make notes right in the book.
+
+    It's that good.
+
 
 .. _common-sense-guide-why-data-structures-matter:
 
@@ -89,6 +99,9 @@ needs to fulfil its prime objective: no duplicates. To insert an item ``i`` into
 you will first need to search the *entire* set for the occurrence of ``i``, and only when it
 doesn't exist, do you insert it into the set.
 
+
+.. _common-sense-guide-why-algorithms-matter:
+
 ------------------------------------
 Chapter 2 - Why Algorithms Matter
 ------------------------------------
@@ -149,6 +162,8 @@ answer, hence the name.
 
     :math:`log_{10}N` shows how many times N can be divided into tenths.
 
+
+.. _common-sense-guide-big-o:
 
 -----------------------------------
 Chapter 3 - O Yes! Big O Notation
@@ -242,6 +257,7 @@ a number to get 1?*
 :math:`O(log_2N)`, for brevity: :math:`O(logN)`, measures how many times we need to divide a dataset
 into halves to arrive at our result in the *worst case scenario*.
 
+.. _common-sense-guide-speeding-up:
 
 ------------------------------------------------
 Chapter 4 - Speeding Up Your Code with Big O
@@ -270,6 +286,8 @@ list but perhaps have a worst-case scenario where you loop through the entire
 list is of this order. If you can avoid it, do not implement one of these.
 
 :math:`O(N^3)` exists. Just pray that you do not meet him or his cousins.
+
+.. _common-sense-guide-optimizing:
 
 -------------------------------------------------------
 Chapter 5 - Optimizing Code With and Without Big O
@@ -357,8 +375,7 @@ relation to larger data set sizes.
   | Talking about :math:`O(2N)` when compared to :math:`O(N^2)` is like talking
   | about a two-story house compared to a skyscraper.
 
-..
-
+.. _common-sense-guide-optimistic-scenarios:
 
 ---------------------------------------------------------------
 Chapter 6 - Optimizing for Optimistic Scenarios
@@ -421,6 +438,8 @@ best case, an **outlier**.
   | faster. [W]hile it's good to be prepared for the worst case, average cases
   | are what happen most of the time.
 
+.. _common-sense-guide-everyday-big-o:
+
 ---------------------------------------------------------------
 Chapter 7 - Big O in Everyday Code
 ---------------------------------------------------------------
@@ -442,6 +461,8 @@ Chapter 7 - Big O in Everyday Code
     would have been :math:`O(NxM)` is reduced to :math:`O(N^2)`
     because in the worst-case scenario, both these arrays would
     be the same size.
+
+.. _common-sense-guide-hash-tables:
 
 ---------------------------------------------------------------
 Chapter 8 - Blazing Fast Lookup with Hash Tables
@@ -515,6 +536,8 @@ Exercises
 
     Write an implementation of Hash Tables in Rust and Python.
 
+.. _common-sense-big-o-stacks-and-queues:
+
 ---------------------------------------------------------------
 Chapter 9 - Crafting Elegant Code with Stacks and Queues
 ---------------------------------------------------------------
@@ -543,7 +566,6 @@ the stack is referred to as its **bottom**.
 Stacks are useful when dealing with the order of things, especially when
 we care about what was the *last* item to be put into an array. Looking
 one step behind is a constant pattern when dealing with stacks.
-
 
 ---------------------------------------------------------------
 Chapter 10 - Recursively Recurse with Recursion
