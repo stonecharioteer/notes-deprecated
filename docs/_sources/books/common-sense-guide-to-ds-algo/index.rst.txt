@@ -540,6 +540,11 @@ the stack is referred to as its **bottom**.
     code checks in place so that users cannot insert an item wherever
     they want.
 
+Stacks are useful when dealing with the order of things, especially when
+we care about what was the *last* item to be put into an array. Looking
+one step behind is a constant pattern when dealing with stacks.
+
+
 ---------------------------------------------------------------
 Chapter 10 - Recursively Recurse with Recursion
 ---------------------------------------------------------------
