@@ -655,8 +655,7 @@ the datastructure to be written to disk, if need be.</p></li>
 </div></blockquote>
 <blockquote>
 <div><div class="line-block">
-<div class="line">A good hash table <a href="#id1"><span class="problematic" id="id2">**</span></a>strikes a balance of avoiding collisions while not</div>
-<div class="line">consuming lots of memory.**</div>
+<div class="line">A good hash table <strong>strikes a balance of avoiding collisions while not consuming lots of memory.</strong></div>
 <div class="line"><br/></div>
 <div class="line">To accomplish this, computer scientists have developed the following rule of thumb:</div>
 <div class="line">for every 7 data elements stored in the hash table, it should have 10 cells.</div>
@@ -666,8 +665,8 @@ the datastructure to be written to disk, if need be.</p></li>
 <p>Hash tables are used in places where you’d usually use plenty of <code class="docutils literal notranslate"><span class="pre">if-else-if-else</span></code>
 statements. Or, you’d use them when you want to store information about a single
 entity together. This is most-visible in the <code class="docutils literal notranslate"><span class="pre">JSON</span></code> data format.</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Algorithm to determine whether two words are anagrams.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Algorithm to determine whether two words are anagrams.</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -716,8 +715,8 @@ entity together. This is most-visible in the <code class="docutils literal notra
 gives us an algorithm of <span class="math notranslate nohighlight">\(O(N)\)</span> order.</p>
 <div class="section" id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Algorithm to yield the intersection of two arrays.</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Algorithm to yield the intersection of two arrays.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -778,11 +777,11 @@ gives us an algorithm of <span class="math notranslate nohighlight">\(O(N)\)</sp
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="admonition-todo admonition" id="id3">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>Do the other exercises.</p>
 </div>
-<div class="admonition-todo admonition" id="id4">
+<div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
 <p>Write an implementation of Hash Tables in Rust and Python.</p>
 </div>
@@ -815,9 +814,162 @@ one step behind is a constant pattern when dealing with stacks.</p>
 </div>
 <div class="section" id="chapter-10-recursively-recurse-with-recursion">
 <h2>Chapter 10 - Recursively Recurse with Recursion<a class="headerlink" href="#chapter-10-recursively-recurse-with-recursion" title="Permalink to this headline">¶</a></h2>
+<p>Recursion has a lot to do with the <em>stack</em>. When a function calls itself,
+what is known as the <em>Call Stack</em> is assembled. This way, the output
+of one call is tied to the output of the other, and the eventual
+disassembly occurs when, the eventual last item returns something that
+<strong>is not</strong> tied to another call.</p>
+<p>Consider the factorial function:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Program to find the factorial of a number"""</span>
+
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""Function to find the factorial of a number"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_factorial</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span>
+            <span class="n">number</span><span class="p">),</span> <span class="s2">"Could not calculate the factorial of </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here, the function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> will not immediately return anything.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(5)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(5)</span></code>, and <em>before</em>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(4)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(4)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(4)</span></code>, and <strong>before</strong>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>, and <strong>before</strong>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(2)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(2)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(2)</span></code>, and <strong>before</strong>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(1)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(1)</span></code>, it will return 1.</p>
+<p>Notice that <em>until</em> the program reaches <code class="docutils literal notranslate"><span class="pre">factorial(1)</span></code>, it <em>must</em>
+hold <em>every</em> instance of the function calls <strong>in memory</strong>. This creates
+an untenable situation: the case where the machine cannot keep track of
+this stack.</p>
+<p>After each function call resolves, in the LIFO order, the call stack is popped,
+in that order, and the final result is returned to the user.</p>
+<p>If the recursion call stack exceeds the short term meory of the computer, there
+is a <strong>Stack Overflow</strong>, and the program shuts down.</p>
+<div class="section" id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""For an array containing both numbers and other arrays, write a recursive funciton that prints out all the numbers, and just the numbers"""</span>
+
+
+<span class="k">def</span> <span class="nf">print_nums</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">print_nums</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
 </div>
 <div class="section" id="chapter-11-learning-to-write-in-recursive">
-<h2>Chapter 11 - Learning to Write in Recursive<a class="headerlink" href="#chapter-11-learning-to-write-in-recursive" title="Permalink to this headline">¶</a></h2>
+<span id="common-sense-guide-learning-recursive"></span><h2>Chapter 11 - Learning to Write in Recursive<a class="headerlink" href="#chapter-11-learning-to-write-in-recursive" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter exists to drill down how you write in recursive.
+Do all the exercises.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Find Directories</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Double Arrays in-place</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Array Sum Top Down Approach</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<span id="common-sense-guide-string-reversal-recursion"></span><div class="code-block-caption"><span class="caption-text">String Reversal (See <a class="reference internal" href="../../interview-prep/leetcode/0344-reverse-string/index.html#leetcode-344"><span class="std std-ref">344. Reverse String</span></a> also)</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Counting X</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">The Staircase Problem</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Anagram Generation</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Total Number of Characters across all Strings in an Array</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Given an array of numbers, write a recursive function to return only even numbers.</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Given a number N, return the current number from the Triangular Numbers series.</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Given a string, return the index of the first occurrence of  <code class="docutils literal notranslate"><span class="pre">x</span></code> within the string.</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
 </div>
 <div class="section" id="chapter-12-dynamic-programming">
 <h2>Chapter 12 - Dynamic Programming<a class="headerlink" href="#chapter-12-dynamic-programming" title="Permalink to this headline">¶</a></h2>
@@ -877,7 +1029,7 @@ one step behind is a constant pattern when dealing with stacks.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 04, 2021.
+            Last updated on Mar 05, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -933,8 +1085,14 @@ one step behind is a constant pattern when dealing with stacks.</p>
 <li><a class="reference internal" href="#stacks">Stacks</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#chapter-10-recursively-recurse-with-recursion">Chapter 10 - Recursively Recurse with Recursion</a></li>
-<li><a class="reference internal" href="#chapter-11-learning-to-write-in-recursive">Chapter 11 - Learning to Write in Recursive</a></li>
+<li><a class="reference internal" href="#chapter-10-recursively-recurse-with-recursion">Chapter 10 - Recursively Recurse with Recursion</a><ul>
+<li><a class="reference internal" href="#id3">Exercises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-11-learning-to-write-in-recursive">Chapter 11 - Learning to Write in Recursive</a><ul>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#chapter-12-dynamic-programming">Chapter 12 - Dynamic Programming</a></li>
 <li><a class="reference internal" href="#chapter-13-recursive-algorithms-for-speed">Chapter 13 - Recursive Algorithms for Speed</a></li>
 <li><a class="reference internal" href="#chapter-14-node-based-data-structures">Chapter 14 - Node-Based Data Structures</a></li>

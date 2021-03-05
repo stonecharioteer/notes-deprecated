@@ -498,8 +498,7 @@ The efficiency of a hash table depends on three factors:
 
 ..
 
-  | A good hash table **strikes a balance of avoiding collisions while not
-  | consuming lots of memory.**
+  | A good hash table **strikes a balance of avoiding collisions while not consuming lots of memory.**
   |
   | To accomplish this, computer scientists have developed the following rule of thumb:
   | for every 7 data elements stored in the hash table, it should have 10 cells.
@@ -511,7 +510,7 @@ Hash tables are used in places where you'd usually use plenty of ``if-else-if-el
 statements. Or, you'd use them when you want to store information about a single
 entity together. This is most-visible in the ``JSON`` data format.
 
-.. literalinclude:: anagram.py
+.. literalinclude:: code/anagram.py
     :language: python
     :linenos:
     :caption: Algorithm to determine whether two words are anagrams.
@@ -522,7 +521,7 @@ gives us an algorithm of :math:`O(N)` order.
 Exercises
 ------------
 
-.. literalinclude:: intersect.py
+.. literalinclude:: code/intersect.py
     :language: python
     :linenos:
     :caption: Algorithm to yield the intersection of two arrays.
@@ -571,9 +570,138 @@ one step behind is a constant pattern when dealing with stacks.
 Chapter 10 - Recursively Recurse with Recursion
 ---------------------------------------------------------------
 
+Recursion has a lot to do with the *stack*. When a function calls itself,
+what is known as the *Call Stack* is assembled. This way, the output
+of one call is tied to the output of the other, and the eventual
+disassembly occurs when, the eventual last item returns something that
+**is not** tied to another call.
+
+Consider the factorial function:
+
+.. literalinclude:: code/factorial.py
+    :language: python
+    :linenos:
+
+Here, the function ``factorial`` will not immediately return anything.
+
+For ``factorial(5)``, it first calls ``factorial(5)``, and *before*
+it can return anything, it needs to invoke ``factorial(4)``.
+
+For ``factorial(4)``, it first calls ``factorial(4)``, and **before**
+it can return anything, it needs to invoke ``factorial(3)``.
+
+For ``factorial(3)``, it first calls ``factorial(3)``, and **before**
+it can return anything, it needs to invoke ``factorial(2)``.
+
+For ``factorial(2)``, it first calls ``factorial(2)``, and **before**
+it can return anything, it needs to invoke ``factorial(1)``.
+
+For ``factorial(1)``, it will return 1.
+
+Notice that *until* the program reaches ``factorial(1)``, it *must*
+hold *every* instance of the function calls **in memory**. This creates
+an untenable situation: the case where the machine cannot keep track of
+this stack.
+
+After each function call resolves, in the LIFO order, the call stack is popped,
+in that order, and the final result is returned to the user.
+
+If the recursion call stack exceeds the short term meory of the computer, there
+is a **Stack Overflow**, and the program shuts down.
+
+
+Exercises
+-----------
+
+.. literalinclude:: code/array-numbers.py
+    :language: python
+    :linenos:
+
+.. _common-sense-guide-learning-recursive:
+
 ---------------------------------------------------------------
 Chapter 11 - Learning to Write in Recursive
 ---------------------------------------------------------------
+
+.. note::
+
+    This chapter exists to drill down how you write in recursive.
+    Do all the exercises.
+
+
+.. literalinclude:: code/find-directories.py
+    :caption: Find Directories
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/double-array.py
+    :caption: Double Arrays in-place
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/factorial-2.py
+    :caption: Factorial Bottom-Up Recursion
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/array-sum-top-down.py
+    :caption: Array Sum Top Down Approach
+    :language: python
+    :linenos:
+
+.. _common-sense-guide-string-reversal-recursion:
+
+.. literalinclude:: code/string-reversal-recursion.py
+    :caption: String Reversal (See :ref:`leetcode-344` also)
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/counting-x.py
+    :caption: Counting X
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/staircase.py
+    :caption: The Staircase Problem
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/anagram-generation.py
+    :caption: Anagram Generation
+    :language: python
+    :linenos:
+
+Examples
+---------------------
+
+.. literalinclude:: code/charlen.py
+    :caption: Total Number of Characters across all Strings in an Array
+    :language: python
+    :linenos:
+
+
+.. literalinclude:: code/evennumbers.py
+    :caption: Given an array of numbers, write a recursive function to return only even numbers.
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/triangular-numbers.py
+    :caption: Given a number N, return the current number from the Triangular Numbers series.
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/find-x.py
+    :caption: Given a string, return the index of the first occurrence of  ``x`` within the string.
+    :language: python
+    :linenos:
+
+.. literalinclude:: code/unique-paths.py
+    :caption: Given a number of rows and columns, calculate the nubmer of possible "shortest" paths from the upper-leftmost square to the lower-rightmost square.
+    :language: python
+    :linenos:
+
+
+
 
 ---------------------------------------------------------------
 Chapter 12 - Dynamic Programming
