@@ -639,7 +639,7 @@ Chapter 11 - Learning to Write in Recursive
     :language: python
     :linenos:
 
-.. literalinclude:: code/factorial-2.py
+.. literalinclude:: code/factorial-recursive.py
     :caption: Factorial Bottom-Up Recursion
     :language: python
     :linenos:
@@ -699,8 +699,6 @@ Examples
     :caption: Given a number of rows and columns, calculate the nubmer of possible "shortest" paths from the upper-leftmost square to the lower-rightmost square.
     :language: python
     :linenos:
-
-
 
 
 ---------------------------------------------------------------
