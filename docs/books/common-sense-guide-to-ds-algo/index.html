@@ -227,6 +227,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../interview-prep/advent-of-code/index.html">Advent of Code</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/interview-questions/index.html">Interview Questions</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/interview-questions/airbnb/index.html">Airbnb</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -298,8 +302,8 @@ again.</p>
 <li><p>Prepending 1 item to the beginning: N+1 steps</p></li>
 <li><p>Deleting an item in the list: N steps (1 step is the best case scenario, when you delete the last item)</p></li>
 </ol>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>For algorithmic speed measurement, always be a pessimist.
 Consider only the worst case scenario.</p>
 </div>
@@ -336,8 +340,9 @@ ordered array, the items are <em>in order</em>.</p>
 You cannot just insert an item at the very end.</p>
 <div class="section" id="searching-ordered-arrays">
 <h4>Searching Ordered Arrays<a class="headerlink" href="#searching-ordered-arrays" title="Permalink to this headline">¶</a></h4>
-<p>While searching normal arrays is a matter of looking at <em>each and every</em> item, this is not necessarily
-so with an ordered array. Instead, we can use <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/searching/index.html#binary-search"><span class="std std-ref">Binary Search</span></a>.</p>
+<p>While searching normal arrays is a matter of looking at <em>each and every</em> item,
+this is not necessarily so with an ordered array. Instead, we can use
+<a class="reference internal" href="../../interview-prep/ds-algo/algorithms/searching/index.html#binary-search"><span class="std std-ref">Binary Search</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All source is going to be placed in their respective topic folder.</p>
@@ -345,19 +350,19 @@ so with an ordered array. Instead, we can use <a class="reference internal" href
 <p>Binary Search will <em>halve</em> its steps each time it compares values to the search value.
 So there will be <span class="math notranslate nohighlight">\(log_2N\)</span> steps involved. It <em>narrows</em> its results down into a <em>binary</em>
 answer, hence the name.</p>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>To understand what <span class="math notranslate nohighlight">\(log_2N\)</span> means, or what <span class="math notranslate nohighlight">\(log_MN\)</span> means, read
 <a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-logarithms"><span class="std std-ref">The Algorithm Design Manual’s chapter on Logarithms</span></a>.</p>
 </div>
 <p><strong>Q</strong>: For an ordered array with 100 elements, binary search takes 7 steps. How many steps does it take for 200 elements?</p>
 <p><strong>A</strong>: 8 steps</p>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><em>Every time</em> the number of elements doubles, the steps involved in Binary Search increases by 1.</p>
 </div>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>The Logarithm of N to the base M shows how many times N can be divided by M.</p>
 <p><span class="math notranslate nohighlight">\(log_2N\)</span> shows how many times N can be <em>halved</em>.</p>
 <p><span class="math notranslate nohighlight">\(log_{10}N\)</span> shows how many times N can be divided into tenths.</p>
@@ -491,8 +496,8 @@ however, <strong>this does not matter to Big O</strong>.</p>
 <div class="line">and Bubble Sort are described in <strong>exactly the same way</strong>.</div>
 </div>
 </div></blockquote>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Remember to leave your knowledge or preconceived notions of Big O at the
 door.  <em>All</em> you need to do is check this:</p>
 <p>Does the algorithm have nested loops?</p>
@@ -614,8 +619,8 @@ It <strong>nails</strong> the Big O Notation mindset into you, and so far, I’v
 <p>The problems solutions are fairly easy, and it’s a chapter you <em>should</em> read if you
 haven’t grokked Big O yet.</p>
 </div>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>If an algorithm has 2 inputs of length <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(M\)</span>
 and it has a nested for loop that loops through them, then what
 would have been <span class="math notranslate nohighlight">\(O(NxM)\)</span> is reduced to <span class="math notranslate nohighlight">\(O(N^2)\)</span>
@@ -799,8 +804,8 @@ gives us an algorithm of <span class="math notranslate nohighlight">\(O(N)\)</sp
 </ol>
 <p>The <em>end</em> of a stack is referred to as its <em>top</em>, and the <em>beginning</em> of
 the stack is referred to as its <strong>bottom</strong>.</p>
-<div class="info admonition">
-<p class="admonition-title">Protip</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>In Python, a simple list <em>can</em> be used as a Stack, since lists
 support <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code> methods. However, it is better to
 write a wrapper around a regular list since this way you can
@@ -1145,13 +1150,129 @@ Do all the exercises.</p>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
 <div class="code-block-caption"><span class="caption-text">The Staircase Problem</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Let’s say we have a staircase of N steps, and a person has the ability to climb</span>
+<span class="sd">one, two, or three steps at a time. How many different possible “paths” can</span>
+<span class="sd">someone take to reach the top? Write a function that will calculate this for N</span>
+<span class="sd">steps.</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Solves the staircase problem"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+        <span class="p">)</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id13">
 <div class="code-block-caption"><span class="caption-text">Anagram Generation</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Generate all anagrams of a set of letters"""</span>
+
+
+<span class="k">def</span> <span class="nf">anagrams_of</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">"""Returns a list of anagrams of a string"""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># if the string is a single character, return a list containing that</span>
+        <span class="c1"># single character.</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="c1"># instantiate an empty placeholder</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Get all the anagrams of the rest of the string, besides the first</span>
+    <span class="c1"># character, until the end of the string.</span>
+    <span class="n">substring_anagrams</span> <span class="o">=</span> <span class="n">anagrams_of</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="k">for</span> <span class="n">substring_anagram</span> <span class="ow">in</span> <span class="n">substring_anagrams</span><span class="p">:</span>
+        <span class="c1"># now, while looping through this new list of sub-anagrams,</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">substring_anagram</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># loop through each character in this anagram, insert the first</span>
+            <span class="c1"># character into a place dictated by the index of the sub-anagrams</span>
+            <span class="n">anagram</span> <span class="o">=</span> <span class="n">substring_anagram</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> \
+                <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">substring_anagram</span><span class="p">[</span><span class="n">index</span><span class="p">:]</span>
+            <span class="c1"># append to our collection</span>
+            <span class="n">collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anagram</span><span class="p">)</span>
+    <span class="c1"># return the result</span>
+    <span class="k">return</span> <span class="n">collection</span>
+
+
+<span class="k">def</span> <span class="nf">test_anagrams_of</span><span class="p">():</span>
+    <span class="s2">"tests anagrams_of"</span>
+    <span class="n">input_string</span> <span class="o">=</span> <span class="s2">"abc"</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"abc"</span><span class="p">,</span>
+        <span class="s2">"bac"</span><span class="p">,</span>
+        <span class="s2">"cab"</span><span class="p">,</span>
+        <span class="s2">"cba"</span><span class="p">,</span>
+        <span class="s2">"acb"</span><span class="p">,</span>
+        <span class="s2">"bca"</span>
+    <span class="p">]</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">anagrams_of</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">anagrams</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2"> not found in anagrams of </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">item</span><span class="p">,</span> <span class="n">input_string</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
@@ -1241,7 +1362,7 @@ Do all the exercises.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 09, 2021.
+            Last updated on Mar 15, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and

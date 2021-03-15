@@ -74,8 +74,7 @@ For an array of size N:
 #. Deleting an item in the list: N steps (1 step is the best case scenario, when you delete the last item)
 
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     For algorithmic speed measurement, always be a pessimist.
     Consider only the worst case scenario.
@@ -126,8 +125,9 @@ You cannot just insert an item at the very end.
 Searching Ordered Arrays
 ============================
 
-While searching normal arrays is a matter of looking at *each and every* item, this is not necessarily
-so with an ordered array. Instead, we can use :ref:`binary-search`.
+While searching normal arrays is a matter of looking at *each and every* item,
+this is not necessarily so with an ordered array. Instead, we can use
+:ref:`binary-search`.
 
 .. note::
 
@@ -137,8 +137,7 @@ Binary Search will *halve* its steps each time it compares values to the search 
 So there will be :math:`log_2N` steps involved. It *narrows* its results down into a *binary*
 answer, hence the name.
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     To understand what :math:`log_2N` means, or what :math:`log_MN` means, read
     :ref:`The Algorithm Design Manual's chapter on Logarithms <algorithm-design-manual-logarithms>`.
@@ -148,13 +147,11 @@ answer, hence the name.
 
 **A**: 8 steps
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     *Every time* the number of elements doubles, the steps involved in Binary Search increases by 1.
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     The Logarithm of N to the base M shows how many times N can be divided by M.
 
@@ -323,8 +320,7 @@ however, **this does not matter to Big O**.
     | But here's the funny thing in the world of Big O Notation: Selection Sort
     | and Bubble Sort are described in **exactly the same way**.
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     Remember to leave your knowledge or preconceived notions of Big O at the
     door.  *All* you need to do is check this:
@@ -453,8 +449,7 @@ Chapter 7 - Big O in Everyday Code
     haven't grokked Big O yet.
 
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     If an algorithm has 2 inputs of length :math:`N` and :math:`M`
     and it has a nested for loop that loops through them, then what
@@ -553,8 +548,7 @@ A stack is *almost* an array, except:
 The *end* of a stack is referred to as its *top*, and the *beginning* of
 the stack is referred to as its **bottom**.
 
-.. admonition:: Protip
-    :class: info
+.. tip::
 
     In Python, a simple list *can* be used as a Stack, since lists
     support ``pop`` and ``push`` methods. However, it is better to
@@ -666,7 +660,7 @@ Chapter 11 - Learning to Write in Recursive
     :language: python
     :linenos:
 
-.. literalinclude:: code/anagram-generation.py
+.. literalinclude:: code/anagram_generation.py
     :caption: Anagram Generation
     :language: python
     :linenos:
