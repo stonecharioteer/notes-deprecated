@@ -52,3 +52,5 @@ topics:
    courses/index
    papers/index
    interview-prep/index
+   references
+   glossary
