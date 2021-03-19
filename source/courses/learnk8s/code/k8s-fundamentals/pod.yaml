@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fundamentals-basics
+  labels:
+    app: fundamentals-basics
+spec:
+  serviceAccountName: learnk8s-challenge
+  containers:
+  - name: fundamentals-basics
+    image: learnk8s/fundamentals:basics
+    ports:
+    - containerPort: 4567
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fundamentals-basics
+spec:
+  type: NodePort
+  selector:
+    app: fundamentals-basics
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 4567
+      nodePort: 30036
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fundamentals-basics
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: fundamentals-basics
+    template:
+    metadata:
+      labels:
+        run: fundamentals-basics
+      spec:
+        containers:
+        - image:  learnk8s/fundamentals:basics
+          name: fundamentals-basics
