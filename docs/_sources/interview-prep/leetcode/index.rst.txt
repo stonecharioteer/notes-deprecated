@@ -9,6 +9,7 @@ This section has my solutions to leetcode problems.
     :maxdepth: 1
 
     0001-two-sum/index
+    0002-add-two-numbers/index
     0020-valid-parenthesis/index
     0344-reverse-string/index
     0392-is-subsequence/index
