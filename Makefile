@@ -26,3 +26,5 @@ github:
 	@make html
 	@rm -rf docs/*
 	@cp -a build/html/. docs
+	@git restore --source=HEAD --staged --worktree -- docs/CNAME
+
