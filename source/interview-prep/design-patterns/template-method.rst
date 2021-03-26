@@ -1,4 +1,4 @@
-.. _design-pattern-template-method
+.. _design-pattern-template-method:
 
 ==================================================================
 The Template Method Pattern
