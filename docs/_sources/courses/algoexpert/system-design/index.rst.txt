@@ -7,7 +7,7 @@ Systems Expert
 .. note::
     These are my notes on the Algoexpert Systems Design material.
 
-    I will be keeping my solutions to the problems in the :ref:`systems-design` section,
+    I will be keeping my solutions to the problems in the :ref:`system-design` section,
     since that houses all the systems-design problems I go through.
 
 ---------------------------------

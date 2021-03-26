@@ -19,7 +19,16 @@ Examples
 Solution
 ---------------------
 
-.. literalinclude:: solution.py
-    :caption: Solution
-    :linenos:
-    :language: python
+.. tab:: O(n) Space and Time
+
+    .. literalinclude:: solution_1.py
+        :caption: Solution
+        :linenos:
+        :language: python
+
+.. tab:: O(n) Time and O(1) Space
+
+    .. literalinclude:: solution_2.py
+        :caption: Solution
+        :linenos:
+        :language: python

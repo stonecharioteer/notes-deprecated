@@ -690,7 +690,7 @@ Examples
     :linenos:
 
 .. literalinclude:: code/unique-paths.py
-    :caption: Given a number of rows and columns, calculate the nubmer of possible "shortest" paths from the upper-leftmost square to the lower-rightmost square.
+    :caption: Given a number of rows and columns, calculate the number of possible "shortest" paths from the upper-leftmost square to the lower-rightmost square.
     :language: python
     :linenos:
 

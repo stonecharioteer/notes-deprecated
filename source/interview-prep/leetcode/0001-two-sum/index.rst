@@ -19,14 +19,14 @@ Examples
 Solution
 ---------------------
 
-.. tab:: :term:`TC`: :math:`O(n)` :term:`SC`: :math:`O(n)`
+.. tab:: O(n) Space and Time
 
     .. literalinclude:: solution_1.py
         :caption: Solution
         :linenos:
         :language: python
 
-.. tab:: TC: :math:`O(n)` SC: :math:`O(1)`
+.. tab:: O(n) Time and O(1) Space
 
     .. literalinclude:: solution_2.py
         :caption: Solution

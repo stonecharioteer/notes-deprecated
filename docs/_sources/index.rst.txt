@@ -30,7 +30,7 @@ working on.
 
    books/common-sense-guide-to-ds-algo/index
    interview-prep/leetcode/index
-   courses/mit-6.006-index
+   courses/mit-6.006/index
 
 ---------
 Topics
