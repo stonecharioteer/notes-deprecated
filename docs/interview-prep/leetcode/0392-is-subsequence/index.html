@@ -120,7 +120,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../0001-two-sum/index.html">1. Two Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0001-two-sum/index.html">0001. Two Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0344-reverse-string/index.html">344. Reverse String</a></li>
@@ -229,7 +229,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../0001-two-sum/index.html">1. Two Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../0001-two-sum/index.html">0001. Two Sum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0344-reverse-string/index.html">344. Reverse String</a></li>
@@ -276,7 +276,51 @@
 <h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Solution</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Solution for the Leetcode Problem #0392. Is Subsequence</span>
+<span class="sd">https://leetcode.com/problems/is-subsequence/</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">is_subsequence</span><span class="p">(</span><span class="n">input_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">"""Checks if a given sequence is a subsequence of an input string"""</span>
+    <span class="c1"># For this solution, iterate through the input string</span>
+    <span class="c1"># while maintaining a cursor into the sequence string.</span>
+    <span class="c1"># Keep checking the sequence string for matches,</span>
+    <span class="c1"># and only go to the next value in the sequence when</span>
+    <span class="c1"># there *is* a match.</span>
+    <span class="c1"># this ensures that although we are looping through 2 inputs, we only</span>
+    <span class="c1"># loop through each once overall.</span>
+    <span class="c1"># Thus, the time complexity is just O(n) while the space complexity is O(1)</span>
+    <span class="n">index_sequence</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">input_string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">index_sequence</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="n">index_sequence</span><span class="p">]</span> <span class="o">==</span> <span class="n">character</span><span class="p">:</span>
+                <span class="n">index_sequence</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="n">index_sequence</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">==</span> <span class="n">index_sequence</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
@@ -312,7 +356,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 26, 2021.
+            Last updated on Mar 29, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
