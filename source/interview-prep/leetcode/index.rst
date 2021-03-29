@@ -16,4 +16,5 @@ This section has my solutions to leetcode problems.
     0485-max-consecutive-ones/index
     0709-to-lower-case/index
     0771-jewels-and-stones/index
+    1295-find-number-with-even-number-of-digits
     1476-subrectangle-queries/index

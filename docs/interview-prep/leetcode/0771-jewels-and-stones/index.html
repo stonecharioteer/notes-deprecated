@@ -120,7 +120,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../0001-two-sum/index.html">1. Two Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0001-two-sum/index.html">0001. Two Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0344-reverse-string/index.html">344. Reverse String</a></li>
@@ -229,7 +229,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../0001-two-sum/index.html">1. Two Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../0001-two-sum/index.html">0001. Two Sum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0344-reverse-string/index.html">344. Reverse String</a></li>
@@ -276,7 +276,39 @@
 <h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Solution</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Solution for the Leetcode problem #0771 Jewels and Stones</span>
+<span class="sd">https://leetcode.com/problems/jewels-and-stones/</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">num_jewels_in_stones</span><span class="p">(</span><span class="n">jewels</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stones</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""Given a string of jewels and a string of stones,</span>
+<span class="sd">    count the number of stones that are jewels"""</span>
+
+    <span class="n">jewels_hashmap</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">jewel</span> <span class="ow">in</span> <span class="n">jewels</span><span class="p">:</span>
+        <span class="n">jewels_hashmap</span><span class="p">[</span><span class="n">jewel</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">jewels_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">stone</span> <span class="ow">in</span> <span class="n">stones</span><span class="p">:</span>
+        <span class="n">jewels_count</span> <span class="o">+=</span> <span class="n">jewels_hashmap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">stone</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jewels_count</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
@@ -312,7 +344,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 26, 2021.
+            Last updated on Mar 29, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
