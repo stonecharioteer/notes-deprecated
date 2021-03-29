@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="0002. Add Two Numbers" href="../0002-add-two-numbers/index.html" /><link rel="prev" title="Leetcode" href="../index.html" />
 
     <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
-        <title>1. Two Sum - Stonecharioteer&#39;s Notes</title>
+        <title>0001. Two Sum - Stonecharioteer&#39;s Notes</title>
       <link rel="stylesheet" href="../../../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
     <link rel="stylesheet" href="../../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
@@ -120,7 +120,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Two Sum</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">0001. Two Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0344-reverse-string/index.html">344. Reverse String</a></li>
@@ -229,7 +229,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">1. Two Sum</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">0001. Two Sum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0344-reverse-string/index.html">344. Reverse String</a></li>
@@ -264,7 +264,7 @@
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
         <div class="section" id="two-sum">
-<span id="leetcode-001"></span><h1>1. Two Sum<a class="headerlink" href="#two-sum" title="Permalink to this headline">¶</a></h1>
+<span id="leetcode-001"></span><h1>0001. Two Sum<a class="headerlink" href="#two-sum" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="problem-statement">
 <h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://leetcode.com/problems/two-sum">Leetcode Link</a></p>
@@ -336,7 +336,63 @@
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">O(n) Time and O(1) Space</label><div class="tab-content docutils container">
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Solution</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Solution for the Leetcode problem #0001 Two Sum</span>
+<span class="sd">https://leetcode.com/problems/two-sum/</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">two_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">"""Given a list of integers, find two numbers that add up to</span>
+<span class="sd">    a given target integer</span>
+<span class="sd">    While this solution does have an n.logn Time complexity, it</span>
+<span class="sd">    has an O(1) space complexity and is a better solution</span>
+<span class="sd">    when we have memory constraints.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># sort the array</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">l_val</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+        <span class="n">r_val</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">l_val</span> <span class="o">+</span> <span class="n">r_val</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">l_val</span><span class="p">,</span> <span class="n">r_val</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">l_val</span> <span class="o">+</span> <span class="n">r_val</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">l_val</span> <span class="o">+</span> <span class="n">r_val</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">l_val</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="p">[]</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
@@ -374,7 +430,7 @@
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 26, 2021.
+            Last updated on Mar 29, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -401,7 +457,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1. Two Sum</a><ul>
+<li><a class="reference internal" href="#">0001. Two Sum</a><ul>
 <li><a class="reference internal" href="#problem-statement">Problem Statement</a></li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#solution">Solution</a></li>
