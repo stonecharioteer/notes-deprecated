@@ -646,7 +646,7 @@ Chapter 11 - Learning to Write in Recursive
 .. _common-sense-guide-string-reversal-recursion:
 
 .. literalinclude:: code/string-reversal-recursion.py
-    :caption: String Reversal (See :ref:`leetcode-344` also)
+    :caption: String Reversal (See :ref:`leetcode-0344` also)
     :language: python
     :linenos:
 

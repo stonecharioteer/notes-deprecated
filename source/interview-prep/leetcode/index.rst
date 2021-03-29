@@ -18,6 +18,7 @@ This section has my solutions to leetcode problems.
     0002-add-two-numbers/index
     0003-longest-substring-without-repeating-characters/index
     0020-valid-parenthesis/index
+    0278-first-bad-version/index
     0344-reverse-string/index
     0392-is-subsequence/index
     0485-max-consecutive-ones/index
