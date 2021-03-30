@@ -34,20 +34,14 @@ def median_two_sorted_arrays(nums1: list[int], nums2: list[int]) -> int:
         right_smaller = smaller_array[partition_smaller_array:]
         right_larger = larger_array[partition_larger_array:]
 
-        if counter >= 50:
-            print(f"===={counter=}====")
-            print(f"{left_smaller=} {right_smaller=}")
-            print(f"{left_larger=} {right_larger=}")
-            assert False, "This is taking too long."
-
         max_left_smaller = left_smaller[-1] if len(
             left_smaller) > 0 else -float('inf')
         min_right_larger = right_larger[0] if len(
             right_larger) > 0 else float('inf')
         max_left_larger = left_larger[-1] if len(
-            left_larger) > 0 else float("inf")
+            left_larger) > 0 else -float("inf")
         min_right_smaller = right_smaller[0] if len(
-            right_smaller) > 0 else -float("inf")
+            right_smaller) > 0 else float("inf")
 
         if max_left_smaller <= min_right_larger and max_left_larger <= min_right_smaller:
             found_partition = True
