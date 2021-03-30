@@ -17,7 +17,7 @@ This section has my solutions to leetcode problems.
     patterns/index
 
 .. toctree::
-    :caption: Easy Problems
+    :caption: Problems
     :maxdepth: 1
 
 
