@@ -2,18 +2,29 @@
 https://leetcode.com/problems/median-of-two-sorted-arrays/
 """
 
+import statistics
+
 
 def median_two_sorted_arrays(nums1: list[int], nums2: list[int]) -> int:
     """Return a median of two sorted arrays in O(log(m+n))
     """
     # Note: Please read the explanation / watch the linked video
     # *before* trying to understand this.
-    if len(nums1) < len(nums2):
+    if 0 < len(nums1) < len(nums2):
         smaller_array = nums1
         larger_array = nums2
-    else:
+    elif 0 < len(nums2) < len(nums1):
         smaller_array = nums2
         larger_array = nums1
+    elif 0 < len(nums1) == len(nums2):
+        smaller_array = nums1
+        larger_array = nums2
+    elif len(nums2) == 0 and len(nums1) > 0:
+        return statistics.median(nums1)
+    elif len(nums1) == 0 and len(nums2) > 0:
+        return statistics.median(nums2)
+    else:
+        return None
 
     # perform binary search on the smaller array.
     start = 0
@@ -88,4 +99,12 @@ def test_edgecase():
 
     calculated_median = median_two_sorted_arrays(list_1, list_2)
     median = 2
+    assert calculated_median == median, f"Returned value {calculated_median=} is wrong! {median=}"
+
+
+def test_equal_case():
+    list_1 = list_2 = [1, 2, 3, 4]
+
+    calculated_median = median_two_sorted_arrays(list_1, list_2)
+    median = statistics.median(list_1)
     assert calculated_median == median, f"Returned value {calculated_median=} is wrong! {median=}"
