@@ -4,6 +4,10 @@ Leetcode
 
 This section has my solutions to leetcode problems.
 
+.. note::
+
+    Total solved thus far: **12**
+
 .. toctree:: Patterns
     :caption: Patterns
     :maxdepth: 2
