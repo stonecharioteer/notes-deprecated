@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="0020. Valid Parenthesis" href="../0020-valid-parenthesis/index.html" /><link rel="prev" title="0003. Longest Substring Without Repeating Characters" href="../0003-longest-substring-without-repeating-characters/index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Books" href="../../../books/index.html" /><link rel="prev" title="0003. Longest Substring Without Repeating Characters" href="../0003-longest-substring-without-repeating-characters/index.html" />
 
     <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
         <title>0004. Median of Two Sorted Arrays - Stonecharioteer&#39;s Notes</title>
@@ -122,9 +122,6 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../patterns/index.html">Problem Patterns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0001-two-sum/index.html">0001. Two Sum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../0003-longest-substring-without-repeating-characters/index.html">0003. Longest Substring Without Repeating Characters</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">0004. Median of Two Sorted Arrays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0278-first-bad-version/index.html">0278. First Bad Version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0344-reverse-string/index.html">0344. Reverse String</a></li>
@@ -133,6 +130,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../0709-to-lower-case/index.html">0709. To Lower Case</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../0771-jewels-and-stones/index.html">0771. Jewels and Stones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1476-subrectangle-queries/index.html">1476. Subrectangle Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0003-longest-substring-without-repeating-characters/index.html">0003. Longest Substring Without Repeating Characters</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">0004. Median of Two Sorted Arrays</a></li>
 </ul>
 </li>
 </ul>
@@ -235,9 +235,6 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">Leetcode</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../patterns/index.html">Problem Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0001-two-sum/index.html">0001. Two Sum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../0003-longest-substring-without-repeating-characters/index.html">0003. Longest Substring Without Repeating Characters</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">0004. Median of Two Sorted Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0020-valid-parenthesis/index.html">0020. Valid Parenthesis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0278-first-bad-version/index.html">0278. First Bad Version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0344-reverse-string/index.html">0344. Reverse String</a></li>
@@ -246,6 +243,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../0709-to-lower-case/index.html">0709. To Lower Case</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../0771-jewels-and-stones/index.html">0771. Jewels and Stones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../1476-subrectangle-queries/index.html">1476. Subrectangle Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../0002-add-two-numbers/index.html">0002. Add Two Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../0003-longest-substring-without-repeating-characters/index.html">0003. Longest Substring Without Repeating Characters</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">0004. Median of Two Sorted Arrays</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../advent-of-code/index.html">Advent of Code</a></li>
@@ -294,6 +294,12 @@ the median of the two sorted arrays.</p>
 <p>Remember that the <em>median</em> of a list is <em>that</em> item
 that divides the list into two equal halves, by population.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This problem uses principles I’ve come across when learning the
+<a class="reference internal" href="../../ds-algo/algorithms/sorting/index.html#merge-sort"><span class="std std-ref">Merge Sort</span></a> algorithm.
+It should help to re-read that section before trying to solve this problem.</p>
+</div>
 </div>
 </div>
 <div class="section" id="examples">
@@ -301,24 +307,234 @@ that divides the list into two equal halves, by population.</p>
 </div>
 <div class="section" id="solution">
 <h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
-<p>This is a good explanation targetting this problem: <a class="reference external" href="https://youtu.be/LPFhl65R7ww">Binary Search - Median of Two Sorted Arrays</a>.</p>
+<p>This is a good explanation targeting this problem:
+<a class="reference external" href="https://youtu.be/LPFhl65R7ww">Binary Search - Median of Two Sorted Arrays</a>.</p>
+<ol class="arabic simple">
+<li><p>Partition the two arrays into two other arrays which are of equal halves.</p></li>
+<li><p>Ensure that every element on the left side is less than or equal to every
+element on the right side.</p></li>
+</ol>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Solution</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Solution for Leetcode #0004 - Median of Two Sorted Arrays</span>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Solution for Leetcode #0004 - Median of Two Sorted Arrays</span>
 <span class="sd">https://leetcode.com/problems/median-of-two-sorted-arrays/</span>
 <span class="sd">"""</span>
+
+<span class="kn">import</span> <span class="nn">statistics</span>
 
 
 <span class="k">def</span> <span class="nf">median_two_sorted_arrays</span><span class="p">(</span><span class="n">nums1</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">nums2</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">"""Return a median of two sorted arrays in O(log(m+n))</span>
 <span class="sd">    """</span>
+    <span class="c1"># Note: Please read the explanation / watch the linked video</span>
+    <span class="c1"># *before* trying to understand this.</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">):</span>
+        <span class="n">smaller_array</span> <span class="o">=</span> <span class="n">nums1</span>
+        <span class="n">larger_array</span> <span class="o">=</span> <span class="n">nums2</span>
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums1</span><span class="p">):</span>
+        <span class="n">smaller_array</span> <span class="o">=</span> <span class="n">nums2</span>
+        <span class="n">larger_array</span> <span class="o">=</span> <span class="n">nums1</span>
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">):</span>
+        <span class="n">smaller_array</span> <span class="o">=</span> <span class="n">nums1</span>
+        <span class="n">larger_array</span> <span class="o">=</span> <span class="n">nums2</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># perform binary search on the smaller array.</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">smaller_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">found_partition</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">found_partition</span><span class="p">:</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">partition_smaller_array</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">+</span> <span class="n">start</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+        <span class="n">partition_larger_array</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">smaller_array</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">larger_array</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">partition_smaller_array</span>
+
+        <span class="n">left_smaller</span> <span class="o">=</span> <span class="n">smaller_array</span><span class="p">[:</span><span class="n">partition_smaller_array</span><span class="p">]</span>
+        <span class="n">left_larger</span> <span class="o">=</span> <span class="n">larger_array</span><span class="p">[:</span><span class="n">partition_larger_array</span><span class="p">]</span>
+        <span class="n">right_smaller</span> <span class="o">=</span> <span class="n">smaller_array</span><span class="p">[</span><span class="n">partition_smaller_array</span><span class="p">:]</span>
+        <span class="n">right_larger</span> <span class="o">=</span> <span class="n">larger_array</span><span class="p">[</span><span class="n">partition_larger_array</span><span class="p">:]</span>
+
+        <span class="n">max_left_smaller</span> <span class="o">=</span> <span class="n">left_smaller</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="n">left_smaller</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span>
+        <span class="n">min_right_larger</span> <span class="o">=</span> <span class="n">right_larger</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="n">right_larger</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span>
+        <span class="n">max_left_larger</span> <span class="o">=</span> <span class="n">left_larger</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="n">left_larger</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+        <span class="n">min_right_smaller</span> <span class="o">=</span> <span class="n">right_smaller</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="n">right_smaller</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">max_left_smaller</span> <span class="o">&lt;=</span> <span class="n">min_right_larger</span> <span class="ow">and</span> <span class="n">max_left_larger</span> <span class="o">&lt;=</span> <span class="n">min_right_smaller</span><span class="p">:</span>
+            <span class="n">found_partition</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">max_left_smaller</span> <span class="o">&gt;</span> <span class="n">min_right_larger</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># now the median will be in the last four digits:</span>
+    <span class="n">total_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">smaller_array</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">larger_array</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">total_length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># this is even</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">max_left_smaller</span><span class="p">,</span> <span class="n">max_left_larger</span>
+                      <span class="p">)</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_right_larger</span><span class="p">,</span> <span class="n">min_right_smaller</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">median</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_left_smaller</span><span class="p">,</span> <span class="n">max_left_larger</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">median</span>
+
+
+<span class="k">def</span> <span class="nf">test_base</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="kn">import</span> <span class="nn">statistics</span>
+
+    <span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+              <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">))]</span>
+    <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+              <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">))]</span>
+
+    <span class="n">list_1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">list_2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+    <span class="n">calculated_median</span> <span class="o">=</span> <span class="n">median_two_sorted_arrays</span><span class="p">(</span><span class="n">list_1</span><span class="p">,</span> <span class="n">list_2</span><span class="p">)</span>
+
+    <span class="n">merged_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list_1</span> <span class="o">+</span> <span class="n">list_2</span><span class="p">)</span>
+
+    <span class="n">median</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">merged_list</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">calculated_median</span> <span class="o">==</span> <span class="n">median</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Returned value </span><span class="si">{</span><span class="n">calculated_median</span><span class="si">=}</span><span class="s2"> is wrong! </span><span class="si">{</span><span class="n">median</span><span class="si">=}</span><span class="s2">"</span>
+
+
+<span class="k">def</span> <span class="nf">test_edgecase</span><span class="p">():</span>
+    <span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">calculated_median</span> <span class="o">=</span> <span class="n">median_two_sorted_arrays</span><span class="p">(</span><span class="n">list_1</span><span class="p">,</span> <span class="n">list_2</span><span class="p">)</span>
+    <span class="n">median</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">calculated_median</span> <span class="o">==</span> <span class="n">median</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Returned value </span><span class="si">{</span><span class="n">calculated_median</span><span class="si">=}</span><span class="s2"> is wrong! </span><span class="si">{</span><span class="n">median</span><span class="si">=}</span><span class="s2">"</span>
+
+
+<span class="k">def</span> <span class="nf">test_equal_case</span><span class="p">():</span>
+    <span class="n">list_1</span> <span class="o">=</span> <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+    <span class="n">calculated_median</span> <span class="o">=</span> <span class="n">median_two_sorted_arrays</span><span class="p">(</span><span class="n">list_1</span><span class="p">,</span> <span class="n">list_2</span><span class="p">)</span>
+    <span class="n">median</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">calculated_median</span> <span class="o">==</span> <span class="n">median</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Returned value </span><span class="si">{</span><span class="n">calculated_median</span><span class="si">=}</span><span class="s2"> is wrong! </span><span class="si">{</span><span class="n">median</span><span class="si">=}</span><span class="s2">"</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
@@ -329,12 +545,12 @@ that divides the list into two equal halves, by population.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../0020-valid-parenthesis/index.html">
+          <a class="next-page" href="../../../books/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">0020. Valid Parenthesis</div>
+                <div class="title">Books</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -354,7 +570,7 @@ that divides the list into two equal halves, by population.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 29, 2021.
+            Last updated on Mar 30, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and

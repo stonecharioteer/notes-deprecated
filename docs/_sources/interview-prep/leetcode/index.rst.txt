@@ -11,13 +11,10 @@ This section has my solutions to leetcode problems.
     patterns/index
 
 .. toctree::
-    :caption: Problems
+    :caption: Easy Problems
     :maxdepth: 1
 
     0001-two-sum/index
-    0002-add-two-numbers/index
-    0003-longest-substring-without-repeating-characters/index
-    0004-median-of-two-sorted-arrays/index
     0020-valid-parenthesis/index
     0278-first-bad-version/index
     0344-reverse-string/index
@@ -27,3 +24,16 @@ This section has my solutions to leetcode problems.
     0771-jewels-and-stones/index
     1295-find-number-with-even-number-of-digits/index
     1476-subrectangle-queries/index
+
+.. toctree::
+    :caption: Medium Problems
+    :maxdepth: 1
+
+    0002-add-two-numbers/index
+    0003-longest-substring-without-repeating-characters/index
+
+.. toctree::
+    :caption: Hard Problems
+    :maxdepth: 1
+
+    0004-median-of-two-sorted-arrays/index
