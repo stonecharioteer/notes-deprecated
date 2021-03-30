@@ -31,6 +31,7 @@ extensions = [
     "myst_parser",
     "sphinx.ext.todo",
     "sphinx_inline_tabs",
+    "sphinx_panels",
     "sphinx_copybutton",
     "sphinx.ext.githubpages",
     "matplotlib.sphinxext.plot_directive",

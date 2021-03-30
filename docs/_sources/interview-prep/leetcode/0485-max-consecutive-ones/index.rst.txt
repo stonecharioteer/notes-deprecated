@@ -1,7 +1,7 @@
 .. _leetcode-0485:
 
 =========================================
-EASY-🥱 0485. Max Consecutive Ones
+:badge:`EASY,badge-info` 0485. Max Consecutive Ones
 =========================================
 
 -------------------------

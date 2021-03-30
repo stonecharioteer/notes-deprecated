@@ -1,7 +1,7 @@
 .. _leetcode-0003:
 
 ================================================================
-MEDIUM-🤔 0003. Longest Substring Without Repeating Characters
+:badge:`MEDIUM,badge-warning` 0003. Longest Substring Without Repeating Characters
 ================================================================
 
 -------------------------

@@ -1,7 +1,7 @@
 .. _leetcode-1295:
 
 =======================================================
-EASY-🥱 1295. Find Numbers with Even Number of Digits
+:badge:`EASY,badge-info` 1295. Find Numbers with Even Number of Digits
 =======================================================
 
 -------------------------

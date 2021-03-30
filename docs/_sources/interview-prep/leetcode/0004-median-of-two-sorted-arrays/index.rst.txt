@@ -1,7 +1,7 @@
 .. _leetcode-0004:
 
 =========================================
-HARD-😭 0004. Median of Two Sorted Arrays
+:badge:`HARD,badge-danger` 0004. Median of Two Sorted Arrays
 =========================================
 
 -------------------------

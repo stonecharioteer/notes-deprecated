@@ -1,5 +1,5 @@
 ====================================
-EASY-🥱 1476. Subrectangle Queries
+:badge:`EASY,badge-info` 1476. Subrectangle Queries
 ====================================
 
 -----------------------
