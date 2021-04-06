@@ -12,15 +12,15 @@ def insertion_sort(inp_list):
     than this item are shifted to the right.
     """
     for index in range(1, len(inp_list)):
-        key = inp_list[index]
         position = index
 
-        while position > 0 and inp_list[position-1] > key:
+        while position > 0 and inp_list[position] < inp_list[position-1]:
             # shift greater items to the left
-            inp_list[position] = inp_list[position-1]
+            inp_list[position-1], inp_list[position] = (
+                inp_list[position], inp_list[position-1]
+            )
             position -= 1
 
-        inp_list[position] = key
     return inp_list
 
 
