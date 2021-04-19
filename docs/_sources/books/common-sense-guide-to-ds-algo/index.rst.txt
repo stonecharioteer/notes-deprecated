@@ -15,6 +15,10 @@ A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow
     It's that good.
 
 
+.. warning::
+    This document is work in progress. :ref:`Jump to current WIP marker <common-sense-wip>`
+
+
 .. _common-sense-guide-why-data-structures-matter:
 
 ---------------------------------------
@@ -802,6 +806,7 @@ Exercises
 
 Unique Paths Problem
 =======================
+.. _common-sense-wip:
 
 .. literalinclude:: code/unique-paths.py
     :caption: Given a number of rows and columns, calculate the number of possible "shortest" paths from the upper-leftmost square to the lower-rightmost square.
@@ -818,8 +823,6 @@ Chapter 12 - Dynamic Programming
     This chapter oddly deals mostly with memoization-based dynamic
     programming. I need to look into more
     `diverse methods of dynamic programming. <https://www.geeksforgeeks.org/dynamic-programming/>`_
-
-
 
 
 ---------------------------------------------------------------

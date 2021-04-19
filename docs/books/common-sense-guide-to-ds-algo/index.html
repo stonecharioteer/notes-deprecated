@@ -285,6 +285,10 @@ recommend anyone who is new to the topic to read this book end to end, with a pe
 tow to make notes right in the book.</p>
 <p>It’s that good.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This document is work in progress. <a class="reference internal" href="#common-sense-wip"><span class="std std-ref">Jump to current WIP marker</span></a></p>
+</div>
 <div class="section" id="chapter-1-why-data-structures-matter">
 <span id="common-sense-guide-why-data-structures-matter"></span><h2>Chapter 1 - Why Data Structures Matter<a class="headerlink" href="#chapter-1-why-data-structures-matter" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-array">
@@ -1616,8 +1620,38 @@ if one is to eventually solve the travelling salesman problem.</p>
 <div class="section" id="unique-paths-problem">
 <span id="id8"></span><h4>Unique Paths Problem<a class="headerlink" href="#unique-paths-problem" title="Permalink to this headline">¶</a></h4>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-text">Given a number of rows and columns, calculate the number of possible “shortest” paths from the upper-leftmost square to the lower-rightmost square.</span><a class="headerlink" href="#id24" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
+<span id="common-sense-wip"></span><div class="code-block-caption"><span class="caption-text">Given a number of rows and columns, calculate the number of possible “shortest” paths from the upper-leftmost square to the lower-rightmost square.</span><a class="headerlink" href="#id24" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Let's say you have a grid of rows and columns. Write a function that accepts</span>
+<span class="sd">a number of rows and a number of columns, and calculates the number of possible</span>
+<span class="sd">"shortest" paths from the upper-leftmost square to the lower-rightmost square.</span>
+
+<span class="sd">Given a square position (i,j), your next step is one of: (i+1, j), (i-1, j), (i, j+1) or (i, j-1).</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">number_of_shortest_paths</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="sd">"""Unique Paths Problem"""</span>
+    <span class="k">if</span> <span class="n">rows</span> <span class="o">==</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">3</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">6</span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
