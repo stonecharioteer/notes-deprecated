@@ -697,8 +697,8 @@ the datastructure to be written to disk, if need be.</p></li>
 <p>Hash tables are used in places where you’d usually use plenty of <code class="docutils literal notranslate"><span class="pre">if-else-if-else</span></code>
 statements. Or, you’d use them when you want to store information about a single
 entity together. This is most-visible in the <code class="docutils literal notranslate"><span class="pre">JSON</span></code> data format.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Algorithm to determine whether two words are anagrams.</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Algorithm to determine whether two words are anagrams.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -747,8 +747,8 @@ entity together. This is most-visible in the <code class="docutils literal notra
 gives us an algorithm of <span class="math notranslate nohighlight">\(O(N)\)</span> order.</p>
 <div class="section" id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Algorithm to yield the intersection of two arrays.</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Algorithm to yield the intersection of two arrays.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -867,7 +867,8 @@ disassembly occurs when, the eventual last item returns something that
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Program to find the factorial of a number"""</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Program to find the factorial of a number"""</span>
 
 
 <span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -879,6 +880,7 @@ disassembly occurs when, the eventual last item returns something that
 
 
 <span class="k">def</span> <span class="nf">test_factorial</span><span class="p">():</span>
+    <span class="sd">"""Test for the factorial function"""</span>
     <span class="kn">import</span> <span class="nn">math</span>
     <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span>
@@ -933,8 +935,37 @@ is a <strong>Stack Overflow</strong>, and the program shuts down.</p>
 <p>This chapter exists to drill down how you write in recursive.
 Do all the exercises.</p>
 </div>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Find Directories</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="section" id="recursion-categories">
+<span id="id4"></span><h3>Recursion Categories<a class="headerlink" href="#recursion-categories" title="Permalink to this headline">¶</a></h3>
+<p>While recursive algorithms may seem like they’re of one variety, there
+are multiple ways they may be used.</p>
+<div class="section" id="repeatedly-execute">
+<h4>Repeatedly Execute<a class="headerlink" href="#repeatedly-execute" title="Permalink to this headline">¶</a></h4>
+<p>One way of looking at recursion is to envision it as a repeated execution.
+You have a function that just needs to occur multiple times for the problem to be solved.</p>
+<p>A countdown is such an algorithm.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Recursive Countdown Function</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">"""Recursive implementation of a countdown function"""</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="n">countdown</span><span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>In the above code-block, <code class="docutils literal notranslate"><span class="pre">countdown</span></code> just calls itself, decrementing the input.
+As with all recursion, it has a <em>base case</em>, where <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, and quits
+there.</p>
+<p>Another example of this is a function to recursively find directories in a given directory.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Find Directories recursively</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -969,8 +1000,15 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Double Arrays in-place</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="section" id="passing-extra-parameters">
+<h5>Passing Extra Parameters<a class="headerlink" href="#passing-extra-parameters" title="Permalink to this headline">¶</a></h5>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that you cannot pass around a <em>modifiable</em> slice in Python. Slices
+are merely <em>copies</em>, and not references to the original object.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Double Arrays in-place</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1007,8 +1045,15 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Factorial Bottom-Up Recursion</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+</div>
+</div>
+<div class="section" id="calculation-of-subproblem">
+<h4>Calculation of Subproblem<a class="headerlink" href="#calculation-of-subproblem" title="Permalink to this headline">¶</a></h4>
+<p>In some recursive functions, the task is to <em>calculate something</em> based on a <em>subtask</em>.
+That is to say, recursion can be used to make a calculation based on a sub-problem of a problem.</p>
+<p>The <em>factorial</em> of a number is one such problem.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Factorial Bottom-Up Recursion</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1047,8 +1092,27 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Array Sum Top Down Approach</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<p>Given the definition of a factorial of an integer as the product of all the
+integers up to and including the given integer, we can write the above program.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I know it might seem trivial and obvious, but the factorial and the fibonacci numbers
+are <em>not the same</em>. Do not look at the word factorial and immediately write
+code for the fibonacci sequence.</p>
+</div>
+<p>To explain this recursive algorithm, note that at each step, a value is returned, with
+a recursive call. This builds upon recursion’s use of a <em>call stack</em>, and once the base case
+is reached, the entire stack disassembles, returning the result.</p>
+</div>
+</div>
+<div class="section" id="top-down-recursion">
+<h3>Top-Down Recursion<a class="headerlink" href="#top-down-recursion" title="Permalink to this headline">¶</a></h3>
+<p>When solving something <em>top down</em>, you will have to push back the actual solution to <em>much</em> later
+down the stack. Reconsider the factorial problem. You <em>don’t need to understand</em> how the factorial
+function works to use it.</p>
+<p>Consider the Array Sum problem.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Array Sum Top Down Approach</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1081,8 +1145,14 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id10">
-<span id="common-sense-guide-string-reversal-recursion"></span><div class="code-block-caption"><span class="caption-text">String Reversal (See <a class="reference internal" href="../../interview-prep/leetcode/0344-reverse-string/index.html#leetcode-0344"><span class="std std-ref">EASY 0344. Reverse String</span></a> also)</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<p>In the above approach, we take the liberty of assuming that the <code class="docutils literal notranslate"><span class="pre">array_sum</span></code> function’s
+implementation is irrelevant. In fact, we continue to use it <em>until we reach the last item</em>.
+It is the base case that finally says “I do not need to use this function again”, and returns
+a value <em>without adding to the call stack</em>.</p>
+<p id="common-sense-guide-string-reversal-recursion">Another example of this is the String Reversal problem, one that you will also see
+in <a class="reference internal" href="../../interview-prep/leetcode/0344-reverse-string/index.html#leetcode-0344"><span class="std std-ref">EASY 0344. Reverse String</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">String Reversal</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1125,8 +1195,9 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Counting X</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<p>The next example deals with counting the occurrence of <code class="docutils literal notranslate"><span class="pre">x</span></code> in a string.</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Counting X</span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1175,8 +1246,15 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">The Staircase Problem</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+</div>
+<div class="section" id="the-staircase-problem">
+<span id="id5"></span><h3>The Staircase Problem<a class="headerlink" href="#the-staircase-problem" title="Permalink to this headline">¶</a></h3>
+<p>Consider the scenario where you have a staircase. Many people have different ways
+of ascending or descending a staircase. Some people skip a few steps. The end result is
+the same, but the route taken can be one of many.</p>
+<p>If the allowed number of steps are either 1, 2, or 3, the following solution holds water:</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">The Staircase Problem</span><a class="headerlink" href="#id18" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1213,8 +1291,17 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Anagram Generation</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This solution hard-codes the number of stairs one can climb at once.</p>
+</div>
+<p>This problem is a trivial study of a map traversal problem, and it requires studying
+if one is to eventually solve the travelling salesman problem.</p>
+</div>
+<div class="section" id="anagram-generation">
+<span id="id6"></span><h3>Anagram Generation<a class="headerlink" href="#anagram-generation" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Anagram Generation</span><a class="headerlink" href="#id19" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1303,42 +1390,248 @@ Do all the exercises.</p>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Total Number of Characters across all Strings in an Array</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Anagram Generation is not an efficient algorithm At its worst, it takes <span class="math notranslate nohighlight">\(O(N!)\)</span> time.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Exercises<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Total Number of Characters across all Strings in an Array</span><a class="headerlink" href="#id20" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Use recursion to write a function that accepts an array of strings and</span>
+<span class="sd">returns the total number of characters across all the strings.</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">charlen</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""Takes an array of strings and returns the total number of characters"""</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">charlen</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Given an array of numbers, write a recursive function to return only even numbers.</span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Use recursion to write a function that accepts an array of numbers and returns a new</span>
+<span class="sd">array containing just the even numbers"""</span>
+
+
+<span class="k">def</span> <span class="nf">get_even_numbers</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""Return a list of even numbers in the given input array"""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">get_even_numbers</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">test_get_even_numbers</span><span class="p">():</span>
+    <span class="sd">"""Test get_even_numbers"""</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">random_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))]</span>
+    <span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">random_list</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">random_list</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">get_even_numbers</span><span class="p">(</span><span class="n">random_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">evens</span><span class="p">,</span> <span class="s2">"Unable to get even numbers"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">Given a number N, return the current number from the Triangular Numbers series.</span><a class="headerlink" href="#id22" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""There is a numerical sequence known as Triangular Numbers. The pattern</span>
+<span class="sd">begins as `1, 3, 5, 10, 15, 21`, and continues onward with the Nth number in</span>
+<span class="sd">the pattern, which is N plus the previous number. For example, the 7th number</span>
+<span class="sd">in the sequence is 28, since it's 7 (which is N) plus 21 (the previous number</span>
+<span class="sd">in the sequence). Write a function that accepts the number for N and</span>
+<span class="sd">returns the correct number from the series. That is, if the function was passed</span>
+<span class="sd">the number 7, the function would return 28."""</span>
+
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="k">def</span> <span class="nf">triangular_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Return the nth triangular number"""</span>
+    <span class="n">defined_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+    <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">defined_values</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">triangular_number</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"test_input, expected"</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">36</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_triangular_number</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="sd">"""Test triangular numbers"""</span>
+    <span class="k">assert</span> <span class="n">triangular_number</span><span class="p">(</span><span class="n">test_input</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Triangular number value for </span><span class="si">{</span><span class="n">test_input</span><span class="si">}</span><span class="s2"> should have been </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Given a string, return the index of the first occurrence of  <code class="docutils literal notranslate"><span class="pre">x</span></code> within the string.</span><a class="headerlink" href="#id23" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Use recursion to write a function that accepts a string and returns the</span>
+<span class="sd">first index that contains the character `x`."""</span>
+
+
+<span class="k">def</span> <span class="nf">find_x</span><span class="p">(</span><span class="n">input_string</span><span class="p">,</span> <span class="n">current_index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"x"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">current_index</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">current_index</span> <span class="o">=</span> <span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">find_x</span><span class="p">(</span><span class="n">input_string</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">current_index</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_find_x</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="kn">import</span> <span class="nn">string</span>
+    <span class="n">random_letters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="p">]</span>
+    <span class="n">random_letters</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">]</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">random_letters</span><span class="p">)</span>
+    <span class="n">random_string</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random_letters</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">find_x</span><span class="p">(</span><span class="n">random_string</span><span class="p">)</span> <span class="o">==</span> <span class="n">random_string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+        <span class="s1">'x'</span><span class="p">),</span> <span class="s2">"Unable to get the correct index"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="unique-paths-problem">
+<span id="id8"></span><h4>Unique Paths Problem<a class="headerlink" href="#unique-paths-problem" title="Permalink to this headline">¶</a></h4>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">Given a number of rows and columns, calculate the number of possible “shortest” paths from the upper-leftmost square to the lower-rightmost square.</span><a class="headerlink" href="#id24" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
 </pre></div>
 </td></tr></table></div></div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">Given an array of numbers, write a recursive function to return only even numbers.</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
-</pre></div>
-</td></tr></table></div></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">Given a number N, return the current number from the Triangular Numbers series.</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
-</pre></div>
-</td></tr></table></div></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-text">Given a string, return the index of the first occurrence of  <code class="docutils literal notranslate"><span class="pre">x</span></code> within the string.</span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
-</pre></div>
-</td></tr></table></div></div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-text">Given a number of rows and columns, calculate the number of possible “shortest” paths from the upper-leftmost square to the lower-rightmost square.</span><a class="headerlink" href="#id18" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span>
-</pre></div>
-</td></tr></table></div></div>
 </div>
 </div>
 </div>
 <div class="section" id="chapter-12-dynamic-programming">
 <h2>Chapter 12 - Dynamic Programming<a class="headerlink" href="#chapter-12-dynamic-programming" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter oddly deals mostly with memoization-based dynamic
+programming. I need to look into more
+<a class="reference external" href="https://www.geeksforgeeks.org/dynamic-programming/">diverse methods of dynamic programming.</a></p>
+</div>
 </div>
 <div class="section" id="chapter-13-recursive-algorithms-for-speed">
 <h2>Chapter 13 - Recursive Algorithms for Speed<a class="headerlink" href="#chapter-13-recursive-algorithms-for-speed" title="Permalink to this headline">¶</a></h2>
@@ -1395,7 +1688,7 @@ Do all the exercises.</p>
         <div class="related-information">
               Copyright &#169; 2021, Vinay Keerthi
             |
-            Last updated on Mar 30, 2021.
+            Last updated on Apr 19, 2021.
             |
             Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
               and
@@ -1456,7 +1749,21 @@ Do all the exercises.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#chapter-11-learning-to-write-in-recursive">Chapter 11 - Learning to Write in Recursive</a><ul>
-<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#recursion-categories">Recursion Categories</a><ul>
+<li><a class="reference internal" href="#repeatedly-execute">Repeatedly Execute</a><ul>
+<li><a class="reference internal" href="#passing-extra-parameters">Passing Extra Parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calculation-of-subproblem">Calculation of Subproblem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#top-down-recursion">Top-Down Recursion</a></li>
+<li><a class="reference internal" href="#the-staircase-problem">The Staircase Problem</a></li>
+<li><a class="reference internal" href="#anagram-generation">Anagram Generation</a></li>
+<li><a class="reference internal" href="#id7">Exercises</a><ul>
+<li><a class="reference internal" href="#unique-paths-problem">Unique Paths Problem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#chapter-12-dynamic-programming">Chapter 12 - Dynamic Programming</a></li>

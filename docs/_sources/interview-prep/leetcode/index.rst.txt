@@ -4,8 +4,6 @@ Leetcode
 
 This section has my solutions to leetcode problems.
 
-:badge:`something,badge-warning`
-
 .. note::
 
     Total solved thus far: **12**
