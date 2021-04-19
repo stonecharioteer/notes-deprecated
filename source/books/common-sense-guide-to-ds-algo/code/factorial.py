@@ -10,6 +10,7 @@ def factorial(n: int) -> int:
 
 
 def test_factorial():
+    """Test for the factorial function"""
     import math
     for number in range(500):
         assert factorial(number) == math.factorial(

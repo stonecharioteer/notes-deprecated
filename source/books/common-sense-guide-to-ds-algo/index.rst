@@ -623,50 +623,159 @@ Chapter 11 - Learning to Write in Recursive
     Do all the exercises.
 
 
+
+.. _recursion-categories:
+
+Recursion Categories
+---------------------
+
+While recursive algorithms may seem like they're of one variety, there
+are multiple ways they may be used.
+
+Repeatedly Execute
+===================
+
+One way of looking at recursion is to envision it as a repeated execution.
+You have a function that just needs to occur multiple times for the problem to be solved.
+
+A countdown is such an algorithm.
+
+.. code-block:: python
+    :linenos:
+    :caption: Recursive Countdown Function
+
+    def countdown(number) {
+        """Recursive implementation of a countdown function"""
+        if number < 0:
+            return
+        print(number)
+        countdown(number - 1)
+
+In the above code-block, ``countdown`` just calls itself, decrementing the input.
+As with all recursion, it has a *base case*, where ``number < 0``, and quits
+there.
+
+Another example of this is a function to recursively find directories in a given directory.
+
 .. literalinclude:: code/find-directories.py
-    :caption: Find Directories
+    :caption: Find Directories recursively
     :language: python
     :linenos:
+
+Passing Extra Parameters
+****************************
+
+.. tip::
+
+    Note that you cannot pass around a *modifiable* slice in Python. Slices
+    are merely *copies*, and not references to the original object.
 
 .. literalinclude:: code/double-array.py
     :caption: Double Arrays in-place
     :language: python
     :linenos:
 
+Calculation of Subproblem
+=============================
+
+In some recursive functions, the task is to *calculate something* based on a *subtask*.
+That is to say, recursion can be used to make a calculation based on a sub-problem of a problem.
+
+The *factorial* of a number is one such problem.
+
 .. literalinclude:: code/factorial-recursive.py
     :caption: Factorial Bottom-Up Recursion
     :language: python
     :linenos:
+
+Given the definition of a factorial of an integer as the product of all the
+integers up to and including the given integer, we can write the above program.
+
+.. tip::
+
+    I know it might seem trivial and obvious, but the factorial and the fibonacci numbers
+    are *not the same*. Do not look at the word factorial and immediately write
+    code for the fibonacci sequence.
+
+To explain this recursive algorithm, note that at each step, a value is returned, with
+a recursive call. This builds upon recursion's use of a *call stack*, and once the base case
+is reached, the entire stack disassembles, returning the result.
+
+Top-Down Recursion
+--------------------
+
+When solving something *top down*, you will have to push back the actual solution to *much* later
+down the stack. Reconsider the factorial problem. You *don't need to understand* how the factorial
+function works to use it.
+
+Consider the Array Sum problem.
 
 .. literalinclude:: code/array-sum-top-down.py
     :caption: Array Sum Top Down Approach
     :language: python
     :linenos:
 
+In the above approach, we take the liberty of assuming that the ``array_sum`` function's
+implementation is irrelevant. In fact, we continue to use it *until we reach the last item*.
+It is the base case that finally says "I do not need to use this function again", and returns
+a value *without adding to the call stack*.
+
 .. _common-sense-guide-string-reversal-recursion:
 
+Another example of this is the String Reversal problem, one that you will also see
+in :ref:`leetcode-0344`.
+
 .. literalinclude:: code/string-reversal-recursion.py
-    :caption: String Reversal (See :ref:`leetcode-0344` also)
+    :caption: String Reversal
     :language: python
     :linenos:
+
+The next example deals with counting the occurrence of ``x`` in a string.
 
 .. literalinclude:: code/counting-x.py
     :caption: Counting X
     :language: python
     :linenos:
 
+.. _the-staircase-problem:
+
+The Staircase Problem
+-------------------------
+
+Consider the scenario where you have a staircase. Many people have different ways
+of ascending or descending a staircase. Some people skip a few steps. The end result is
+the same, but the route taken can be one of many.
+
+If the allowed number of steps are either 1, 2, or 3, the following solution holds water:
+
 .. literalinclude:: code/staircase.py
     :caption: The Staircase Problem
     :language: python
     :linenos:
+
+.. note::
+
+    This solution hard-codes the number of stairs one can climb at once.
+
+This problem is a trivial study of a map traversal problem, and it requires studying
+if one is to eventually solve the travelling salesman problem.
+
+.. _anagram-generation:
+
+Anagram Generation
+-----------------------
 
 .. literalinclude:: code/anagram_generation.py
     :caption: Anagram Generation
     :language: python
     :linenos:
 
-Examples
----------------------
+.. note::
+
+    Anagram Generation is not an efficient algorithm At its worst, it takes :math:`O(N!)` time.
+
+Exercises
+------------
 
 .. literalinclude:: code/charlen.py
     :caption: Total Number of Characters across all Strings in an Array
@@ -689,6 +798,11 @@ Examples
     :language: python
     :linenos:
 
+.. _unique-paths-problem:
+
+Unique Paths Problem
+=======================
+
 .. literalinclude:: code/unique-paths.py
     :caption: Given a number of rows and columns, calculate the number of possible "shortest" paths from the upper-leftmost square to the lower-rightmost square.
     :language: python
@@ -698,6 +812,15 @@ Examples
 ---------------------------------------------------------------
 Chapter 12 - Dynamic Programming
 ---------------------------------------------------------------
+
+.. note::
+
+    This chapter oddly deals mostly with memoization-based dynamic
+    programming. I need to look into more
+    `diverse methods of dynamic programming. <https://www.geeksforgeeks.org/dynamic-programming/>`_
+
+
+
 
 ---------------------------------------------------------------
 Chapter 13 - Recursive Algorithms for Speed
