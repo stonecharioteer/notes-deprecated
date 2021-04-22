@@ -73,3 +73,4 @@ html_css_files = ["css/custom.css"]
 html_last_updated_fmt = ""
 
 todo_include_todos = True
+html_extra_path = ["CNAME"]

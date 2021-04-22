@@ -1,5 +1,0 @@
-.. _languages-rust:
-
-======
-Rust
-======
