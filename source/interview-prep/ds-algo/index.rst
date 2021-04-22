@@ -9,6 +9,7 @@ and algorithms.
     :maxdepth: 2
 
     algorithms/index
+    data-structures/index
 
 -----------------
 Resources

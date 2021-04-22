@@ -833,6 +833,8 @@ Chapter 13 - Recursive Algorithms for Speed
 Chapter 14 - Node-Based Data Structures
 ---------------------------------------------------------------
 
+.. _common-sense-guide-bst:
+
 -------------------------------------------------------------------
 Chapter 15 - Speeding Up All the Things with Binary Search Trees
 -------------------------------------------------------------------
