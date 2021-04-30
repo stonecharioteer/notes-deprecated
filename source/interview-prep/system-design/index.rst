@@ -19,6 +19,7 @@ These are a few great resources for learning about system design.
    a. `Book <https://dataintensive.net/>`_
    b. `Martin Kleppmann's Distributed Systems Course <https://www.youtube.com/watch?v=UEAMfLPZZhE&list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB>`_
    c. `Martin Kleppmann on the Software Daily Podcast <https://www.youtube.com/watch?v=grGqCuTcu50>`_
+   d. :ref:`Notes <designing-data-intensive>`
 
 2. Alex Petrov - Database Internals
 
@@ -26,6 +27,7 @@ These are a few great resources for learning about system design.
    b. `Devoxx Talk - What Every Programmer has to know about Database Storage <https://www.youtube.com/watch?v=e1wbQPbFZdk>`_
    c. `Software Engineering Radio Podcast - Alex Petrov on Database Storage Engines <https://www.youtube.com/watch?v=wrESIVwc-y4>`_
    d. `InfoQ QCon SF 2018 - Alex Petrov on Algorithms Behind Modern Storage Systems <https://www.infoq.com/presentations/storage-algorithms/>`_
+   e. :ref:`Notes <database-internals>`
 
 3. MIT 6.824 Distributed Systems
 
