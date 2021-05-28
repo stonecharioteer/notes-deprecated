@@ -47,8 +47,8 @@ In python, you can operate on a sliding window using itertools.
 
     def window(sequence, n=2):
         """Returns a sliding window (of width n) over data from the iterable"""
-        it = iterator(sequence)
-        result = tuple(isslice(iterator, n))
+        iterator = iter(sequence)
+        result = tuple(islice(iterator, n))
         if len(result) == n:
             yield result
         for element in iterator:
