@@ -1,0 +1,678 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Heaps" href="heap-tree.html" /><link rel="prev" title="Trees" href="index.html" />
+
+    <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
+        <title>Binary Search Tree - Stonecharioteer&#39;s Notes</title>
+      <link rel="stylesheet" href="../../../../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../../_static/stonecharioteer-banner.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Stonecharioteer's Notes</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Currently Working On</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../leetcode/index.html">Leetcode</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/patterns/index.html">Problem Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0001-two-sum/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0001. Two Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0002-add-two-numbers/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0002. Add Two Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0003-longest-substring-without-repeating-characters/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0003. Longest Substring Without Repeating Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0004-median-of-two-sorted-arrays/index.html"><span class="sphinx-bs badge badge-danger">HARD</span> 0004. Median of Two Sorted Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0020-valid-parenthesis/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0020. Valid Parenthesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0278-first-bad-version/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0278. First Bad Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0344-reverse-string/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0344. Reverse String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0392-is-subsequence/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0392. Is Subsequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0485-max-consecutive-ones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0485. Max Consecutive Ones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0709-to-lower-case/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0709. To Lower Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/0771-jewels-and-stones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0771. Jewels and Stones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../leetcode/1476-subrectangle-queries/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 1476. Subrectangle Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topics</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../books/index.html">Books</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/database-internals/index.html">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../books/designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/bash/index.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/clang/index.html">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/cpp/index.html">C++</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../languages/golang/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../languages/golang/godocs.html">Golang Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/haskell/index.html">Haskell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/java/index.html">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/python/index.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../languages/rust/index.html">Rust</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../courses/index.html">Courses</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../courses/learning-rust/index.html">Learning Rust - Leo Tindall</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/lectures.html">Lectures</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../courses/mit-6.824-distributed-systems/code/golang/index.html">Learning Go</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../papers/index.html">Technical Papers</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">Interview Preparation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label for="toctree-checkbox-8"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../../index.html">Data Structures and Algorithms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label for="toctree-checkbox-9"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label for="toctree-checkbox-10"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../algorithms/searching/index.html">Search Algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../algorithms/sorting/index.html">Sorting Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">Data Structures</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../lists/index.html">Arrays and Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../hash-maps/index.html">Hash-Maps</a></li>
+<li class="toctree-l4 current has-children"><a class="reference internal" href="index.html">Trees</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l5 current current-page"><a class="current reference internal" href="#">Binary Search Tree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="heap-tree.html">Heaps</a></li>
+<li class="toctree-l5"><a class="reference internal" href="trie-tree.html">Tries</a></li>
+<li class="toctree-l5"><a class="reference internal" href="red-black-tree.html">Red-Black Trees</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../design-patterns/visitor.html">The Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../system-design/index.html">System Design</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/bookmyshow/index.html">bookmyshow.com</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/code-deployment/index.html">Design a Code Deployment System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/data-platform/index.html">Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/dropbox/index.html">Dropbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/facebook/index.html">Facebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/netflix/index.html">Netflix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/postgres-sharding/index.html">PostgreSQL Database Sharding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/swiggy/index.html">Swiggy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/travelling-salesman/index.html">Travelling Saleman Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/twitter/index.html">Twitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../system-design/uber/index.html">Uber</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../leetcode/index.html">Leetcode</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/patterns/index.html">Problem Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0001-two-sum/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0001. Two Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0002-add-two-numbers/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0002. Add Two Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0003-longest-substring-without-repeating-characters/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0003. Longest Substring Without Repeating Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0004-median-of-two-sorted-arrays/index.html"><span class="sphinx-bs badge badge-danger">HARD</span> 0004. Median of Two Sorted Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0020-valid-parenthesis/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0020. Valid Parenthesis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0278-first-bad-version/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0278. First Bad Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0344-reverse-string/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0344. Reverse String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0392-is-subsequence/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0392. Is Subsequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0485-max-consecutive-ones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0485. Max Consecutive Ones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0709-to-lower-case/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0709. To Lower Case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/0771-jewels-and-stones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0771. Jewels and Stones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../leetcode/1476-subrectangle-queries/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 1476. Subrectangle Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../advent-of-code/index.html">Advent of Code</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../interview-questions/index.html">Interview Questions</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label for="toctree-checkbox-16"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../interview-questions/airbnb/index.html">Airbnb</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="binary-search-tree">
+<h1>Binary Search Tree<a class="headerlink" href="#binary-search-tree" title="Permalink to this headline">¶</a></h1>
+<p>Before attempting to understand my implementation of the BST, be sure to read
+<a class="reference internal" href="../../../../books/common-sense-guide-to-ds-algo/index.html#common-sense-guide-bst"><span class="std std-ref">the chapter in A Common Sense Guide to Data Structures and Algorithms by Jay Wengrow.</span></a>
+It explains why we need such a data structure and helps us understand it better.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I kid you not, the book makes it fun!</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Binary Search Tree Implementation in Python</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Binary Search Tree Implementation in Python"""</span>
+
+
+<span class="k">class</span> <span class="nc">BSTException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">"""This exception is raised when a particular facet or requirement</span>
+<span class="sd">    of a BST is not satisfied."""</span>
+
+
+<span class="k">class</span> <span class="nc">BinarySearchTreeNode</span><span class="p">:</span>
+    <span class="sd">"""A Single node of a Binary Search Tree"""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BSTException</span><span class="p">(</span>
+                    <span class="s2">"The left value should be lesser than the current value."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="k">if</span> <span class="n">right</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">BSTException</span><span class="p">(</span>
+                    <span class="s2">"The right value should be greater than the current value."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+
+<span class="k">def</span> <span class="nf">construct_binary_search_tree</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">"""Given a list of integers, this can construct a BST and returns the root</span>
+<span class="sd">    node."""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">root_node</span> <span class="o">=</span> <span class="n">BinarySearchTreeNode</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+                <span class="n">insert_into_bst</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">root_node</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">root_node</span>
+
+
+<span class="k">def</span> <span class="nf">search_bst</span><span class="p">(</span><span class="n">search_value</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="sd">"""Finds a value in a BST given a node</span>
+
+<span class="sd">    To find a node in a BST, remember:</span>
+
+<span class="sd">    1. Each node has a maximum of 2 children (a left and a right).</span>
+<span class="sd">    2. The left side of a node has values lesser than the node.</span>
+<span class="sd">    3. The right side of a node has values greater than the node.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">node</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">search_value</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">elif</span> <span class="n">search_value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">search_bst</span><span class="p">(</span><span class="n">search_value</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">search_bst</span><span class="p">(</span><span class="n">search_value</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">insert_into_bst</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="sd">"""Inserts a value into a Binary Search Tree</span>
+<span class="sd">    1. If the value to be inserted is less than the current node, it belongs on</span>
+<span class="sd">    the left.</span>
+<span class="sd">    2. If the value to be inserted is greater than the current node, it belongs</span>
+<span class="sd">    on the right.</span>
+
+<span class="sd">    Remember, all nodes have only a maximum of 2 children: a left child and a</span>
+<span class="sd">    right child.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">BinarySearchTreeNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">insert_into_bst</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">node</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">BinarySearchTreeNode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">insert_into_bst</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">delete_from_bst</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="sd">"""Deletes a value from a BST</span>
+<span class="sd">    When deleting remember the following:</span>
+
+<span class="sd">    1. If the node being deleted has no children, then simply delete it.</span>
+<span class="sd">    2. If the node being deleted has one child, delete the node and plug the</span>
+<span class="sd">    child into the spot where the deleted node was.</span>
+<span class="sd">    3. When deleting a node with two children, replace the deleted node with</span>
+<span class="sd">    the successor node. The successor node is the child node whose value is</span>
+<span class="sd">    the least of all values that are greater than the deleted node.</span>
+<span class="sd">    4. To find the successor node: visit the right child of the deleted value,</span>
+<span class="sd">    and then keep on visiting the left child of each subsequent child until</span>
+<span class="sd">    there are no more left children. The bottom value is the successor node.</span>
+<span class="sd">    5. If the successor node has a right child, after plugging the successor</span>
+<span class="sd">    node into the spot of the deleted node, take the former right child of the</span>
+<span class="sd">    successor node and turn it into the left child of the former parent of the</span>
+<span class="sd">    successor node.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">:</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">delete_from_bst</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">elif</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">node</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
+        <span class="k">elif</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">lift_node_in_bst</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">node</span>
+
+
+<span class="k">def</span> <span class="nf">lift_node_in_bst</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node_to_delete</span><span class="p">):</span>
+    <span class="sd">"""If the current node of this function has a left child, recursively call</span>
+<span class="sd">    this function to continue down the left subtree to find the successor node.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">lift_node_in_bst</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">node_to_delete</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_to_delete</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">right</span>
+
+
+<span class="k">def</span> <span class="nf">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"in-order"</span><span class="p">):</span>
+    <span class="sd">"""Traverses a bst and runs a function on each value.</span>
+<span class="sd">    The modes are 'in-order', 'pre-order', 'post-order'</span>
+<span class="sd">    TODO: Try to implement *returning* the values accrued</span>
+<span class="sd">    by these function calls.</span>
+<span class="sd">    """</span>
+
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"in-order"</span><span class="p">:</span>
+        <span class="n">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+        <span class="n">function</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"pre-order"</span><span class="p">:</span>
+        <span class="n">function</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+        <span class="n">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"post-order"</span><span class="p">:</span>
+        <span class="n">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+        <span class="n">traverse_bst_and_run_function</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+        <span class="n">function</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="heap-tree.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Heaps</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Trees</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Vinay Keerthi
+            |
+            Last updated on May 28, 2021.
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../../_sources/interview-prep/ds-algo/data-structures/trees/binary-search-tree.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/tabs.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

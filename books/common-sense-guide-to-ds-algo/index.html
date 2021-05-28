@@ -1,0 +1,1845 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Leetcode" href="../../interview-prep/leetcode/index.html" /><link rel="prev" title="Stonecharioteer’s Notes" href="../../index.html" />
+
+    <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
+        <title>A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow - Stonecharioteer&#39;s Notes</title>
+      <link rel="stylesheet" href="../../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Newsreader, Garamond, Helvetica, Times New Roman, Serif;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Stonecharioteer's Notes</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/stonecharioteer-banner.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Stonecharioteer's Notes</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Currently Working On</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../interview-prep/leetcode/index.html">Leetcode</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/patterns/index.html">Problem Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0001-two-sum/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0001. Two Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0002-add-two-numbers/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0002. Add Two Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0003-longest-substring-without-repeating-characters/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0003. Longest Substring Without Repeating Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0004-median-of-two-sorted-arrays/index.html"><span class="sphinx-bs badge badge-danger">HARD</span> 0004. Median of Two Sorted Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0020-valid-parenthesis/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0020. Valid Parenthesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0278-first-bad-version/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0278. First Bad Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0344-reverse-string/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0344. Reverse String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0392-is-subsequence/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0392. Is Subsequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0485-max-consecutive-ones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0485. Max Consecutive Ones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0709-to-lower-case/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0709. To Lower Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/0771-jewels-and-stones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0771. Jewels and Stones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/leetcode/1476-subrectangle-queries/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 1476. Subrectangle Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topics</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Books</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../algorithm-design-manual/index.html">The Algorithm Design Manual - Steven S. Skiena</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cracking-the-coding-interview/index.html">Cracking the Coding Interview - Gayle Laakmann McDowell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database-internals/index.html">Database Internals - Alex Petrov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../elements-of-programming-interviews/index.html">Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grokking-algorithms/index.html">Grokking Algorithms - Aditya Bhargava</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how-linux-works/index.html">How Linux Works by Brian Ward</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how-to-take-smart-notes/index.html">How to take smart notes - Sönke Ahrens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-solving-with-ds-algo-using-python/index.html">Problem Solving with Data-Structures and Algorithms using Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rust-doc/index.html">The Rust Programming Language - Steve Klabnik and Carol Nichols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designing-data-intensive-applications/index.html">Designing Data Intensive Applications - Martin Kleppmann</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../languages/index.html">Programming Languages</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/bash/index.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/clang/index.html">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/cpp/index.html">C++</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../languages/golang/index.html">Golang</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../languages/golang/godocs.html">Golang Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/haskell/index.html">Haskell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/java/index.html">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/python/index.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../languages/rust/index.html">Rust</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../courses/index.html">Courses</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../courses/learning-rust/index.html">Learning Rust - Leo Tindall</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../courses/learning-rust/01-the-power-of-rust.html">1. The Power of Rust</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.006-introduction-to-algorithms/index.html">MIT 6.006 - Introduction to Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/lectures.html">Lectures</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/code/index.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../courses/mit-6.824-distributed-systems/code/golang/index.html">Learning Go</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../papers/index.html">Technical Papers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../interview-prep/index.html">Interview Preparation</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label for="toctree-checkbox-8"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/ds-algo/index.html">Data Structures and Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label for="toctree-checkbox-9"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../interview-prep/ds-algo/algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label for="toctree-checkbox-10"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../interview-prep/ds-algo/algorithms/searching/index.html">Search Algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html">Sorting Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/index.html">Data Structures</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/lists/index.html">Arrays and Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/hash-maps/index.html">Hash-Maps</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/trees/index.html">Trees</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/trees/binary-search-tree.html">Binary Search Tree</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/trees/heap-tree.html">Heaps</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/trees/trie-tree.html">Tries</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../interview-prep/ds-algo/data-structures/trees/red-black-tree.html">Red-Black Trees</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/design-patterns/index.html">Design Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/abstract-factory.html">The Abstract Factory Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/builder.html">The Builder Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/factory-method.html">The Factory Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/prototype.html">The Prototype Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/singleton.html">The Singleton Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/adapter.html">The Adapter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/bridge.html">The Bridge Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/composite.html">The Composite Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/decorator.html">The Decorator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/facade.html">The Facade Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/flyweight.html">The Flyweight Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/proxy.html">The Proxy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/chain-of-responsibility.html">The Chain of Responsibility Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/command.html">The Command Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/interpreter.html">The Interpreter Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/iterator.html">The Iterator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/mediator.html">The Mediator Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/memento.html">The Memento Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/observer.html">The Observer Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/state.html">The State Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/strategy.html">The Strategy Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/template-method.html">The Template Method Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/design-patterns/visitor.html">The Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/system-design/index.html">System Design</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/bookmyshow/index.html">bookmyshow.com</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/code-deployment/index.html">Design a Code Deployment System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/data-platform/index.html">Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/dropbox/index.html">Dropbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/facebook/index.html">Facebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/netflix/index.html">Netflix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/postgres-sharding/index.html">PostgreSQL Database Sharding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/swiggy/index.html">Swiggy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/travelling-salesman/index.html">Travelling Saleman Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/twitter/index.html">Twitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/system-design/uber/index.html">Uber</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/leetcode/index.html">Leetcode</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/patterns/index.html">Problem Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0001-two-sum/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0001. Two Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0002-add-two-numbers/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0002. Add Two Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0003-longest-substring-without-repeating-characters/index.html"><span class="sphinx-bs badge badge-warning">MEDIUM</span> 0003. Longest Substring Without Repeating Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0004-median-of-two-sorted-arrays/index.html"><span class="sphinx-bs badge badge-danger">HARD</span> 0004. Median of Two Sorted Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0020-valid-parenthesis/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0020. Valid Parenthesis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0278-first-bad-version/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0278. First Bad Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0344-reverse-string/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0344. Reverse String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0392-is-subsequence/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0392. Is Subsequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0485-max-consecutive-ones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0485. Max Consecutive Ones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0709-to-lower-case/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0709. To Lower Case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/0771-jewels-and-stones/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 0771. Jewels and Stones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/leetcode/1476-subrectangle-queries/index.html"><span class="sphinx-bs badge badge-info">EASY</span> 1476. Subrectangle Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../interview-prep/advent-of-code/index.html">Advent of Code</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../interview-prep/interview-questions/index.html">Interview Questions</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label for="toctree-checkbox-16"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../interview-prep/interview-questions/airbnb/index.html">Airbnb</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="a-common-sense-guide-to-data-structures-and-algorithms-jay-wengrow">
+<span id="common-sense-guide"></span><h1>A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow<a class="headerlink" href="#a-common-sense-guide-to-data-structures-and-algorithms-jay-wengrow" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is one of the best <em>beginner</em> level books on the topic that I’ve encountered.
+In particular, the sections on Big O and Algorithmic performance come to mind,
+I don’t know that I’d recommend rereads of the book, but I would most certainly
+recommend anyone who is new to the topic to read this book end to end, with a pen in
+tow to make notes right in the book.</p>
+<p>It’s that good.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This document is work in progress. <a class="reference internal" href="#common-sense-wip"><span class="std std-ref">Jump to current WIP marker</span></a></p>
+</div>
+<div class="section" id="chapter-1-why-data-structures-matter">
+<span id="common-sense-guide-why-data-structures-matter"></span><h2>Chapter 1 - Why Data Structures Matter<a class="headerlink" href="#chapter-1-why-data-structures-matter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-array">
+<h3>The Array<a class="headerlink" href="#the-array" title="Permalink to this headline">¶</a></h3>
+<p>An array is a contiguous dataset. While we might say, in Python:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">some_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_array</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Internally, the <em>machine</em> stores the length of the array, and the position of the first item.</p>
+<p>Then, the computer can access the nth item by offsetting from the first. So to get the first item,
+you offset 0, to get the second, you offset 1.</p>
+<p>This is why you get the 0-based indexing everywhere. Makes a lot of sense now that I think about it.
+I wonder how Visual Basic manages the 1-based index.</p>
+<p>So for the computer, to access an item in a list, it is a single step. If you ask for the nth item,
+all the program needs to do is offset the memory position by n and return the value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the array’s length &lt; n, then you have a stack overflow. The program is trying to access memory that is
+not its own. It’s like trying to overdraw from your bank vault and reaching into the vault next to yours.</p>
+</div>
+<p>In a data structure, you perform the following operations:</p>
+<ol class="arabic simple">
+<li><p>Read</p></li>
+<li><p>Search</p></li>
+<li><p>Insert</p></li>
+<li><p>Delete</p></li>
+</ol>
+<p>When we want to measure the speed of these operations, this is where the entire idea of how a data structure
+is organized comes in. This is why some data structures are suitable for some usages, while some are not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This book’s section on data structures and why Array indexing is O(1) is quite good. Do give it a reread
+again.</p>
+</div>
+<p>For an array of size N:</p>
+<ol class="arabic simple">
+<li><p>Getting item at index n: 1 step</p></li>
+<li><p>Setting item at index n: 1 step</p></li>
+<li><p>Appending 1 item to the end: 1 step</p></li>
+<li><p>Prepending 1 item to the beginning: N+1 steps</p></li>
+<li><p>Deleting an item in the list: N steps (1 step is the best case scenario, when you delete the last item)</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For algorithmic speed measurement, always be a pessimist.
+Consider only the worst case scenario.</p>
+</div>
+</div>
+<div class="section" id="the-set">
+<h3>The Set<a class="headerlink" href="#the-set" title="Permalink to this headline">¶</a></h3>
+<p>A set is an array of unique values. There are no duplicates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a generalization, but we’ll get to that in time.</p>
+</div>
+<p>Most set operations are <em>identical</em> to arrays. However, <strong>insertion</strong> is where sets and arrays
+differ.</p>
+<p>Appending or prepending and item into a set of N items will take N steps. That’s because a set
+needs to fulfil its prime objective: no duplicates. To insert an item <code class="docutils literal notranslate"><span class="pre">i</span></code> into a set N,
+you will first need to search the <em>entire</em> set for the occurrence of <code class="docutils literal notranslate"><span class="pre">i</span></code>, and only when it
+doesn’t exist, do you insert it into the set.</p>
+</div>
+</div>
+<div class="section" id="chapter-2-why-algorithms-matter">
+<span id="common-sense-guide-why-algorithms-matter"></span><h2>Chapter 2 - Why Algorithms Matter<a class="headerlink" href="#chapter-2-why-algorithms-matter" title="Permalink to this headline">¶</a></h2>
+<p>While data-structures have their own performance attributes, so do algorithms in general.</p>
+<div class="section" id="ordered-arrays">
+<h3>Ordered Arrays<a class="headerlink" href="#ordered-arrays" title="Permalink to this headline">¶</a></h3>
+<p>An ordered array is almost identical to the <em>classic</em> array*, but the one caveat is that in an
+ordered array, the items are <em>in order</em>.</p>
+<p>This has its benefits, but let’s look at its performance.</p>
+<ol class="arabic simple">
+<li><p>Read - 1 step</p></li>
+<li><p><strong>Insertion - N + 2 steps</strong></p></li>
+<li><p>Deletion - N steps</p></li>
+</ol>
+<p>Insertion again takes N + 2 steps because <em>the item needs to be inserted into the right location.</em>
+You cannot just insert an item at the very end.</p>
+<div class="section" id="searching-ordered-arrays">
+<h4>Searching Ordered Arrays<a class="headerlink" href="#searching-ordered-arrays" title="Permalink to this headline">¶</a></h4>
+<p>While searching normal arrays is a matter of looking at <em>each and every</em> item,
+this is not necessarily so with an ordered array. Instead, we can use
+<a class="reference internal" href="../../interview-prep/ds-algo/algorithms/searching/index.html#binary-search"><span class="std std-ref">Binary Search</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All source is going to be placed in their respective topic folder.</p>
+</div>
+<p>Binary Search will <em>halve</em> its steps each time it compares values to the search value.
+So there will be <span class="math notranslate nohighlight">\(log_2N\)</span> steps involved. It <em>narrows</em> its results down into a <em>binary</em>
+answer, hence the name.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To understand what <span class="math notranslate nohighlight">\(log_2N\)</span> means, or what <span class="math notranslate nohighlight">\(log_MN\)</span> means, read
+<a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-logarithms"><span class="std std-ref">The Algorithm Design Manual’s chapter on Logarithms</span></a>.</p>
+</div>
+<p><strong>Q</strong>: For an ordered array with 100 elements, binary search takes 7 steps. How many steps does it take for 200 elements?</p>
+<p><strong>A</strong>: 8 steps</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>Every time</em> the number of elements doubles, the steps involved in Binary Search increases by 1.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Logarithm of N to the base M shows how many times N can be divided by M.</p>
+<p><span class="math notranslate nohighlight">\(log_2N\)</span> shows how many times N can be <em>halved</em>.</p>
+<p><span class="math notranslate nohighlight">\(log_{10}N\)</span> shows how many times N can be divided into tenths.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-3-o-yes-big-o-notation">
+<span id="common-sense-guide-big-o"></span><h2>Chapter 3 - O Yes! Big O Notation<a class="headerlink" href="#chapter-3-o-yes-big-o-notation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This book ignores most of the mathematical basis for Big O, and explains stuff
+rather simply. I recommend this section a lot. However, for a mathematical
+explanation, read <a class="reference internal" href="../algorithm-design-manual/index.html#algorithm-design-manual-big-o"><span class="std std-ref">The Algorithm Design Manual’s sections on Big O</span></a>.</p>
+</div>
+<p>Big O measures how many steps an algorithm will take in relation to its input size.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">If there are N data elements, how many steps will the algorithm take?</div>
+</div>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(O(N)\)</span> says that the answer to the key question is that the algorithm will take N steps.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have preconceived notions about Big O, please leave them at the door, <em>for now.</em></p>
+</div>
+<p>Consider the following:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">mid</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>How many steps is does this code example take?</p>
+<p>The answer is 3.</p>
+<p>What is Big O notation?</p>
+<p><span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The soul of Big O is what Big O is truly concerned about: how will an</div>
+<div class="line">algorithm’s <strong>performance</strong> change as the data increases?</div>
+</div>
+</div></blockquote>
+<p>Big O doesn’t care how many steps the algorithm <em>actually takes</em>. It instead cares about the
+rate of change of an algorithm given change in the input data.</p>
+<p><span class="math notranslate nohighlight">\(O(1)\)</span> and <span class="math notranslate nohighlight">\(O(3)\)</span> mean the same to Big O. This algorithm has <em>no</em> relationship with
+the input data. <strong>It will not get slower or faster given more or less data</strong>.</p>
+<p><span class="math notranslate nohighlight">\(O(N)\)</span> is a different matter, however. It means that the algorithm has a <em>linear</em> relationship
+with the data.</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">mid</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">element</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">element</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here, the algorithm seems to take <span class="math notranslate nohighlight">\(O(2N+3)\)</span> steps.
+<span class="math notranslate nohighlight">\(2N+3\)</span> is a linear polynomial. Wait, I promised no mathematics. It means that it
+is a statement that can be <em>conceived</em> as a straight line on a graph.</p>
+<p>To Big O, the number next to <span class="math notranslate nohighlight">\(N\)</span> <em>does not matter</em>. Neither does the value 3 that is at the end.</p>
+<p>In Big O terms, the above program has a runtime of <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p>Big O is also a <em>worst-case-scenario</em> measure. For an algorithm, always consider the <strong>worst case scenario</strong>
+when denoting it in Big O terms. Linear search <em>might</em> take 1 step if your first item is the item you were looking for,
+but in an array of size N, if it’s the last item you’re looking for, you need N steps. Big O in this scenario
+is <span class="math notranslate nohighlight">\(O(N)\)</span>, <strong>not</strong> <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<p>Big O concerns itself with Logarithms quite a lot. Logarithms are the opposite of exponents.</p>
+<p><span class="math notranslate nohighlight">\(2^3\)</span> is 8. Then, <span class="math notranslate nohighlight">\(log_28\)</span> is 3.</p>
+<p><span class="math notranslate nohighlight">\(10*2\)</span> is 100. Then, <span class="math notranslate nohighlight">\(log_{10}100\)</span> is 2.</p>
+<p>An alternative way of thinking about logarithms is: <em>how many times do we need
+to halve (or thirds, or tenths, depending on the :math:`log_NM` base N)
+a number to get 1?</em></p>
+<p><span class="math notranslate nohighlight">\(O(log_2N)\)</span>, for brevity: <span class="math notranslate nohighlight">\(O(logN)\)</span>, measures how many times we need to divide a dataset
+into halves to arrive at our result in the <em>worst case scenario</em>.</p>
+</div>
+<div class="section" id="chapter-4-speeding-up-your-code-with-big-o">
+<span id="common-sense-guide-speeding-up"></span><h2>Chapter 4 - Speeding Up Your Code with Big O<a class="headerlink" href="#chapter-4-speeding-up-your-code-with-big-o" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read up on the implementation of <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#bubble-sort"><span class="std std-ref">Bubble Sort</span></a>.</p>
+</div>
+<p>Bubble Sort has the following steps: comparisons, and swaps. Note how many times it loops through
+an array.</p>
+<p>No, not twice. For each element, it loops through the entire array. In fact, it <em>doesn’t</em>
+know if an array is sorted until it loops through the array at least once.</p>
+<p>Welcome to <span class="math notranslate nohighlight">\(O(N^2)\)</span>. You do not want to be here.</p>
+<p>Any polynomial with a power of 2 is a <em>quadratic</em> polynomial. On a graph, it would look like
+a <em>parabola</em>, but not one that ever touches the ground like someone throwing a ball.
+No, this is an upwards-facing parabola. That means if you have 1 million data points, your algorithm
+will need to process <span class="math notranslate nohighlight">\(1000000^2\)</span> items. A million <em>squared.</em></p>
+<p>Any algorithm wherein you loop through the entire list, or even portions of the
+list but perhaps have a worst-case scenario where you loop through the entire
+list is of this order. If you can avoid it, do not implement one of these.</p>
+<p><span class="math notranslate nohighlight">\(O(N^3)\)</span> exists. Just pray that you do not meet him or his cousins.</p>
+</div>
+<div class="section" id="chapter-5-optimizing-code-with-and-without-big-o">
+<span id="common-sense-guide-optimizing"></span><h2>Chapter 5 - Optimizing Code With and Without Big O<a class="headerlink" href="#chapter-5-optimizing-code-with-and-without-big-o" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Read up on the implementation of <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>.</p>
+</div>
+<p>In <a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#selection-sort"><span class="std std-ref">Selection Sort</span></a>, you loop through the array to find the smallest item
+and <em>swap</em> it with the first item. This <em>first</em> item is, in fact, a cursor
+which moves ahead and marks the <em>sorted</em> part of the array.</p>
+<p>For each item in the array, Selection Sort looks <em>ahead</em> at the rest of the
+items in the array, comparing them and seeing if there’s something <em>smaller</em>
+than this item. It then <em>selects</em> the smallest item, if it is not the current
+item, and swaps it with the current item.</p>
+<p>This way, after the first passthrough, the smallest item is right at the front.
+The algorithm ensures that at the Nth passthrough, the first N items are <em>in
+order</em> at the front of the array.</p>
+<p>So let’s look at Selection Sort and Bubble Sort together.</p>
+<p>Selection Sort has to look at the rest of the items for each item in the list.</p>
+<p>Bubble Sort has to look at the entire list for each item in the list.</p>
+<p>While this seems straight forward, and no one will fault you for saying
+Selection Sort is <em>faster</em> (exactly <em>half</em> the runtime) than Bubble Sort,
+however, <strong>this does not matter to Big O</strong>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">But here’s the funny thing in the world of Big O Notation: Selection Sort</div>
+<div class="line">and Bubble Sort are described in <strong>exactly the same way</strong>.</div>
+</div>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Remember to leave your knowledge or preconceived notions of Big O at the
+door.  <em>All</em> you need to do is check this:</p>
+<p>Does the algorithm have nested loops?</p>
+<p>The exact time <strong>does not matter</strong>.</p>
+</div>
+<p>Why?</p>
+<p><strong>Big O Notation ignores constants.</strong></p>
+<p>It is easy to say Selection Sort is a <span class="math notranslate nohighlight">\(O(N^2/2)\)</span> algorithm. It would seem
+<em>common</em> sense.</p>
+<p>However, consider the fact that the length of the array could grow <em>astronomically</em>.
+If you have an infinitely large array, then it does not matter.</p>
+<p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span> is just <span class="math notranslate nohighlight">\(O(N^2)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(O(N/2+50000)\)</span> is just <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(O(100000)\)</span> is just <span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<div class="section" id="big-o-categories">
+<h3>Big O Categories<a class="headerlink" href="#big-o-categories" title="Permalink to this headline">¶</a></h3>
+<p>Big O ignores the constants because it uses categories.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Big O Notation only concerns itself with <em>general categories</em> of algorithm speeds.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line">If we were to compare two buildings, one of which is a single-family home and</div>
+<div class="line">one of which is a skyscraper, it becomes almost moot to mention how many floors each one has.</div>
+<div class="line">Because the two buildings are so incredibly different in their sizes and functions.</div>
+</div>
+</div></blockquote>
+<p>This is the idea behind Big O. It categorizes algorithms into buckets wherein the bucket itself
+is a <em>definitive</em> measure of how quickly the algorithm grows with input data.</p>
+<p>It won’t matter if your <span class="math notranslate nohighlight">\(O(1)\)</span> algorithm takes 10 minutes to run or if
+your <span class="math notranslate nohighlight">\(O(N^2)\)</span> takes 1 <span class="math notranslate nohighlight">\({\mu}s\)</span>, <em>at least not to Big O</em>, because it
+<strong>doesn’t care how long each step takes</strong>, only how many steps there will be in
+relation to larger data set sizes.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Talking about <span class="math notranslate nohighlight">\(O(2N)\)</span> when compared to <span class="math notranslate nohighlight">\(O(N^2)\)</span> is like talking</div>
+<div class="line">about a two-story house compared to a skyscraper.</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="chapter-6-optimizing-for-optimistic-scenarios">
+<span id="common-sense-guide-optimistic-scenarios"></span><h2>Chapter 6 - Optimizing for Optimistic Scenarios<a class="headerlink" href="#chapter-6-optimizing-for-optimistic-scenarios" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">[T]he worst-case scenario isn’t the <em>only</em> scenario worth considering.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><a class="reference internal" href="../../interview-prep/ds-algo/algorithms/sorting/index.html#insertion-sort"><span class="std std-ref">Insertion Sort</span></a> is a sorting algorithm that reveals the power of analyzing</div>
+<div class="line">scenarios beyond the worst-case.</div>
+</div>
+</div></blockquote>
+<p>Insertion Sort involves: <em>removals</em>, <em>comparisons</em>, <em>shifts</em>, and <em>insertions</em>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Big O Notation only takes into account the highest order of N when we have multiple</div>
+<div class="line">orders added together.</div>
+</div>
+</div></blockquote>
+<p>This means that:</p>
+<p><span class="math notranslate nohighlight">\(O(N^2 + 2N)\)</span> = <span class="math notranslate nohighlight">\(O(N^2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(O(N^4 + N^3 + N^2)\)</span> = <span class="math notranslate nohighlight">\(O(N^4)\)</span></p>
+<p>This is because as <span class="math notranslate nohighlight">\(N\)</span> increases, the higher order values become <em>so much larger</em>
+than the lower-order ones that it becomes trivial to account for them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Take a look at <a class="reference internal" href="../../interview-prep/ds-algo/index.html#big-o-chart"><span class="std std-ref">this chart</span></a> to understand the severity with which
+these categories vary.</p>
+</div>
+<p>In the worst-case scenario, Selection Sort is <em>faster</em> than Insertion Sort. However, it is
+not the case when we look at the average case.</p>
+<p>Best, Average and Worst cases follow a Bell Curve, showing that the worst case is, just like the
+best case, an <strong>outlier</strong>.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Best Case</p></td>
+<td><p>Average Case</p></td>
+<td><p>Worst Case</p></td>
+</tr>
+<tr class="row-even"><td><p>Selection Sort</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Insertion Sort</p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2/2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(O(N^2)\)</span></p></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Being able to discern between best-, average- and worst-case scenarios is a</div>
+<div class="line">key skill in choosing the best algorithm for your needs, as well as taking</div>
+<div class="line">existing algorithms and optimizing them further to make them significantly</div>
+<div class="line">faster. [W]hile it’s good to be prepared for the worst case, average cases</div>
+<div class="line">are what happen most of the time.</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="chapter-7-big-o-in-everyday-code">
+<span id="common-sense-guide-everyday-big-o"></span><h2>Chapter 7 - Big O in Everyday Code<a class="headerlink" href="#chapter-7-big-o-in-everyday-code" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I don’t have much to say about this chapter beyond that I really appreciate it being there.
+It <strong>nails</strong> the Big O Notation mindset into you, and so far, I’ve enjoyed it.</p>
+<p>The problems solutions are fairly easy, and it’s a chapter you <em>should</em> read if you
+haven’t grokked Big O yet.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If an algorithm has 2 inputs of length <span class="math notranslate nohighlight">\(N\)</span> and <span class="math notranslate nohighlight">\(M\)</span>
+and it has a nested for loop that loops through them, then what
+would have been <span class="math notranslate nohighlight">\(O(NxM)\)</span> is reduced to <span class="math notranslate nohighlight">\(O(N^2)\)</span>
+because in the worst-case scenario, both these arrays would
+be the same size.</p>
+</div>
+</div>
+<div class="section" id="chapter-8-blazing-fast-lookup-with-hash-tables">
+<span id="common-sense-guide-hash-tables"></span><h2>Chapter 8 - Blazing Fast Lookup with Hash Tables<a class="headerlink" href="#chapter-8-blazing-fast-lookup-with-hash-tables" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>Hash Table</strong> is a data structure in which the indices
+are <em>hashed</em> and correlated with values in an array-like structure.</p>
+<p>The example this book uses is alphabet-based hashing, using the
+product of the numberic value of each alphabet.</p>
+<p>“dog” becomes <span class="math notranslate nohighlight">\(4*15*7 = 420\)</span>, and the <em>corresponding</em> value
+associated with “dog” is stored in the 420 <sup>th</sup> location of
+an array that holds the <em>values</em> of the Hash Table.</p>
+<p>This lookup mechanism is usually designed with the following
+assumptions</p>
+<ol class="arabic simple">
+<li><p>The <em>hashing</em> of a <em>key</em> <strong>always</strong> yields the same value. This way, there can be a 1:1
+relationship between <em>keys</em> and their <em>values</em>.</p></li>
+<li><p>The hashing is non-random, and doesn’t depend on execution time or machine. This enables
+the datastructure to be written to disk, if need be.</p></li>
+</ol>
+<p>The efficiency of a hash table depends on three factors:</p>
+<ol class="arabic simple">
+<li><p>How much data we’re storing in the hash table.</p></li>
+<li><p>How many cells are available in the hash table.</p></li>
+<li><p>Which hash function we’re using.</p></li>
+</ol>
+<blockquote>
+<div><div class="line-block">
+<div class="line">A good hash function is one that distributes its data across <strong>all</strong></div>
+<div class="line">available cells. The more we can spread our data, the fewer collisions</div>
+<div class="line">we will have.</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><div class="line-block">
+<div class="line">A good hash table <strong>strikes a balance of avoiding collisions while not consuming lots of memory.</strong></div>
+<div class="line"><br/></div>
+<div class="line">To accomplish this, computer scientists have developed the following rule of thumb:</div>
+<div class="line">for every 7 data elements stored in the hash table, it should have 10 cells.</div>
+</div>
+</div></blockquote>
+<p>Hash tables have a lookup efficiency of <span class="math notranslate nohighlight">\(O(N)\)</span>.</p>
+<p>Hash tables are used in places where you’d usually use plenty of <code class="docutils literal notranslate"><span class="pre">if-else-if-else</span></code>
+statements. Or, you’d use them when you want to store information about a single
+entity together. This is most-visible in the <code class="docutils literal notranslate"><span class="pre">JSON</span></code> data format.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Algorithm to determine whether two words are anagrams.</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Algorithm to detect whether 2 words are an Anagram or not"""</span>
+
+
+<span class="k">def</span> <span class="nf">is_anagram</span><span class="p">(</span><span class="n">word_1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word_2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">"""Checks whether 2 words is an anagram or not"""</span>
+    <span class="n">word_1_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word_1</span><span class="p">:</span>
+        <span class="n">word_1_dict</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_1_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">word_2_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word_2</span><span class="p">:</span>
+        <span class="n">word_2_dict</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_2_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">word_1_dict</span> <span class="o">==</span> <span class="n">word_2_dict</span>
+
+
+<span class="k">def</span> <span class="nf">test_anagram</span><span class="p">():</span>
+    <span class="sd">"""Checks the anagram function"""</span>
+    <span class="k">assert</span> <span class="n">is_anagram</span><span class="p">(</span><span class="s2">"mood"</span><span class="p">,</span> <span class="s2">"doom"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_anagram</span><span class="p">(</span><span class="s2">"rot"</span><span class="p">,</span> <span class="s2">"tor"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">is_anagram</span><span class="p">(</span><span class="s2">"something"</span><span class="p">,</span> <span class="s2">"nothing"</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>Using a <strong>dictionary</strong>, Python’s implementation of a Hash Table, here,
+gives us an algorithm of <span class="math notranslate nohighlight">\(O(N)\)</span> order.</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Algorithm to yield the intersection of two arrays.</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Algorithm to determine the intersection of two arrays"""</span>
+
+
+<span class="k">def</span> <span class="nf">intersect_arrays</span><span class="p">(</span><span class="n">arr_1</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">arr_2</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">"""Returns the intersection of two arrays"""</span>
+    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+    <span class="n">arr_1_hash</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr_1</span><span class="p">:</span>
+        <span class="n">arr_1_hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_1_hash</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">arr_2_hash</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr_2</span><span class="p">:</span>
+        <span class="n">arr_2_hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_2_hash</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">intersection</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">arr_1_hash</span><span class="p">:</span>
+        <span class="n">count_1</span> <span class="o">=</span> <span class="n">arr_1_hash</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">count_2</span> <span class="o">=</span> <span class="n">arr_2_hash</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># include items that are in arr_1, and arr_2</span>
+        <span class="n">occurs_in_both</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">count_1</span><span class="p">,</span> <span class="n">count_2</span><span class="p">)</span>
+        <span class="n">intersection</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">key</span><span class="p">]</span><span class="o">*</span><span class="n">occurs_in_both</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">intersection</span>
+
+
+<span class="k">def</span> <span class="nf">test_intersect_arrays</span><span class="p">():</span>
+    <span class="sd">"""Tests that the above algorithm works"""</span>
+    <span class="k">assert</span> <span class="n">intersect_arrays</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">intersect_arrays</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">intersect_arrays</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Do the other exercises.</p>
+</div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Write an implementation of Hash Tables in Rust and Python.</p>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-9-crafting-elegant-code-with-stacks-and-queues">
+<span id="common-sense-big-o-stacks-and-queues"></span><h2>Chapter 9 - Crafting Elegant Code with Stacks and Queues<a class="headerlink" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stacks">
+<h3>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline">¶</a></h3>
+<p>A stack is <em>almost</em> an array, except:</p>
+<ol class="arabic simple">
+<li><p>Data can be inserted only at the end of a stack.</p></li>
+<li><p>Data can be deleted only from the end of a stack.</p></li>
+<li><p>Only the last element of a stack can be read.</p></li>
+</ol>
+<p>The <em>end</em> of a stack is referred to as its <em>top</em>, and the <em>beginning</em> of
+the stack is referred to as its <strong>bottom</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In Python, a simple list <em>can</em> be used as a Stack, since lists
+support <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code> methods. However, it is better to
+write a wrapper around a regular list since this way you can
+code checks in place so that users cannot insert an item wherever
+they want.</p>
+</div>
+<p>Stacks are useful when dealing with the order of things, especially when
+we care about what was the <em>last</em> item to be put into an array. Looking
+one step behind is a constant pattern when dealing with stacks.</p>
+</div>
+</div>
+<div class="section" id="chapter-10-recursively-recurse-with-recursion">
+<h2>Chapter 10 - Recursively Recurse with Recursion<a class="headerlink" href="#chapter-10-recursively-recurse-with-recursion" title="Permalink to this headline">¶</a></h2>
+<p>Recursion has a lot to do with the <em>stack</em>. When a function calls itself,
+what is known as the <em>Call Stack</em> is assembled. This way, the output
+of one call is tied to the output of the other, and the eventual
+disassembly occurs when, the eventual last item returns something that
+<strong>is not</strong> tied to another call.</p>
+<p>Consider the factorial function:</p>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Program to find the factorial of a number"""</span>
+
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""Function to find the factorial of a number"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_factorial</span><span class="p">():</span>
+    <span class="sd">"""Test for the factorial function"""</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span>
+            <span class="n">number</span><span class="p">),</span> <span class="s2">"Could not calculate the factorial of </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+<p>Here, the function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> will not immediately return anything.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(5)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(5)</span></code>, and <em>before</em>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(4)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(4)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(4)</span></code>, and <strong>before</strong>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>, and <strong>before</strong>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(2)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(2)</span></code>, it first calls <code class="docutils literal notranslate"><span class="pre">factorial(2)</span></code>, and <strong>before</strong>
+it can return anything, it needs to invoke <code class="docutils literal notranslate"><span class="pre">factorial(1)</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">factorial(1)</span></code>, it will return 1.</p>
+<p>Notice that <em>until</em> the program reaches <code class="docutils literal notranslate"><span class="pre">factorial(1)</span></code>, it <em>must</em>
+hold <em>every</em> instance of the function calls <strong>in memory</strong>. This creates
+an untenable situation: the case where the machine cannot keep track of
+this stack.</p>
+<p>After each function call resolves, in the LIFO order, the call stack is popped,
+in that order, and the final result is returned to the user.</p>
+<p>If the recursion call stack exceeds the short term meory of the computer, there
+is a <strong>Stack Overflow</strong>, and the program shuts down.</p>
+<div class="section" id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""For an array containing both numbers and other arrays, write a recursive funciton that prints out all the numbers, and just the numbers"""</span>
+
+
+<span class="k">def</span> <span class="nf">print_nums</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">print_nums</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="chapter-11-learning-to-write-in-recursive">
+<span id="common-sense-guide-learning-recursive"></span><h2>Chapter 11 - Learning to Write in Recursive<a class="headerlink" href="#chapter-11-learning-to-write-in-recursive" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter exists to drill down how you write in recursive.
+Do all the exercises.</p>
+</div>
+<div class="section" id="recursion-categories">
+<span id="id4"></span><h3>Recursion Categories<a class="headerlink" href="#recursion-categories" title="Permalink to this headline">¶</a></h3>
+<p>While recursive algorithms may seem like they’re of one variety, there
+are multiple ways they may be used.</p>
+<div class="section" id="repeatedly-execute">
+<h4>Repeatedly Execute<a class="headerlink" href="#repeatedly-execute" title="Permalink to this headline">¶</a></h4>
+<p>One way of looking at recursion is to envision it as a repeated execution.
+You have a function that just needs to occur multiple times for the problem to be solved.</p>
+<p>A countdown is such an algorithm.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Recursive Countdown Function</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sd">"""Recursive implementation of a countdown function"""</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="n">countdown</span><span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>In the above code-block, <code class="docutils literal notranslate"><span class="pre">countdown</span></code> just calls itself, decrementing the input.
+As with all recursion, it has a <em>base case</em>, where <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, and quits
+there.</p>
+<p>Another example of this is a function to recursively find directories in a given directory.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Find Directories recursively</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Recursive algorithm to find all directories within a given directory"""</span>
+
+
+<span class="k">def</span> <span class="nf">get_directories</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Returns a list of directories and subdirectories"""</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">directories</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">contents</span><span class="p">:</span>
+        <span class="n">abs_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">abs_path</span><span class="p">):</span>
+            <span class="n">directories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abs_path</span><span class="p">)</span>
+            <span class="n">directories</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">get_directories</span><span class="p">(</span><span class="n">abs_path</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">directories</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="passing-extra-parameters">
+<h5>Passing Extra Parameters<a class="headerlink" href="#passing-extra-parameters" title="Permalink to this headline">¶</a></h5>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that you cannot pass around a <em>modifiable</em> slice in Python. Slices
+are merely <em>copies</em>, and not references to the original object.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Double Arrays in-place</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Recursive function to double every item in an array"""</span>
+
+
+<span class="k">def</span> <span class="nf">double_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">"""Doubles every item in an array"""</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+        <span class="n">double_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_double_array</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">input_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))]</span>
+    <span class="n">doubled_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">input_array</span><span class="p">]</span>
+    <span class="n">double_array</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">input_array</span> <span class="o">==</span> <span class="n">doubled_array</span><span class="p">,</span> <span class="s2">"Unable to double array"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="calculation-of-subproblem">
+<h4>Calculation of Subproblem<a class="headerlink" href="#calculation-of-subproblem" title="Permalink to this headline">¶</a></h4>
+<p>In some recursive functions, the task is to <em>calculate something</em> based on a <em>subtask</em>.
+That is to say, recursion can be used to make a calculation based on a sub-problem of a problem.</p>
+<p>The <em>factorial</em> of a number is one such problem.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Factorial Bottom-Up Recursion</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Recursive function to get the nth factorial"""</span>
+
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Function to get the nth factorial"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_factorial</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span>
+        <span class="n">n</span><span class="p">),</span> <span class="s2">"unable to calculate the nth factorial"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>Given the definition of a factorial of an integer as the product of all the
+integers up to and including the given integer, we can write the above program.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I know it might seem trivial and obvious, but the factorial and the fibonacci numbers
+are <em>not the same</em>. Do not look at the word factorial and immediately write
+code for the fibonacci sequence.</p>
+</div>
+<p>To explain this recursive algorithm, note that at each step, a value is returned, with
+a recursive call. This builds upon recursion’s use of a <em>call stack</em>, and once the base case
+is reached, the entire stack disassembles, returning the result.</p>
+</div>
+</div>
+<div class="section" id="top-down-recursion">
+<h3>Top-Down Recursion<a class="headerlink" href="#top-down-recursion" title="Permalink to this headline">¶</a></h3>
+<p>When solving something <em>top down</em>, you will have to push back the actual solution to <em>much</em> later
+down the stack. Reconsider the factorial problem. You <em>don’t need to understand</em> how the factorial
+function works to use it.</p>
+<p>Consider the Array Sum problem.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Array Sum Top Down Approach</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Recursive solution to array sum"""</span>
+
+
+<span class="k">def</span> <span class="nf">array_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">array_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+
+<span class="k">def</span> <span class="nf">test_array_sum</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">input_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))]</span>
+    <span class="k">assert</span> <span class="n">array_sum</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sum</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>In the above approach, we take the liberty of assuming that the <code class="docutils literal notranslate"><span class="pre">array_sum</span></code> function’s
+implementation is irrelevant. In fact, we continue to use it <em>until we reach the last item</em>.
+It is the base case that finally says “I do not need to use this function again”, and returns
+a value <em>without adding to the call stack</em>.</p>
+<p id="common-sense-guide-string-reversal-recursion">Another example of this is the String Reversal problem, one that you will also see
+in <a class="reference internal" href="../../interview-prep/leetcode/0344-reverse-string/index.html#leetcode-0344"><span class="std std-ref">EASY 0344. Reverse String</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">String Reversal</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Recursive solution to reverse a string"""</span>
+
+
+<span class="k">def</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+    <span class="sd">"""Reverse string"""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">input_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">reverse_string</span><span class="p">(</span><span class="n">input_string</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">test_reverse_string</span><span class="p">():</span>
+    <span class="n">sample_strings</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"hello world"</span><span class="p">,</span>
+        <span class="s2">"peter piper picked a pack of pickled peppers"</span>
+        <span class="s2">"the cake is a lie"</span><span class="p">,</span>
+        <span class="s2">"once upon a time"</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">sample_strings</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">reverse_string</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="o">==</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">st</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<p>The next example deals with counting the occurrence of <code class="docutils literal notranslate"><span class="pre">x</span></code> in a string.</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Counting X</span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Recursive algorithm to count x in a string"""</span>
+
+
+<span class="k">def</span> <span class="nf">count_x</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+    <span class="sd">"""Counts the occurrence of x in a string"""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"x"</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"x"</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">count_x</span><span class="p">(</span><span class="n">input_string</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">test_count_x</span><span class="p">():</span>
+    <span class="sd">"""tests that the counting function works"""</span>
+    <span class="n">input_strings</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"x"</span><span class="p">,</span>
+        <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"lmzxcvuljwsdf;laxlvjsdflweo asdflkxc;lvslweropupas xlx;lkvj;ljweorijxlj ;xlxx;lkj;lxx "</span><span class="p">,</span>
+        <span class="s2">"something that doesn't have it"</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">input_strings</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">count_x</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">==</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+<div class="section" id="the-staircase-problem">
+<span id="id5"></span><h3>The Staircase Problem<a class="headerlink" href="#the-staircase-problem" title="Permalink to this headline">¶</a></h3>
+<p>Consider the scenario where you have a staircase. Many people have different ways
+of ascending or descending a staircase. Some people skip a few steps. The end result is
+the same, but the route taken can be one of many.</p>
+<p>If the allowed number of steps are either 1, 2, or 3, the following solution holds water:</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">The Staircase Problem</span><a class="headerlink" href="#id18" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Let’s say we have a staircase of N steps, and a person has the ability to climb</span>
+<span class="sd">one, two, or three steps at a time. How many different possible “paths” can</span>
+<span class="sd">someone take to reach the top? Write a function that will calculate this for N</span>
+<span class="sd">steps.</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Solves the staircase problem"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">number_of_paths</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This solution hard-codes the number of stairs one can climb at once.</p>
+</div>
+<p>This problem is a trivial study of a map traversal problem, and it requires studying
+if one is to eventually solve the travelling salesman problem.</p>
+</div>
+<div class="section" id="anagram-generation">
+<span id="id6"></span><h3>Anagram Generation<a class="headerlink" href="#anagram-generation" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Anagram Generation</span><a class="headerlink" href="#id19" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Generate all anagrams of a set of letters"""</span>
+
+
+<span class="k">def</span> <span class="nf">anagrams_of</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">"""Returns a list of anagrams of a string"""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># if the string is a single character, return a list containing that</span>
+        <span class="c1"># single character.</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="c1"># instantiate an empty placeholder</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Get all the anagrams of the rest of the string, besides the first</span>
+    <span class="c1"># character, until the end of the string.</span>
+    <span class="n">substring_anagrams</span> <span class="o">=</span> <span class="n">anagrams_of</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="k">for</span> <span class="n">substring_anagram</span> <span class="ow">in</span> <span class="n">substring_anagrams</span><span class="p">:</span>
+        <span class="c1"># now, while looping through this new list of sub-anagrams,</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">substring_anagram</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># loop through each character in this anagram, insert the first</span>
+            <span class="c1"># character into a place dictated by the index of the sub-anagrams</span>
+            <span class="n">anagram</span> <span class="o">=</span> <span class="n">substring_anagram</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> \
+                <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">substring_anagram</span><span class="p">[</span><span class="n">index</span><span class="p">:]</span>
+            <span class="c1"># append to our collection</span>
+            <span class="n">collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">anagram</span><span class="p">)</span>
+    <span class="c1"># return the result</span>
+    <span class="k">return</span> <span class="n">collection</span>
+
+
+<span class="k">def</span> <span class="nf">test_anagrams_of</span><span class="p">():</span>
+    <span class="s2">"tests anagrams_of"</span>
+    <span class="n">input_string</span> <span class="o">=</span> <span class="s2">"abc"</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"abc"</span><span class="p">,</span>
+        <span class="s2">"bac"</span><span class="p">,</span>
+        <span class="s2">"cab"</span><span class="p">,</span>
+        <span class="s2">"cba"</span><span class="p">,</span>
+        <span class="s2">"acb"</span><span class="p">,</span>
+        <span class="s2">"bca"</span>
+    <span class="p">]</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">anagrams_of</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">anagrams</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2"> not found in anagrams of </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">item</span><span class="p">,</span> <span class="n">input_string</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Anagram Generation is not an efficient algorithm At its worst, it takes <span class="math notranslate nohighlight">\(O(N!)\)</span> time.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Exercises<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Total Number of Characters across all Strings in an Array</span><a class="headerlink" href="#id20" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Use recursion to write a function that accepts an array of strings and</span>
+<span class="sd">returns the total number of characters across all the strings.</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">charlen</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""Takes an array of strings and returns the total number of characters"""</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">charlen</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Given an array of numbers, write a recursive function to return only even numbers.</span><a class="headerlink" href="#id21" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Use recursion to write a function that accepts an array of numbers and returns a new</span>
+<span class="sd">array containing just the even numbers"""</span>
+
+
+<span class="k">def</span> <span class="nf">get_even_numbers</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
+    <span class="sd">"""Return a list of even numbers in the given input array"""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">get_even_numbers</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">test_get_even_numbers</span><span class="p">():</span>
+    <span class="sd">"""Test get_even_numbers"""</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">random_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))]</span>
+    <span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">random_list</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">random_list</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">get_even_numbers</span><span class="p">(</span><span class="n">random_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">evens</span><span class="p">,</span> <span class="s2">"Unable to get even numbers"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">Given a number N, return the current number from the Triangular Numbers series.</span><a class="headerlink" href="#id22" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""There is a numerical sequence known as Triangular Numbers. The pattern</span>
+<span class="sd">begins as `1, 3, 5, 10, 15, 21`, and continues onward with the Nth number in</span>
+<span class="sd">the pattern, which is N plus the previous number. For example, the 7th number</span>
+<span class="sd">in the sequence is 28, since it's 7 (which is N) plus 21 (the previous number</span>
+<span class="sd">in the sequence). Write a function that accepts the number for N and</span>
+<span class="sd">returns the correct number from the series. That is, if the function was passed</span>
+<span class="sd">the number 7, the function would return 28."""</span>
+
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="k">def</span> <span class="nf">triangular_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Return the nth triangular number"""</span>
+    <span class="n">defined_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+    <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">defined_values</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">triangular_number</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"test_input, expected"</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">36</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_triangular_number</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="sd">"""Test triangular numbers"""</span>
+    <span class="k">assert</span> <span class="n">triangular_number</span><span class="p">(</span><span class="n">test_input</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Triangular number value for </span><span class="si">{</span><span class="n">test_input</span><span class="si">}</span><span class="s2"> should have been </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Given a string, return the index of the first occurrence of  <code class="docutils literal notranslate"><span class="pre">x</span></code> within the string.</span><a class="headerlink" href="#id23" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Use recursion to write a function that accepts a string and returns the</span>
+<span class="sd">first index that contains the character `x`."""</span>
+
+
+<span class="k">def</span> <span class="nf">find_x</span><span class="p">(</span><span class="n">input_string</span><span class="p">,</span> <span class="n">current_index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">input_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"x"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">current_index</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">current_index</span> <span class="o">=</span> <span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">find_x</span><span class="p">(</span><span class="n">input_string</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">current_index</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_find_x</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="kn">import</span> <span class="nn">string</span>
+    <span class="n">random_letters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="p">]</span>
+    <span class="n">random_letters</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">]</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">random_letters</span><span class="p">)</span>
+    <span class="n">random_string</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random_letters</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">find_x</span><span class="p">(</span><span class="n">random_string</span><span class="p">)</span> <span class="o">==</span> <span class="n">random_string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+        <span class="s1">'x'</span><span class="p">),</span> <span class="s2">"Unable to get the correct index"</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+<div class="section" id="unique-paths-problem">
+<span id="id8"></span><h4>Unique Paths Problem<a class="headerlink" href="#unique-paths-problem" title="Permalink to this headline">¶</a></h4>
+<div class="literal-block-wrapper docutils container" id="id24">
+<span id="common-sense-wip"></span><div class="code-block-caption"><span class="caption-text">Given a number of rows and columns, calculate the number of possible “shortest” paths from the upper-leftmost square to the lower-rightmost square.</span><a class="headerlink" href="#id24" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="table-wrapper"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">"""Let's say you have a grid of rows and columns. Write a function that accepts</span>
+<span class="sd">a number of rows and a number of columns, and calculates the number of possible</span>
+<span class="sd">"shortest" paths from the upper-leftmost square to the lower-rightmost square.</span>
+
+<span class="sd">Given a square position (i,j), your next step is one of: (i+1, j), (i-1, j), (i, j+1) or (i, j-1).</span>
+<span class="sd">"""</span>
+
+
+<span class="k">def</span> <span class="nf">number_of_shortest_paths</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="sd">"""Unique Paths Problem"""</span>
+    <span class="k">if</span> <span class="n">rows</span> <span class="o">==</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">3</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">rows</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">columns</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">6</span>
+</pre></div>
+</td></tr></table></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chapter-12-dynamic-programming">
+<h2>Chapter 12 - Dynamic Programming<a class="headerlink" href="#chapter-12-dynamic-programming" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter oddly deals mostly with memoization-based dynamic
+programming. I need to look into more
+<a class="reference external" href="https://www.geeksforgeeks.org/dynamic-programming/">diverse methods of dynamic programming.</a></p>
+</div>
+</div>
+<div class="section" id="chapter-13-recursive-algorithms-for-speed">
+<h2>Chapter 13 - Recursive Algorithms for Speed<a class="headerlink" href="#chapter-13-recursive-algorithms-for-speed" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-14-node-based-data-structures">
+<h2>Chapter 14 - Node-Based Data Structures<a class="headerlink" href="#chapter-14-node-based-data-structures" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-15-speeding-up-all-the-things-with-binary-search-trees">
+<span id="common-sense-guide-bst"></span><h2>Chapter 15 - Speeding Up All the Things with Binary Search Trees<a class="headerlink" href="#chapter-15-speeding-up-all-the-things-with-binary-search-trees" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-16-keeping-your-priorities-straight-with-heaps">
+<h2>Chapter 16 - Keeping Your Priorities Straight with Heaps<a class="headerlink" href="#chapter-16-keeping-your-priorities-straight-with-heaps" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-17-it-doesn-t-hurt-to-trie">
+<h2>Chapter 17 - It Doesn’t Hurt to Trie<a class="headerlink" href="#chapter-17-it-doesn-t-hurt-to-trie" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-18-connecting-everything-with-graphs">
+<h2>Chapter 18 - Connecting Everything with Graphs<a class="headerlink" href="#chapter-18-connecting-everything-with-graphs" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-19-dealing-with-space-constraints">
+<h2>Chapter 19 - Dealing with Space Constraints<a class="headerlink" href="#chapter-19-dealing-with-space-constraints" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="chapter-20-techniques-for-code-optimization">
+<h2>Chapter 20 - Techniques for Code Optimization<a class="headerlink" href="#chapter-20-techniques-for-code-optimization" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../interview-prep/leetcode/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Leetcode</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../../index.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Vinay Keerthi
+            |
+            Last updated on May 28, 2021.
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../_sources/books/common-sense-guide-to-ds-algo/index.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">A Common Sense Guide to Data-Structures and Algorithms - Jay Wengrow</a><ul>
+<li><a class="reference internal" href="#chapter-1-why-data-structures-matter">Chapter 1 - Why Data Structures Matter</a><ul>
+<li><a class="reference internal" href="#the-array">The Array</a></li>
+<li><a class="reference internal" href="#the-set">The Set</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-2-why-algorithms-matter">Chapter 2 - Why Algorithms Matter</a><ul>
+<li><a class="reference internal" href="#ordered-arrays">Ordered Arrays</a><ul>
+<li><a class="reference internal" href="#searching-ordered-arrays">Searching Ordered Arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-3-o-yes-big-o-notation">Chapter 3 - O Yes! Big O Notation</a></li>
+<li><a class="reference internal" href="#chapter-4-speeding-up-your-code-with-big-o">Chapter 4 - Speeding Up Your Code with Big O</a></li>
+<li><a class="reference internal" href="#chapter-5-optimizing-code-with-and-without-big-o">Chapter 5 - Optimizing Code With and Without Big O</a><ul>
+<li><a class="reference internal" href="#big-o-categories">Big O Categories</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-6-optimizing-for-optimistic-scenarios">Chapter 6 - Optimizing for Optimistic Scenarios</a></li>
+<li><a class="reference internal" href="#chapter-7-big-o-in-everyday-code">Chapter 7 - Big O in Everyday Code</a></li>
+<li><a class="reference internal" href="#chapter-8-blazing-fast-lookup-with-hash-tables">Chapter 8 - Blazing Fast Lookup with Hash Tables</a><ul>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-9-crafting-elegant-code-with-stacks-and-queues">Chapter 9 - Crafting Elegant Code with Stacks and Queues</a><ul>
+<li><a class="reference internal" href="#stacks">Stacks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-10-recursively-recurse-with-recursion">Chapter 10 - Recursively Recurse with Recursion</a><ul>
+<li><a class="reference internal" href="#id3">Exercises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-11-learning-to-write-in-recursive">Chapter 11 - Learning to Write in Recursive</a><ul>
+<li><a class="reference internal" href="#recursion-categories">Recursion Categories</a><ul>
+<li><a class="reference internal" href="#repeatedly-execute">Repeatedly Execute</a><ul>
+<li><a class="reference internal" href="#passing-extra-parameters">Passing Extra Parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calculation-of-subproblem">Calculation of Subproblem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#top-down-recursion">Top-Down Recursion</a></li>
+<li><a class="reference internal" href="#the-staircase-problem">The Staircase Problem</a></li>
+<li><a class="reference internal" href="#anagram-generation">Anagram Generation</a></li>
+<li><a class="reference internal" href="#id7">Exercises</a><ul>
+<li><a class="reference internal" href="#unique-paths-problem">Unique Paths Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-12-dynamic-programming">Chapter 12 - Dynamic Programming</a></li>
+<li><a class="reference internal" href="#chapter-13-recursive-algorithms-for-speed">Chapter 13 - Recursive Algorithms for Speed</a></li>
+<li><a class="reference internal" href="#chapter-14-node-based-data-structures">Chapter 14 - Node-Based Data Structures</a></li>
+<li><a class="reference internal" href="#chapter-15-speeding-up-all-the-things-with-binary-search-trees">Chapter 15 - Speeding Up All the Things with Binary Search Trees</a></li>
+<li><a class="reference internal" href="#chapter-16-keeping-your-priorities-straight-with-heaps">Chapter 16 - Keeping Your Priorities Straight with Heaps</a></li>
+<li><a class="reference internal" href="#chapter-17-it-doesn-t-hurt-to-trie">Chapter 17 - It Doesn’t Hurt to Trie</a></li>
+<li><a class="reference internal" href="#chapter-18-connecting-everything-with-graphs">Chapter 18 - Connecting Everything with Graphs</a></li>
+<li><a class="reference internal" href="#chapter-19-dealing-with-space-constraints">Chapter 19 - Dealing with Space Constraints</a></li>
+<li><a class="reference internal" href="#chapter-20-techniques-for-code-optimization">Chapter 20 - Techniques for Code Optimization</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>
